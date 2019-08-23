@@ -33,12 +33,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CapaDeDatos">
+      <HintPath>..\CapaDeDatos\bin\Debug\CapaDeDatos.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.BonusSkins.v17.2" />
+    <Reference Include="DevExpress.Charts.v17.2.Core, Version=17.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v17.2" />
+    <Reference Include="DevExpress.Office.v17.2.Core, Version=17.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v17.2.Core, Version=17.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v17.2.Core, Version=17.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.2.Core, Version=17.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v17.2" />
     <Reference Include="DevExpress.Sparkline.v17.2.Core" />
+    <Reference Include="DevExpress.Utils.v17.2.UI, Version=17.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v17.2, Version=17.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v17.2" />
     <Reference Include="DevExpress.Printing.v17.2.Core" />
+    <Reference Include="DevExpress.XtraGauges.v17.2.Core, Version=17.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v17.2, Version=17.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v17.2.Extensions, Version=17.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="itextsharp, Version=5.5.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,17 +72,82 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Clases\Codigos.cs" />
+    <Compile Include="Clases\Conexion.cs" />
+    <Compile Include="Clases\ConexionBase.cs" />
+    <Compile Include="Clases\ConexionSQL.cs" />
+    <Compile Include="Clases\Crypto.cs" />
+    <Compile Include="Clases\GridCheckMarksSelection.cs" />
+    <Compile Include="Clases\GridMarksSelecioncs.cs" />
+    <Compile Include="Clases\MSRegistro.cs" />
+    <Compile Include="Clases\TipoDato.cs" />
+    <Compile Include="Clases\UtileriasCodigo.cs" />
+    <Compile Include="Conexion\Frm_Conexiones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Conexion\Frm_Conexiones.designer.cs">
+      <DependentUpon>Frm_Conexiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conexion\Frm_DataBaseSQL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Conexion\Frm_DataBaseSQL.designer.cs">
+      <DependentUpon>Frm_DataBaseSQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conexion\Frm_InstanciaSQL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Conexion\Frm_InstanciaSQL.designer.cs">
+      <DependentUpon>Frm_InstanciaSQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Empaque.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Empaque.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_Empaque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Frm_Empleados_Listar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Frm_Empleados_Listar.Designer.cs">
+      <DependentUpon>Frm_Empleados_Listar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Frm_Etiquetas_Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Frm_Etiquetas_Empleados.Designer.cs">
+      <DependentUpon>Frm_Etiquetas_Empleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Login.designer.cs">
+      <DependentUpon>Frm_Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Conexion\Frm_Conexiones.resx">
+      <DependentUpon>Frm_Conexiones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Conexion\Frm_DataBaseSQL.resx">
+      <DependentUpon>Frm_DataBaseSQL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conexion\Frm_InstanciaSQL.resx">
+      <DependentUpon>Frm_InstanciaSQL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Empaque.resx">
+      <DependentUpon>rpt_Etiqueta_Empaque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Frm_Empleados_Listar.resx">
+      <DependentUpon>Frm_Empleados_Listar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Frm_Etiquetas_Empleados.resx">
+      <DependentUpon>Frm_Etiquetas_Empleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Login.resx">
+      <DependentUpon>Frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -81,6 +167,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

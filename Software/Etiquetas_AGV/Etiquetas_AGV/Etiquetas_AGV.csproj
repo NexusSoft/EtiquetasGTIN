@@ -133,6 +133,12 @@
     <Compile Include="Etiquetas\rpt_Etiqueta_PTI_Organic.Designer.cs">
       <DependentUpon>rpt_Etiqueta_PTI_Organic.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Registro.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Registro.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_Registro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_UPC_Organic.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_PTI_Organic.resx">
       <DependentUpon>rpt_Etiqueta_PTI_Organic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Registro.resx">
+      <DependentUpon>rpt_Etiqueta_Registro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_Organic.resx">
       <DependentUpon>rpt_Etiqueta_UPC_Organic.cs</DependentUpon>
