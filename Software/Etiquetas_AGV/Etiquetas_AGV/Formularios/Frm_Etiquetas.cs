@@ -19,7 +19,7 @@ namespace Etiquetas_AGV
     public partial class Frm_Etiquetas : DevExpress.XtraEditors.XtraForm
     {
         GridControlCheckMarksSelection gridCheckMarksPalets;
-        string CadenaCodigos = "0";
+        string CadenaCodigos = null;
         StringBuilder sb = new StringBuilder();
         internal string c_codigo_usu;
 
@@ -203,6 +203,7 @@ namespace Etiquetas_AGV
         }
         private void Frm_Etiquetas_Shown(object sender, EventArgs e)
         {
+            lblRegistro.Text = string.Empty;
             MakeTablaPedidosInsidencias();
             GridMultiplePalets();
             CargarCalibres(null);
@@ -310,6 +311,7 @@ namespace Etiquetas_AGV
                 if(txtEstiba.Text!=string.Empty)
                 {
                     txtEstiba.Text = CerosEstiba(txtEstiba.Text);
+                    lblRegistro.Text = RegistroHuerta(cmb_temporada.EditValue.ToString(), txtEstiba.Text);
                     CLS_Estiba sel = new CLS_Estiba();
                     if(chkCalibres.Checked==true)
                     {
@@ -347,11 +349,36 @@ namespace Etiquetas_AGV
         }
         private void btn_EstibaBuscar_Click(object sender, EventArgs e)
         {
+            lblRegistro.Text = string.Empty;
+            MakeTablaPedidosInsidencias();
+            txtEstiba.Text = string.Empty;
             Frm_Estibas_Buscar frm = new Frm_Estibas_Buscar();
             frm.vc_codigo_tem = cmb_temporada.EditValue.ToString();
             frm.ShowDialog();
             txtEstiba.Text = frm.vc_codigo_sel;
+            lblRegistro.Text = RegistroHuerta(cmb_temporada.EditValue.ToString(), txtEstiba.Text);
         }
+
+        private string RegistroHuerta(string c_codigo_tem, string c_codigo_sel)
+        {
+            string vRegistro = string.Empty;
+            if (c_codigo_tem != string.Empty && c_codigo_sel != string.Empty)
+            {
+                CLS_Estiba sel = new CLS_Estiba();
+                sel.c_codigo_sel = c_codigo_sel;
+                sel.c_codigo_tem = c_codigo_tem;
+                sel.MtdSeleccionarRegistroEstiba();
+                if (sel.Exito)
+                {
+                    if (sel.Datos.Rows.Count > 0)
+                    {
+                        vRegistro = sel.Datos.Rows[0]["v_registro_hue"].ToString();
+                    }
+                }
+            }
+            return vRegistro;
+        }
+
         private void Frm_Etiquetas_FormClosed(object sender, FormClosedEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
@@ -372,11 +399,10 @@ namespace Etiquetas_AGV
                     {
                         if (cmb_tipoetiqueta.EditValue != null)
                         {
-                            if (cmb_distribuidor.EditValue != null)
+                            if (ValidaDistribuidor(cmb_tipoetiqueta.EditValue.ToString()))// la etiqueta necesita distribuidor
                             {
                                 string vestiba = txtEstiba.Text;
                                 vTemporada = cmb_temporada.EditValue.ToString();
-                                vDistribuidor = cmb_distribuidor.EditValue.ToString();
                                 if (CadenaCodigos != string.Empty)
                                 {
                                     string[] Palets = CadenaCodigos.Split(',');
@@ -429,6 +455,9 @@ namespace Etiquetas_AGV
                                                         case "6":
                                                             t = Etiqueta_Distribuidor_Juliana(t, vPalet);
                                                             break;
+                                                        case "7":
+                                                            t = Etiqueta_UPC_Distribuidor_Juliana(t, vPalet, vCProducto);
+                                                            break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
                                                     {
@@ -445,16 +474,6 @@ namespace Etiquetas_AGV
                                 {
                                     XtraMessageBox.Show("No se ha seleccionado palet para imprimir etiquetas");
                                 }
-                                //DateTime Fecha = DateTime.Now;
-                                //string Lote = string.Empty;
-                                //string GTIN = string.Empty;
-                                //string Cadena = cls_VoiceCode.fn_CalculaVPC(GTIN, Lote, Fecha));
-                                //string Cadena1 = Cadena.Substring(0, 2);
-                                //string Cadena2 = Cadena.Substring(2, 2);
-                                //int folio = Convert.ToInt32(txtFolio.Text);
-                                //rpt_Pedidos rpt = new rpt_Pedidos(folio);
-                                //ReportPrintTool print = new ReportPrintTool(rpt);
-                                //rpt.ShowPreviewDialog();
                             }
                             else
                             {
@@ -481,6 +500,39 @@ namespace Etiquetas_AGV
                 XtraMessageBox.Show("No se ha seleccionado Temporada");
             }
         }
+
+        private bool ValidaDistribuidor(string TipoEtiqueta)
+        {
+            Boolean Valor = false;
+            CLS_Etiquetas sel = new CLS_Etiquetas();
+            sel.c_codigo_eti = Convert.ToInt32(TipoEtiqueta);
+            sel.MtdSeleccionarEtiquetasDist();
+            if(sel.Exito)
+            {
+                if(sel.Datos.Rows.Count>0)
+                {
+                    if (Convert.ToBoolean(sel.Datos.Rows[0]["b_Solicita_dis"].ToString()))
+                    {
+                        if(cmb_distribuidor.EditValue!=null)
+                        {
+                            vDistribuidor = cmb_distribuidor.EditValue.ToString();
+                            Valor = true;
+                        }
+                        else
+                        {
+                            Valor = false;
+                        }
+                        
+                    }
+                    else
+                    {
+                        Valor = true;
+                    }
+                }
+            }
+            return Valor;
+        }
+
         private int Etiqueta_Distribuidor(int t, string vPalet)
         {
             rpt_Etiqueta_Distribuidor rpt = new rpt_Etiqueta_Distribuidor(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
@@ -564,12 +616,42 @@ namespace Etiquetas_AGV
 
             return t;
         }
-        private int Etiqueta_UPC(int t, string vPalet,string vcproducto)
+        private int Etiqueta_UPC(int t, string vPalet, string vcproducto)
         {
             rpt_Etiqueta_UPC rpt = new rpt_Etiqueta_UPC(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
-
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
             GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_Distribuidor_Juliana(int t, string vPalet,string vcproducto)
+        {
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_UPC_Juliana rpt = new rpt_Etiqueta_UPC_Juliana(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            //GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
             GeneraCodeBarUPC(vcproducto);
             //printTool.Print("myPrinter");
             if (rdgTipoImpresion.SelectedIndex == 1)
@@ -647,7 +729,35 @@ namespace Etiquetas_AGV
 
             return t;
         }
-
+        private int Etiqueta_Registro(int t)
+        {
+            
+                string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+                c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+                rpt_Etiqueta_Registro rpt = new rpt_Etiqueta_Registro(lblRegistro.Text);
+                ReportPrintTool printTool = new ReportPrintTool(rpt);
+                //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+                //printTool.Print("myPrinter");
+                if (rdgTipoImpresion.SelectedIndex == 1)
+                {
+                    rpt.ShowPreviewDialog();
+                }
+                else
+                {
+                    if (t == 1)
+                    {
+                        t++;
+                        printTool.PrintDialog();
+                        vPrinterName = printTool.PrinterSettings.PrinterName;
+                    }
+                    else
+                    {
+                        printTool.Print(vPrinterName);
+                    }
+                }
+            
+            return t;
+        }
         private string CodigoDisExt(string vDistribuidor)
         {
             string Valor = string.Empty;
@@ -766,6 +876,43 @@ namespace Etiquetas_AGV
             }
             
             return sVal;
+        }
+
+        private void btn_ImprimirRegistro_Click(object sender, EventArgs e)
+        {
+            if (txtEstiba.Text != string.Empty && cmb_temporada.EditValue != null)
+            {
+                TextEdit textEdit = new TextEdit();
+                textEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+                textEdit.Properties.Mask.EditMask = "f0";
+                //textEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.
+                XtraInputBoxArgs args = new XtraInputBoxArgs();
+                // set required Input Box options 
+                args.Caption = "Ingrese la cantidad de etiquetas";
+                args.Prompt = "Nombre Archivo";
+                args.DefaultButtonIndex = 0;
+                //args.Showing += Args_Showing;
+                // initialize a DateEdit editor with custom settings 
+                TextEdit editor = new TextEdit();
+                args.Editor = editor;
+                // a default DateEdit value 
+                args.DefaultResponse = "Nombre_Archivo_Excel";
+                // display an Input Box with the custom editor
+                args.Editor = textEdit;
+                var result = XtraInputBox.Show(args).ToString();
+                if (result != null)
+                {
+                    int t = 1;
+                    for (int i = 0; i < Convert.ToInt32(result); i++)
+                    {
+                        t = Etiqueta_Registro(t);
+                    }
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("No se ha seleccionado una estiba");
+            }
         }
     }
 }

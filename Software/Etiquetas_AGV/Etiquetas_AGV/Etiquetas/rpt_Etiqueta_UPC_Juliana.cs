@@ -6,11 +6,10 @@ using DevExpress.XtraReports.UI;
 
 namespace Etiquetas_AGV
 {
-    public partial class rpt_Etiqueta_UPC : DevExpress.XtraReports.UI.XtraReport
+    public partial class rpt_Etiqueta_UPC_Juliana : DevExpress.XtraReports.UI.XtraReport
     {
-        public rpt_Etiqueta_UPC(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal, string c_codigo_dis, string c_codigo_sec, string voice1, string voice2)
+        public rpt_Etiqueta_UPC_Juliana(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal, string c_codigo_dis, string c_codigo_sec, string voice1, string voice2, string c_codigo_jul)
         {
-            c_codigo_jul = string.Empty;
             InitializeComponent();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
@@ -62,6 +61,5 @@ namespace Etiquetas_AGV
             xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128.bmp";
             xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPC.bmp";
         }
-        public string c_codigo_jul { get; set; }
     }
 }

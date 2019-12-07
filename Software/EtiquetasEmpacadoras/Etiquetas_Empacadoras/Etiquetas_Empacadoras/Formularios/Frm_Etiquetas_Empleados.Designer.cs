@@ -45,6 +45,8 @@
             this.btnBuscar = new DevExpress.XtraBars.BarLargeButtonItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.txtNoEmpleado = new DevExpress.XtraEditors.TextEdit();
             this.ptb1 = new DevExpress.XtraEditors.PictureEdit();
             this.rdgTipoImpresion = new DevExpress.XtraEditors.RadioGroup();
             this.txtCantidad = new DevExpress.XtraEditors.TextEdit();
@@ -59,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNoEmpleado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgTipoImpresion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidad.Properties)).BeginInit();
@@ -217,6 +220,8 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.labelControl1);
+            this.panelControl1.Controls.Add(this.txtNoEmpleado);
             this.panelControl1.Controls.Add(this.ptb1);
             this.panelControl1.Controls.Add(this.rdgTipoImpresion);
             this.panelControl1.Controls.Add(this.txtCantidad);
@@ -227,9 +232,26 @@
             this.panelControl1.Size = new System.Drawing.Size(732, 50);
             this.panelControl1.TabIndex = 4;
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(19, 20);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(66, 13);
+            this.labelControl1.TabIndex = 17;
+            this.labelControl1.Text = "No Empleado:";
+            // 
+            // txtNoEmpleado
+            // 
+            this.txtNoEmpleado.Location = new System.Drawing.Point(96, 16);
+            this.txtNoEmpleado.MenuManager = this.barManager1;
+            this.txtNoEmpleado.Name = "txtNoEmpleado";
+            this.txtNoEmpleado.Size = new System.Drawing.Size(59, 20);
+            this.txtNoEmpleado.TabIndex = 16;
+            this.txtNoEmpleado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNoEmpleado_KeyDown);
+            // 
             // ptb1
             // 
-            this.ptb1.Location = new System.Drawing.Point(288, -1);
+            this.ptb1.Location = new System.Drawing.Point(457, 0);
             this.ptb1.Name = "ptb1";
             this.ptb1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.ptb1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
@@ -239,7 +261,7 @@
             // 
             // rdgTipoImpresion
             // 
-            this.rdgTipoImpresion.Location = new System.Drawing.Point(134, 4);
+            this.rdgTipoImpresion.Location = new System.Drawing.Point(292, 3);
             this.rdgTipoImpresion.Name = "rdgTipoImpresion";
             this.rdgTipoImpresion.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.rdgTipoImpresion.Properties.Appearance.Options.UseBackColor = true;
@@ -252,7 +274,7 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(69, 15);
+            this.txtCantidad.Location = new System.Drawing.Point(227, 16);
             this.txtCantidad.MenuManager = this.barManager1;
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Properties.Mask.EditMask = "f0";
@@ -263,7 +285,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(12, 12);
+            this.labelControl2.Location = new System.Drawing.Point(170, 13);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(49, 26);
             this.labelControl2.TabIndex = 3;
@@ -343,6 +365,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Etiquetas_Empleados";
@@ -354,6 +377,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNoEmpleado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgTipoImpresion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidad.Properties)).EndInit();
@@ -393,6 +417,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
         private DevExpress.XtraEditors.RadioGroup rdgTipoImpresion;
         private DevExpress.XtraEditors.PictureEdit ptb1;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.TextEdit txtNoEmpleado;
     }
 }
 

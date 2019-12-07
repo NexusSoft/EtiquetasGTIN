@@ -117,6 +117,7 @@
             this.btnSincronizar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSincronizar.ImageOptions.Image")));
             this.btnSincronizar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSincronizar.ImageOptions.LargeImage")));
             this.btnSincronizar.Name = "btnSincronizar";
+            this.btnSincronizar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSincronizar_ItemClick);
             // 
             // btnAgregar
             // 
@@ -259,6 +260,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Empleados_Listar";

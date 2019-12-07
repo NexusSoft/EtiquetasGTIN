@@ -12,6 +12,7 @@ namespace CapaDeDatos
         public string c_codigo_tem { get;  set; }
         public string c_codsec_pal { get;  set; }
         public string c_codigo_jul { get;  set; }
+        public int? c_codigo_eti { get;  set; }
 
         public void MtdSeleccionarEtiquetas()
         {
@@ -20,6 +21,33 @@ namespace CapaDeDatos
             try
             {
                 _conexion.NombreProcedimiento = "SP_Eti_Etiquetas_Select";
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
+        public void MtdSeleccionarEtiquetasDist()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "SP_Eti_Etiqueta_distribuidor_Select";
+                _dato.Entero = c_codigo_eti;
+                _conexion.agregarParametro(EnumTipoDato.Entero, _dato, "c_codigo_eti");
                 _conexion.EjecutarDataset();
 
                 if (_conexion.Exito)

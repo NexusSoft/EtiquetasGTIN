@@ -74,7 +74,9 @@
       <HintPath>bin\Debug\lib_VoicePC.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -139,6 +141,12 @@
     <Compile Include="Etiquetas\rpt_Etiqueta_Registro.Designer.cs">
       <DependentUpon>rpt_Etiqueta_Registro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_Juliana.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_Juliana.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_Juliana.cs</DependentUpon>
+    </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_UPC_Organic.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -194,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Registro.resx">
       <DependentUpon>rpt_Etiqueta_Registro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_Juliana.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_Juliana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_Organic.resx">
       <DependentUpon>rpt_Etiqueta_UPC_Organic.cs</DependentUpon>

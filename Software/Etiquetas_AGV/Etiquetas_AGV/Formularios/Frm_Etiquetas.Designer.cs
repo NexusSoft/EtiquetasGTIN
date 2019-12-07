@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Etiquetas));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lblRegistro = new DevExpress.XtraEditors.LabelControl();
             this.ptb1 = new DevExpress.XtraEditors.PictureEdit();
             this.btn_EstibaBuscar = new DevExpress.XtraEditors.SimpleButton();
             this.chkCalibres = new DevExpress.XtraEditors.CheckEdit();
@@ -63,6 +64,7 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btn_ImprimirRegistro = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb1.Properties)).BeginInit();
@@ -83,6 +85,8 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btn_ImprimirRegistro);
+            this.panelControl1.Controls.Add(this.lblRegistro);
             this.panelControl1.Controls.Add(this.ptb1);
             this.panelControl1.Controls.Add(this.btn_EstibaBuscar);
             this.panelControl1.Controls.Add(this.chkCalibres);
@@ -100,6 +104,16 @@
             this.panelControl1.Size = new System.Drawing.Size(1071, 85);
             this.panelControl1.TabIndex = 0;
             // 
+            // lblRegistro
+            // 
+            this.lblRegistro.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistro.Appearance.Options.UseFont = true;
+            this.lblRegistro.Location = new System.Drawing.Point(168, 60);
+            this.lblRegistro.Name = "lblRegistro";
+            this.lblRegistro.Size = new System.Drawing.Size(102, 18);
+            this.lblRegistro.TabIndex = 11;
+            this.lblRegistro.Text = "labelControl6";
+            // 
             // ptb1
             // 
             this.ptb1.Location = new System.Drawing.Point(883, 13);
@@ -108,6 +122,7 @@
             this.ptb1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.ptb1.Size = new System.Drawing.Size(157, 52);
             this.ptb1.TabIndex = 10;
+            this.ptb1.Visible = false;
             // 
             // btn_EstibaBuscar
             // 
@@ -435,6 +450,16 @@
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 11;
             // 
+            // btn_ImprimirRegistro
+            // 
+            this.btn_ImprimirRegistro.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btn_ImprimirRegistro.Location = new System.Drawing.Point(870, 23);
+            this.btn_ImprimirRegistro.Name = "btn_ImprimirRegistro";
+            this.btn_ImprimirRegistro.Size = new System.Drawing.Size(107, 42);
+            this.btn_ImprimirRegistro.TabIndex = 12;
+            this.btn_ImprimirRegistro.Text = "Imprmir \r\nRegistro";
+            this.btn_ImprimirRegistro.Click += new System.EventHandler(this.btn_ImprimirRegistro_Click);
+            // 
             // Frm_Etiquetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -508,6 +533,8 @@
         private DevExpress.XtraEditors.LookUpEdit cmb_distribuidor;
         private DevExpress.XtraEditors.PictureEdit ptb1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraEditors.LabelControl lblRegistro;
+        private DevExpress.XtraEditors.SimpleButton btn_ImprimirRegistro;
     }
 }
 

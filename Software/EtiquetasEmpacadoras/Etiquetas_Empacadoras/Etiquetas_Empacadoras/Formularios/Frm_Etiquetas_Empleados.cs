@@ -90,7 +90,7 @@ namespace Etiquetas_Empacadoras
             {
                 Frm_Empleados_Listar sel = new Frm_Empleados_Listar();
                 sel.ShowDialog();
-                if (sel.CadenaCodigos != string.Empty)
+                if (sel.CadenaCodigos != null)
                 {
                     string[] Empleados = sel.CadenaCodigos.Split(',');
                     foreach (string vEmpleado in Empleados)
@@ -177,7 +177,7 @@ namespace Etiquetas_Empacadoras
         private void Frm_Etiquetas_Empleados_Shown(object sender, EventArgs e)
         {
             MakeTablaPedidosInsidencias();
-            txtCantidad.Text = "0";
+            txtCantidad.Text = "2";
             PrimeraEdicion = false;
         }
 
@@ -208,6 +208,52 @@ namespace Etiquetas_Empacadoras
                     PrimeraEdicion = false;
                 }
             }
+        }
+
+        private void txtNoEmpleado_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyValue==13)
+            {
+                if (txtNoEmpleado.Text != string.Empty && Convert.ToInt32(txtCantidad.Text)>0)
+                {
+                    txtNoEmpleado.Text = CerosEmpleado(txtNoEmpleado.Text);
+                    CLS_Empleado selemp = new CLS_Empleado();
+                    selemp.c_codigo_emp = CerosEmpleado(txtNoEmpleado.Text);
+                    selemp.v_nombre_emp = "";
+                    selemp.MtdSeleccionarCodigoNombre();
+                    if (selemp.Exito)
+                    {
+                        if (selemp.Datos.Rows.Count > 0)
+                        {
+                            c_codigo_emp = txtNoEmpleado.Text;
+                            v_nombre_emp = selemp.Datos.Rows[0]["v_nombre_emp"].ToString();
+                            n_cantidad = txtCantidad.Text;
+                            CreatNewRowArticulo(CerosEmpleado(c_codigo_emp), v_nombre_emp, n_cantidad);
+                            dtgValEmpleados.ClearSelection();
+                            txtNoEmpleado.Text = string.Empty;
+                            txtNoEmpleado.Focus();
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("No se ha encontrado este empleado");
+                        }
+                    }
+                }
+                else
+                {
+                    XtraMessageBox.Show("El empleado no existe o la cantidad de etiquetas no es mayor a 0");
+                }
+            }
+        }
+        private string CerosEmpleado(string sVal)
+        {
+            string str = "";
+            for (int i = sVal.Length; i < 6; i++)
+            {
+                sVal = "0" + sVal;
+            }
+
+            return sVal;
         }
     }
 }

@@ -91,5 +91,19 @@ namespace Etiquetas_Empacadoras
                 XtraMessageBox.Show("No se ha seleccionado empleados"); 
             }
         }
+
+        private void btnSincronizar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CLS_Empleado ins = new CLS_Empleado();
+            ins.MtdInsertSincronizarEmpleados();
+            if (ins.Exito)
+            {
+                XtraMessageBox.Show("Se ha actualizado los empleados con exito");
+            }
+            else
+            {
+                XtraMessageBox.Show(ins.Mensaje);
+            }
+        }
     }
 }

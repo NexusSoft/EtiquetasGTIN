@@ -30,6 +30,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Sample 22.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -73,6 +76,10 @@
     <Compile Include="Conexion\UtileriasCodigo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SEG_Login.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Folder - Document 2.ico" />
+    <Content Include="Sample 22.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
