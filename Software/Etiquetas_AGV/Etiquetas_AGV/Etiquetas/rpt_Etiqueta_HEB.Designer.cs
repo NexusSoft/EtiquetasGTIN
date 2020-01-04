@@ -67,6 +67,8 @@ namespace Etiquetas_AGV
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.calculatedField2 = new DevExpress.XtraReports.UI.CalculatedField();
+            this.COC = new DevExpress.XtraReports.Parameters.Parameter();
+            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -172,7 +174,7 @@ namespace Etiquetas_AGV
             this.xrLabel1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[v_registro_hue]")});
             this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(207.9183F, 190.545F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(207.9183F, 185.545F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel1.SizeF = new System.Drawing.SizeF(180.6615F, 23.625F);
@@ -372,6 +374,7 @@ namespace Etiquetas_AGV
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel11,
             this.xrPictureBox1,
             this.xrLabel12,
             this.xrLabel10,
@@ -391,7 +394,7 @@ namespace Etiquetas_AGV
             this.xrLabel1,
             this.xrLabel2,
             this.xrLabel3});
-            this.ReportHeader.HeightF = 214.17F;
+            this.ReportHeader.HeightF = 209.17F;
             this.ReportHeader.KeepTogether = true;
             this.ReportHeader.Name = "ReportHeader";
             // 
@@ -419,6 +422,26 @@ namespace Etiquetas_AGV
             this.calculatedField2.Expression = "\'(01)\'+[gtin]+\'(10)\'+[c_codigo_sel]+\'(13)\'+[fecha]";
             this.calculatedField2.Name = "calculatedField2";
             // 
+            // COC
+            // 
+            this.COC.Description = "Cadena de Custodia";
+            this.COC.Name = "COC";
+            this.COC.ValueInfo = "COC: 4052852027427";
+            // 
+            // xrLabel11
+            // 
+            this.xrLabel11.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Parameters].[COC]")});
+            this.xrLabel11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(12.49669F, 184.9617F);
+            this.xrLabel11.Name = "xrLabel11";
+            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(195.4216F, 23F);
+            this.xrLabel11.StylePriority.UseFont = false;
+            this.xrLabel11.StylePriority.UseTextAlignment = false;
+            this.xrLabel11.Text = "xrLabel11";
+            this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
             // rpt_Etiqueta_HEB
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -439,6 +462,8 @@ namespace Etiquetas_AGV
             this.PageWidth = 413;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PaperName = "A6";
+            this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
+            this.COC});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.xrControlStyle1});
             this.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -476,5 +501,7 @@ namespace Etiquetas_AGV
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
         private DevExpress.XtraReports.UI.CalculatedField calculatedField2;
         private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel11;
+        private DevExpress.XtraReports.Parameters.Parameter COC;
     }
 }

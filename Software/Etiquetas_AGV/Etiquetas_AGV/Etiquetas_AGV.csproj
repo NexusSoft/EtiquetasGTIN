@@ -159,6 +159,12 @@
     <Compile Include="Etiquetas\rpt_Etiqueta_UPC.Designer.cs">
       <DependentUpon>rpt_Etiqueta_UPC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_SAMS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_SAMS.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_SAMS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Frm_Etiquetas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC.resx">
       <DependentUpon>rpt_Etiqueta_UPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_SAMS.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_SAMS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Frm_Etiquetas.resx">
       <DependentUpon>Frm_Etiquetas.cs</DependentUpon>

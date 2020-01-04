@@ -139,6 +139,7 @@ namespace Etiquetas_Empacadoras
                             if (rdgTipoImpresion.SelectedIndex == 1)
                             {
                                 rpt.ShowPreviewDialog();
+                                break;
                             }
                             else
                             {

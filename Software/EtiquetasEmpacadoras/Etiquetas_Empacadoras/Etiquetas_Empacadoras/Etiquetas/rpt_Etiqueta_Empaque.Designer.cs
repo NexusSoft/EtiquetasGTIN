@@ -77,7 +77,7 @@
             this.xrLabel1,
             this.xrPictureBox2,
             this.xrPictureBox1});
-            this.ReportHeader.HeightF = 52.58331F;
+            this.ReportHeader.HeightF = 54.66665F;
             this.ReportHeader.KeepTogether = true;
             this.ReportHeader.Name = "ReportHeader";
             // 
@@ -139,7 +139,7 @@
             this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
             this.calculatedField1});
             this.Margins = new System.Drawing.Printing.Margins(5, 5, 2, 0);
-            this.PageHeight = 60;
+            this.PageHeight = 75;
             this.PageWidth = 330;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PaperName = "Custom";

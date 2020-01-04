@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Etiquetas));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btn_ImprimirRegistro = new DevExpress.XtraEditors.SimpleButton();
             this.lblRegistro = new DevExpress.XtraEditors.LabelControl();
             this.ptb1 = new DevExpress.XtraEditors.PictureEdit();
             this.btn_EstibaBuscar = new DevExpress.XtraEditors.SimpleButton();
@@ -64,7 +65,6 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btn_ImprimirRegistro = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb1.Properties)).BeginInit();
@@ -103,6 +103,16 @@
             this.panelControl1.Padding = new System.Windows.Forms.Padding(5);
             this.panelControl1.Size = new System.Drawing.Size(1071, 85);
             this.panelControl1.TabIndex = 0;
+            // 
+            // btn_ImprimirRegistro
+            // 
+            this.btn_ImprimirRegistro.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_ImprimirRegistro.ImageOptions.Image")));
+            this.btn_ImprimirRegistro.Location = new System.Drawing.Point(883, 23);
+            this.btn_ImprimirRegistro.Name = "btn_ImprimirRegistro";
+            this.btn_ImprimirRegistro.Size = new System.Drawing.Size(107, 42);
+            this.btn_ImprimirRegistro.TabIndex = 12;
+            this.btn_ImprimirRegistro.Text = "Imprmir \r\nRegistro";
+            this.btn_ImprimirRegistro.Click += new System.EventHandler(this.btn_ImprimirRegistro_Click);
             // 
             // lblRegistro
             // 
@@ -252,7 +262,7 @@
             // btn_Salir
             // 
             this.btn_Salir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Salir.ImageOptions.Image")));
-            this.btn_Salir.Location = new System.Drawing.Point(749, 23);
+            this.btn_Salir.Location = new System.Drawing.Point(746, 23);
             this.btn_Salir.Name = "btn_Salir";
             this.btn_Salir.Size = new System.Drawing.Size(107, 42);
             this.btn_Salir.TabIndex = 10;
@@ -449,16 +459,6 @@
             this.gridColumn12.OptionsColumn.AllowEdit = false;
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 11;
-            // 
-            // btn_ImprimirRegistro
-            // 
-            this.btn_ImprimirRegistro.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btn_ImprimirRegistro.Location = new System.Drawing.Point(870, 23);
-            this.btn_ImprimirRegistro.Name = "btn_ImprimirRegistro";
-            this.btn_ImprimirRegistro.Size = new System.Drawing.Size(107, 42);
-            this.btn_ImprimirRegistro.TabIndex = 12;
-            this.btn_ImprimirRegistro.Text = "Imprmir \r\nRegistro";
-            this.btn_ImprimirRegistro.Click += new System.EventHandler(this.btn_ImprimirRegistro_Click);
             // 
             // Frm_Etiquetas
             // 
