@@ -13,6 +13,8 @@ using DevExpress.XtraEditors;
 using esp_VPCode;
 using DevExpress.XtraReports.UI;
 using System.IO;
+using DevExpress.DataAccess.Sql;
+using DevExpress.DataAccess.ConnectionParameters;
 
 namespace Etiquetas_AGV
 {
@@ -656,6 +658,8 @@ namespace Etiquetas_AGV
         {
             rpt_Etiqueta_UPC_SAMS rpt = new rpt_Etiqueta_UPC_SAMS(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
             //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
@@ -811,8 +815,8 @@ namespace Etiquetas_AGV
             c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
             rpt_Etiqueta_Registro rpt = new rpt_Etiqueta_Registro(lblRegistro.Text);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
-            rpt.Parameters["COC"].Value = vCOC;
-            rpt.Parameters["COC"].Visible = false;
+            //rpt.Parameters["COC"].Value = vCOC;
+            //rpt.Parameters["COC"].Visible = false;
             //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
             //printTool.Print("myPrinter");
             if (rdgTipoImpresion.SelectedIndex == 1)
@@ -834,6 +838,25 @@ namespace Etiquetas_AGV
             }
 
             return t;
+        }
+        private void Form1_ConfigureDataConnection(object sender, ConfigureDataConnectionEventArgs e)
+        {
+            MSRegistro RegOut = new MSRegistro();
+            Crypto DesencriptarTexto = new Crypto();
+
+            string valServer = RegOut.GetSetting("ConexionSQL", "Server");
+            string valDB = RegOut.GetSetting("ConexionSQL", "DBase");
+            string valLogin = RegOut.GetSetting("ConexionSQL", "User");
+            string valPass = RegOut.GetSetting("ConexionSQL", "Password");
+
+            if (valServer != string.Empty && valDB != string.Empty && valLogin != string.Empty && valPass != string.Empty)
+            {
+                valServer = DesencriptarTexto.Desencriptar(valServer);
+                valDB = DesencriptarTexto.Desencriptar(valDB);
+                valLogin = DesencriptarTexto.Desencriptar(valLogin);
+                valPass = DesencriptarTexto.Desencriptar(valPass);
+                e.ConnectionParameters = new MsSqlConnectionParameters(valServer, valDB, valLogin, valPass, MsSqlAuthorizationType.SqlServer);
+            }
         }
         private string CodigoDisExt(string vDistribuidor)
         {
