@@ -492,6 +492,18 @@ namespace Etiquetas_AGV
                                                         case "8":
                                                             t = Etiqueta_UPC_SAMS(t, vPalet, vCProducto);
                                                             break;
+                                                        case "9":
+                                                            t = Etiqueta_UPC_CROGER(t, vPalet, vCProducto,false);
+                                                            break;
+                                                        case "10":
+                                                            t = Etiqueta_UPC_CROGER(t, vPalet, vCProducto,true);
+                                                            break;
+                                                        case "11":
+                                                            t = Etiqueta_UPC_CROGER_Juliana(t, vPalet, vCProducto,false);
+                                                            break;
+                                                        case "12":
+                                                            t = Etiqueta_UPC_CROGER_Juliana(t, vPalet, vCProducto,true);
+                                                            break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
                                                     {
@@ -664,6 +676,71 @@ namespace Etiquetas_AGV
             rpt.Parameters["COC"].Visible = false;
             //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
             GeneraCodeBarSAMS(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_CROGER(int t, string vPalet, string vcproducto,Boolean plu)
+        {
+            rpt_Etiqueta_UPC_CROGER rpt = new rpt_Etiqueta_UPC_CROGER(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2,plu);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBarSAMS(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_CROGER_Juliana(int t, string vPalet, string vcproducto,Boolean plu)
+        {
+
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_UPC_CROGER_Juliana rpt = new rpt_Etiqueta_UPC_CROGER_Juliana(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul,plu);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            //GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
             GeneraCodeBarUPC(vcproducto);
             //printTool.Print("myPrinter");
             if (rdgTipoImpresion.SelectedIndex == 1)

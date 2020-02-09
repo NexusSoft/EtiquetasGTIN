@@ -141,6 +141,12 @@
     <Compile Include="Etiquetas\rpt_Etiqueta_Registro.Designer.cs">
       <DependentUpon>rpt_Etiqueta_Registro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_CROGER_Juliana.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_CROGER_Juliana.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_CROGER_Juliana.cs</DependentUpon>
+    </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_UPC_Juliana.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -158,6 +164,12 @@
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_UPC.Designer.cs">
       <DependentUpon>rpt_Etiqueta_UPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_CROGER.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_CROGER.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_CROGER.cs</DependentUpon>
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_UPC_SAMS.cs">
       <SubType>Component</SubType>
@@ -209,6 +221,9 @@
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Registro.resx">
       <DependentUpon>rpt_Etiqueta_Registro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_CROGER_Juliana.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_CROGER_Juliana.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_Juliana.resx">
       <DependentUpon>rpt_Etiqueta_UPC_Juliana.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC.resx">
       <DependentUpon>rpt_Etiqueta_UPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_CROGER.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_CROGER.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_SAMS.resx">
       <DependentUpon>rpt_Etiqueta_UPC_SAMS.cs</DependentUpon>
