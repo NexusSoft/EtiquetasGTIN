@@ -56,7 +56,7 @@ namespace Etiquetas_AGV
             xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPC.bmp";
             if (!plu)
             {
-                xrLabel10.Visible = false;
+                xrLabel20.Visible = false;
                 xrLabel16.Visible = false;
                 xrLabel19.Visible = false;
             }
