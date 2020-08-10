@@ -380,7 +380,7 @@
             this.xrLabel4.SizeF = new System.Drawing.SizeF(383F, 12F);
             this.xrLabel4.StylePriority.UseFont = false;
             this.xrLabel4.StylePriority.UseTextAlignment = false;
-            this.xrLabel4.Text = "Calle Delicias  No 100. col. Jicalan , Uruapan Michoacan";
+            this.xrLabel4.Text = "Calle Delicias No.100. Col. Jicalan, C.P. 60090, Uruapan Michoacán";
             this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrPictureBox1
@@ -422,7 +422,7 @@
             // calculatedField1
             // 
             this.calculatedField1.DataMember = "SP_Eti_EtiquetaUPC_Select";
-            this.calculatedField1.Expression = "\'(01)\'+[gtin]+\'(10)\'+[c_codigo_sel]+\'(13)\'+[fecha]";
+            this.calculatedField1.Expression = "\'(01)\'+[gtin]+\'(13)\'+[c_codigo_sel]+\'(10)\'+[fecha]";
             this.calculatedField1.Name = "calculatedField1";
             // 
             // calculatedField2

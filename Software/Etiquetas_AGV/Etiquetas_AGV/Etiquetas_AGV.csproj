@@ -171,6 +171,12 @@
     <Compile Include="Etiquetas\rpt_Etiqueta_UPC_CROGER.Designer.cs">
       <DependentUpon>rpt_Etiqueta_UPC_CROGER.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_SAMS_Juliana.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_SAMS_Juliana.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_SAMS_Juliana.cs</DependentUpon>
+    </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_UPC_SAMS.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -235,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_CROGER.resx">
       <DependentUpon>rpt_Etiqueta_UPC_CROGER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_SAMS_Juliana.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_SAMS_Juliana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_SAMS.resx">
       <DependentUpon>rpt_Etiqueta_UPC_SAMS.cs</DependentUpon>

@@ -504,6 +504,9 @@ namespace Etiquetas_AGV
                                                         case "12":
                                                             t = Etiqueta_UPC_CROGER_Juliana(t, vPalet, vCProducto,true);
                                                             break;
+                                                        case "13":
+                                                            t = Etiqueta_UPC_SAMS_Juliana(t, vPalet, vCProducto);
+                                                            break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
                                                     {
@@ -826,6 +829,39 @@ namespace Etiquetas_AGV
 
             return t;
         }
+        private int Etiqueta_UPC_SAMS_Juliana(int t, string vPalet, string vcproducto)
+        {
+
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_UPC_SAMS_Juliana rpt = new rpt_Etiqueta_UPC_SAMS_Juliana(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBarJulianaSAMS(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            //GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
         private int Etiqueta_HEB(int t, string vPalet)
         {
             rpt_Etiqueta_HEB rpt = new rpt_Etiqueta_HEB(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
@@ -943,7 +979,7 @@ namespace Etiquetas_AGV
             codext.MtdSeleccionarJulianaDistribuidor();
             if(codext.Exito)
             {
-                Valor = codext.Datos.Rows[0]["c_codextdis_dis"].ToString();
+                Valor = codext.Datos.Rows[0]["c_codextdis_dis"].ToString().TrimEnd();
             }
             return Valor;
         }
@@ -1014,6 +1050,28 @@ namespace Etiquetas_AGV
                     ptb1.Image = Codigos.CodigosBarra(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim(), 0);
                     //ptb1.Image = Codigos.Codigos128(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim(),false, 0);
                     ptb1.Image.Save("C:\\Etiquetas\\CodeBarUPC.bmp");
+                }
+            }
+        }
+        private void GeneraCodeBarJulianaSAMS(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal, string c_codigo_jul)
+        {
+            CLS_Etiquetas selcod = new CLS_Etiquetas();
+            selcod.c_codigo_tem = c_codigo_tem;
+            selcod.c_codigo_pal = c_codigo_pal;
+            selcod.c_codsec_pal = c_codsec_pal;
+            selcod.c_codigo_jul = c_codigo_jul;
+            selcod.MtdSeleccionarPaletCodigoJuliana();
+            if (selcod.Exito)
+            {
+                if (selcod.Datos.Rows.Count > 0)
+                {
+                    string path = @"c:\Etiquetas";
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    ptb1.Image = Codigos.CodigosEAN128(selcod.Datos.Rows[0]["codigo2"].ToString(), 0);
+                    ptb1.Image.Save("C:\\Etiquetas\\CodeBar128Juliana.bmp");
                 }
             }
         }
