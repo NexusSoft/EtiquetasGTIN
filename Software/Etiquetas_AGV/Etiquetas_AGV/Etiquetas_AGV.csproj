@@ -123,6 +123,12 @@
     <Compile Include="Etiquetas\rpt_Etiqueta_Distribuidor.Designer.cs">
       <DependentUpon>rpt_Etiqueta_Distribuidor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_FamilyTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_FamilyTree.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_FamilyTree.cs</DependentUpon>
+    </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_HEB.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -140,6 +146,18 @@
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_Registro.Designer.cs">
       <DependentUpon>rpt_Etiqueta_Registro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Greenyard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Greenyard.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_Greenyard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_WestFalia.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_WestFalia.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_WestFalia.cs</DependentUpon>
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_UPC_CROGER_Juliana.cs">
       <SubType>Component</SubType>
@@ -195,6 +213,12 @@
     <Compile Include="Formularios\Frm_Estibas_Buscar.designer.cs">
       <DependentUpon>Frm_Estibas_Buscar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Frm_UPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Frm_UPC.Designer.cs">
+      <DependentUpon>Frm_UPC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +242,9 @@
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Distribuidor.resx">
       <DependentUpon>rpt_Etiqueta_Distribuidor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_FamilyTree.resx">
+      <DependentUpon>rpt_Etiqueta_FamilyTree.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_HEB.resx">
       <DependentUpon>rpt_Etiqueta_HEB.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +253,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Registro.resx">
       <DependentUpon>rpt_Etiqueta_Registro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Greenyard.resx">
+      <DependentUpon>rpt_Etiqueta_Greenyard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_WestFalia.resx">
+      <DependentUpon>rpt_Etiqueta_WestFalia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_CROGER_Juliana.resx">
       <DependentUpon>rpt_Etiqueta_UPC_CROGER_Juliana.cs</DependentUpon>
@@ -253,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Frm_Estibas_Buscar.resx">
       <DependentUpon>Frm_Estibas_Buscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Frm_UPC.resx">
+      <DependentUpon>Frm_UPC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>

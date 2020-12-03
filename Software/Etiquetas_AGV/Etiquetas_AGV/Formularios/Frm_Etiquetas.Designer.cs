@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Etiquetas));
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btn_ImprimirRegistro = new DevExpress.XtraEditors.SimpleButton();
             this.lblRegistro = new DevExpress.XtraEditors.LabelControl();
@@ -313,6 +314,9 @@
             // dtgPalets
             // 
             this.dtgPalets.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridLevelNode1.RelationName = "Level1";
+            this.dtgPalets.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
             this.dtgPalets.Location = new System.Drawing.Point(12, 12);
             this.dtgPalets.MainView = this.dtgValPalets;
             this.dtgPalets.Name = "dtgPalets";

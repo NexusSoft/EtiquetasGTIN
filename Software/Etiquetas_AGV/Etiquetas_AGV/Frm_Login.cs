@@ -103,7 +103,5 @@ namespace Etiquetas_AGV
             MSRegistro RegOut = new MSRegistro();
             //SkinForm.LookAndFeel.SetSkinStyle(RegOut.GetSetting("ConexionSQL", "Sking"));
         }
-
-
     }
 }

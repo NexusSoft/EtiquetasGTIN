@@ -507,6 +507,15 @@ namespace Etiquetas_AGV
                                                         case "13":
                                                             t = Etiqueta_UPC_SAMS_Juliana(t, vPalet, vCProducto);
                                                             break;
+                                                        case "14":
+                                                            t = Etiqueta_Westfalia(t, vPalet, vCProducto);
+                                                            break;
+                                                        case "15":
+                                                            t = Etiqueta_Family(t, vPalet, vCProducto);
+                                                            break;
+                                                        case "16":
+                                                            t = Etiqueta_Greenyard(t, vPalet, vCProducto);
+                                                            break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
                                                     {
@@ -550,6 +559,97 @@ namespace Etiquetas_AGV
             }
         }
 
+        private int Etiqueta_Greenyard(int t, string vPalet, string vCProducto)
+        {
+            rpt_Etiqueta_Greenyard rpt = new rpt_Etiqueta_Greenyard(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBarMARMA(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vCProducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_Family(int t, string vPalet, string vCProducto)
+        {
+            rpt_Etiqueta_FamilyTree rpt = new rpt_Etiqueta_FamilyTree(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBarMARMA(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vCProducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_Westfalia(int t, string vPalet, string vCProducto)
+        {
+            rpt_Etiqueta_WestFalia rpt = new rpt_Etiqueta_WestFalia(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBarMARMA(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vCProducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+
         private bool ValidaDistribuidor(string TipoEtiqueta)
         {
             Boolean Valor = false;
@@ -571,7 +671,6 @@ namespace Etiquetas_AGV
                         {
                             Valor = false;
                         }
-                        
                     }
                     else
                     {
@@ -990,7 +1089,27 @@ namespace Etiquetas_AGV
             string fjul=clsval.Fecha_Juliana(now).ToString();
             return fjul;
         }
-
+        private void GeneraCodeBarMARMA(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal)
+        {
+            CLS_Etiquetas selcod = new CLS_Etiquetas();
+            selcod.c_codigo_tem = c_codigo_tem;
+            selcod.c_codigo_pal = c_codigo_pal;
+            selcod.c_codsec_pal = c_codsec_pal;
+            selcod.MtdSeleccionarPaletMarmaCodigo();
+            if (selcod.Exito)
+            {
+                if (selcod.Datos.Rows.Count > 0)
+                {
+                    string path = @"c:\Etiquetas";
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    ptb1.Image = Codigos.CodigosEAN128(selcod.Datos.Rows[0]["codigo"].ToString(), 0);
+                    ptb1.Image.Save("C:\\Etiquetas\\CodeBar128.bmp");
+                }
+            }
+        }
         private void GeneraCodeBar(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal)
         {
             CLS_Etiquetas selcod = new CLS_Etiquetas();
