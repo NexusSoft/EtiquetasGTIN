@@ -6,10 +6,10 @@ using DevExpress.XtraReports.UI;
 
 namespace Etiquetas_AGV
 {
-    public partial class rpt_Etiqueta_Greenyard : DevExpress.XtraReports.UI.XtraReport
+    public partial class rpt_Etiqueta_Argentina_2_3 : DevExpress.XtraReports.UI.XtraReport
     {
         public string c_codigo_jul { get; set; }
-        public rpt_Etiqueta_Greenyard(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal, string c_codigo_dis, string c_codigo_sec, string voice1, string voice2)
+        public rpt_Etiqueta_Argentina_2_3(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal, string c_codigo_dis, string c_codigo_sec, string voice1, string voice2)
         {
             c_codigo_jul = string.Empty;
             InitializeComponent();
@@ -54,15 +54,9 @@ namespace Etiquetas_AGV
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter6);
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter7);
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter8);
-            xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128.bmp";
+            //xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128.bmp";
             //xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPC.bmp";
+        }
 
-        }
-        private void rpt_Etiqueta_UPC_DesignerLoaded(object sender, DevExpress.XtraReports.UserDesigner.DesignerLoadedEventArgs e)
-        {
-            xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128.bmp";
-            //xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPC.bmp";
-        }
-        
     }
 }

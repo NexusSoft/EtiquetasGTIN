@@ -516,6 +516,9 @@ namespace Etiquetas_AGV
                                                         case "16":
                                                             t = Etiqueta_Greenyard(t, vPalet, vCProducto);
                                                             break;
+                                                        case "17":
+                                                            t = Etiqueta_Chile(t, vPalet, vCProducto);
+                                                            break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
                                                     {
@@ -558,7 +561,36 @@ namespace Etiquetas_AGV
                 XtraMessageBox.Show("No se ha seleccionado Temporada");
             }
         }
+        private int Etiqueta_Chile(int t, string vPalet, string vCProducto)
+        {
+            rpt_Etiqueta_Chile rpt = new rpt_Etiqueta_Chile(vTemporada, vPalet);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBarMARMA(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vCProducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
 
+            return t;
+        }
         private int Etiqueta_Greenyard(int t, string vPalet, string vCProducto)
         {
             rpt_Etiqueta_Greenyard rpt = new rpt_Etiqueta_Greenyard(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
