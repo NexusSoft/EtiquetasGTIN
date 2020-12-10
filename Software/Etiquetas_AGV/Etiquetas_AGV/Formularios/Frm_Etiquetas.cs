@@ -571,8 +571,8 @@ namespace Etiquetas_AGV
         {
             rpt_Etiqueta_Argentina_2_3 rpt = new rpt_Etiqueta_Argentina_2_3(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
-            rpt.Parameters["COC"].Value = vCOC;
-            rpt.Parameters["COC"].Visible = false;
+            //rpt.Parameters["COC"].Value = vCOC;
+            //rpt.Parameters["COC"].Visible = false;
             //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
             GeneraCodeBarMARMA(vTemporada, vPalet, v_c_codsec_pal);
             GeneraCodeBarUPC(vCProducto);
@@ -601,8 +601,8 @@ namespace Etiquetas_AGV
         {
             rpt_Etiqueta_Chile_2_3 rpt = new rpt_Etiqueta_Chile_2_3(vTemporada, vPalet);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
-            rpt.Parameters["COC"].Value = vCOC;
-            rpt.Parameters["COC"].Visible = false;
+            //rpt.Parameters["COC"].Value = vCOC;
+            //rpt.Parameters["COC"].Visible = false;
             //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
             GeneraCodeBarMARMA(vTemporada, vPalet, v_c_codsec_pal);
             GeneraCodeBarUPC(vCProducto);
@@ -631,8 +631,8 @@ namespace Etiquetas_AGV
         {
             rpt_Etiqueta_Chile rpt = new rpt_Etiqueta_Chile(vTemporada, vPalet);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
-            rpt.Parameters["COC"].Value = vCOC;
-            rpt.Parameters["COC"].Visible = false;
+            //rpt.Parameters["COC"].Value = vCOC;
+            //rpt.Parameters["COC"].Visible = false;
             //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
             GeneraCodeBarMARMA(vTemporada, vPalet, v_c_codsec_pal);
             GeneraCodeBarUPC(vCProducto);
