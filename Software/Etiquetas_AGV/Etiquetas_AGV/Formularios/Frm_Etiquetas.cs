@@ -372,7 +372,7 @@ namespace Etiquetas_AGV
             {
                 if(sel.Datos.Rows.Count>0)
                 {
-                    vCOC ="COC: "+ sel.Datos.Rows[0]["v_codigoaux_pem"].ToString();
+                    vCOC ="CoC: "+ sel.Datos.Rows[0]["v_codigoaux_pem"].ToString();
                 }
                 else
                 {
@@ -434,7 +434,7 @@ namespace Etiquetas_AGV
                             {
                                 string vestiba = txtEstiba.Text;
                                 vTemporada = cmb_temporada.EditValue.ToString();
-                                if (CadenaCodigos != string.Empty)
+                                if ( CadenaCodigos != string.Empty && CadenaCodigos!=null)
                                 {
                                     string[] Palets = CadenaCodigos.Split(',');
                                     int t = 0;
@@ -525,6 +525,12 @@ namespace Etiquetas_AGV
                                                         case "19":
                                                             t = Etiqueta_Argentina_2_3(t, vPalet, vCProducto);
                                                             break;
+                                                        case "20":
+                                                            t = Etiqueta_UPC_Anderson(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "21":
+                                                            t = Etiqueta_UPC_Anderson_Organic(t, vPalet, vCProducto, true);
+                                                            break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
                                                     {
@@ -569,8 +575,9 @@ namespace Etiquetas_AGV
         }
         private int Etiqueta_Argentina_2_3(int t, string vPalet, string vCProducto)
         {
-            rpt_Etiqueta_Argentina_2_3 rpt = new rpt_Etiqueta_Argentina_2_3(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
+            rpt_Etiqueta_Argentina_2_3TSC rpt = new rpt_Etiqueta_Argentina_2_3TSC(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             //rpt.Parameters["COC"].Value = vCOC;
             //rpt.Parameters["COC"].Visible = false;
             //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
@@ -599,8 +606,9 @@ namespace Etiquetas_AGV
         }
         private int Etiqueta_Chile_2_3(int t, string vPalet, string vCProducto)
         {
-            rpt_Etiqueta_Chile_2_3 rpt = new rpt_Etiqueta_Chile_2_3(vTemporada, vPalet);
+            rpt_Etiqueta_Chile_2_3TSC rpt = new rpt_Etiqueta_Chile_2_3TSC(vTemporada, vPalet);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             //rpt.Parameters["COC"].Value = vCOC;
             //rpt.Parameters["COC"].Visible = false;
             //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
@@ -631,6 +639,7 @@ namespace Etiquetas_AGV
         {
             rpt_Etiqueta_Chile rpt = new rpt_Etiqueta_Chile(vTemporada, vPalet);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             //rpt.Parameters["COC"].Value = vCOC;
             //rpt.Parameters["COC"].Visible = false;
             //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
@@ -661,6 +670,7 @@ namespace Etiquetas_AGV
         {
             rpt_Etiqueta_Greenyard rpt = new rpt_Etiqueta_Greenyard(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
             //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
@@ -691,6 +701,7 @@ namespace Etiquetas_AGV
         {
             rpt_Etiqueta_FamilyTree rpt = new rpt_Etiqueta_FamilyTree(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
             //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
@@ -721,6 +732,7 @@ namespace Etiquetas_AGV
         {
             rpt_Etiqueta_WestFalia rpt = new rpt_Etiqueta_WestFalia(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
             //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
@@ -783,6 +795,7 @@ namespace Etiquetas_AGV
         {
             rpt_Etiqueta_Distribuidor rpt = new rpt_Etiqueta_Distribuidor(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
             GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
@@ -812,6 +825,7 @@ namespace Etiquetas_AGV
         {
             rpt_Etiqueta_PTI_Organic rpt = new rpt_Etiqueta_PTI_Organic(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
             GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
@@ -841,6 +855,7 @@ namespace Etiquetas_AGV
         {
             rpt_Etiqueta_UPC_Organic rpt = new rpt_Etiqueta_UPC_Organic(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
             GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
@@ -869,6 +884,70 @@ namespace Etiquetas_AGV
         private int Etiqueta_UPC_SAMS(int t, string vPalet, string vcproducto)
         {
             rpt_Etiqueta_UPC_SAMS rpt = new rpt_Etiqueta_UPC_SAMS(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBarSAMS(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_Anderson(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_UPC_Anderson rpt = new rpt_Etiqueta_UPC_Anderson(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, plu);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBarSAMS(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_Anderson_Organic(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_UPC_Anderson_Organic rpt = new rpt_Etiqueta_UPC_Anderson_Organic(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, plu);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             ReportPrintTool print = new ReportPrintTool(rpt);
@@ -936,6 +1015,7 @@ namespace Etiquetas_AGV
             string val_juliano = TresCero(FechaJuliana(DateTime.Now));
             c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
             rpt_Etiqueta_UPC_CROGER_Juliana rpt = new rpt_Etiqueta_UPC_CROGER_Juliana(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul,plu);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
@@ -967,6 +1047,7 @@ namespace Etiquetas_AGV
         {
             rpt_Etiqueta_UPC rpt = new rpt_Etiqueta_UPC(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
             //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
@@ -1000,6 +1081,7 @@ namespace Etiquetas_AGV
             c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
             rpt_Etiqueta_UPC_Juliana rpt = new rpt_Etiqueta_UPC_Juliana(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
             GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
@@ -1033,6 +1115,7 @@ namespace Etiquetas_AGV
             c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
             rpt_Etiqueta_UPC_SAMS_Juliana rpt = new rpt_Etiqueta_UPC_SAMS_Juliana(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
             GeneraCodeBarJulianaSAMS(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
@@ -1063,6 +1146,7 @@ namespace Etiquetas_AGV
         {
             rpt_Etiqueta_HEB rpt = new rpt_Etiqueta_HEB(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
             GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);

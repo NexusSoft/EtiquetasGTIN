@@ -111,11 +111,23 @@
     <Compile Include="Conexxion\Frm_InstanciaSQL.designer.cs">
       <DependentUpon>Frm_InstanciaSQL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Argentina_2_3TSC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Argentina_2_3TSC.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_Argentina_2_3TSC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_Argentina_2_3.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_Argentina_2_3.Designer.cs">
       <DependentUpon>rpt_Etiqueta_Argentina_2_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Chile_2_3TSC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Chile_2_3TSC.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_Chile_2_3TSC.cs</DependentUpon>
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_Chile_2_3.cs">
       <SubType>Component</SubType>
@@ -170,6 +182,18 @@
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_Greenyard.Designer.cs">
       <DependentUpon>rpt_Etiqueta_Greenyard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_Anderson.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_Anderson.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_Anderson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_Anderson_Organic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_Anderson_Organic.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_Anderson_Organic.cs</DependentUpon>
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_WestFalia.cs">
       <SubType>Component</SubType>
@@ -254,8 +278,14 @@
     <EmbeddedResource Include="Conexxion\Frm_InstanciaSQL.resx">
       <DependentUpon>Frm_InstanciaSQL.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Argentina_2_3TSC.resx">
+      <DependentUpon>rpt_Etiqueta_Argentina_2_3TSC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Argentina_2_3.resx">
       <DependentUpon>rpt_Etiqueta_Argentina_2_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Chile_2_3TSC.resx">
+      <DependentUpon>rpt_Etiqueta_Chile_2_3TSC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Chile_2_3.resx">
       <DependentUpon>rpt_Etiqueta_Chile_2_3.cs</DependentUpon>
@@ -283,6 +313,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Greenyard.resx">
       <DependentUpon>rpt_Etiqueta_Greenyard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_Anderson.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_Anderson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_Anderson_Organic.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_Anderson_Organic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_WestFalia.resx">
       <DependentUpon>rpt_Etiqueta_WestFalia.cs</DependentUpon>

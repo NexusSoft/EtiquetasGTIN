@@ -2,7 +2,7 @@
 
 namespace Etiquetas_AGV
 {
-    partial class rpt_Etiqueta_Argentina_2_3
+    partial class rpt_Etiqueta_Argentina_2_3TSC
     {
         /// <summary>
         /// Required designer variable.
@@ -40,7 +40,7 @@ namespace Etiquetas_AGV
             DevExpress.DataAccess.Sql.QueryParameter queryParameter6 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter7 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter8 = new DevExpress.DataAccess.Sql.QueryParameter();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rpt_Etiqueta_Argentina_2_3));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rpt_Etiqueta_Argentina_2_3TSC));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
@@ -83,7 +83,7 @@ namespace Etiquetas_AGV
             // 
             // TopMargin
             // 
-            this.TopMargin.HeightF = 1F;
+            this.TopMargin.HeightF = 0F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -169,7 +169,7 @@ namespace Etiquetas_AGV
             this.xrLabel5,
             this.xrLabel4,
             this.xrLabel1});
-            this.ReportHeader.HeightF = 207.8159F;
+            this.ReportHeader.HeightF = 172.27F;
             this.ReportHeader.KeepTogether = true;
             this.ReportHeader.Name = "ReportHeader";
             this.ReportHeader.SnapLinePadding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
@@ -178,7 +178,7 @@ namespace Etiquetas_AGV
             // 
             this.xrLabel21.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[c_codigo_afidi]")});
-            this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(254.4974F, 153.5242F);
+            this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(263.4974F, 139.5242F);
             this.xrLabel21.Name = "xrLabel21";
             this.xrLabel21.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel21.SizeF = new System.Drawing.SizeF(47.37497F, 15.00003F);
@@ -189,10 +189,10 @@ namespace Etiquetas_AGV
             // xrLabel20
             // 
             this.xrLabel20.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
-            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(213.75F, 153.5242F);
+            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(223.75F, 139.5242F);
             this.xrLabel20.Name = "xrLabel20";
             this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel20.SizeF = new System.Drawing.SizeF(40F, 15F);
+            this.xrLabel20.SizeF = new System.Drawing.SizeF(39.74736F, 15F);
             this.xrLabel20.StylePriority.UseFont = false;
             this.xrLabel20.StylePriority.UseTextAlignment = false;
             this.xrLabel20.Text = "AFIDI:";
@@ -203,10 +203,10 @@ namespace Etiquetas_AGV
             this.xrLabel19.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[v_direcc_dis]")});
             this.xrLabel19.Font = new System.Drawing.Font("Times New Roman", 7F);
-            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(0.9999911F, 170.2742F);
+            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(12F, 157.27F);
             this.xrLabel19.Name = "xrLabel19";
             this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel19.SizeF = new System.Drawing.SizeF(299.94F, 15F);
+            this.xrLabel19.SizeF = new System.Drawing.SizeF(295.8124F, 15F);
             this.xrLabel19.StylePriority.UseFont = false;
             this.xrLabel19.StylePriority.UseTextAlignment = false;
             this.xrLabel19.Text = "xrLabel19";
@@ -215,10 +215,10 @@ namespace Etiquetas_AGV
             // xrLabel18
             // 
             this.xrLabel18.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
-            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(3.062471F, 153.5242F);
+            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(12F, 140.52F);
             this.xrLabel18.Name = "xrLabel18";
             this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel18.SizeF = new System.Drawing.SizeF(74F, 16.75F);
+            this.xrLabel18.SizeF = new System.Drawing.SizeF(74F, 15F);
             this.xrLabel18.StylePriority.UseFont = false;
             this.xrLabel18.StylePriority.UseTextAlignment = false;
             this.xrLabel18.Text = "Importador:";
@@ -229,10 +229,10 @@ namespace Etiquetas_AGV
             this.xrLabel17.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[v_nombre_dis]")});
             this.xrLabel17.Font = new System.Drawing.Font("Times New Roman", 7F);
-            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(77.06245F, 153.5242F);
+            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(86.06245F, 139.5242F);
             this.xrLabel17.Name = "xrLabel17";
             this.xrLabel17.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel17.SizeF = new System.Drawing.SizeF(136.6875F, 16.75002F);
+            this.xrLabel17.SizeF = new System.Drawing.SizeF(136.69F, 15F);
             this.xrLabel17.StylePriority.UseFont = false;
             this.xrLabel17.StylePriority.UseTextAlignment = false;
             this.xrLabel17.Text = "xrLabel17";
@@ -242,7 +242,7 @@ namespace Etiquetas_AGV
             // 
             this.xrLine3.BorderWidth = 1F;
             this.xrLine3.LineWidth = 2;
-            this.xrLine3.LocationFloat = new DevExpress.Utils.PointFloat(1F, 151.4409F);
+            this.xrLine3.LocationFloat = new DevExpress.Utils.PointFloat(11F, 137.4409F);
             this.xrLine3.Name = "xrLine3";
             this.xrLine3.SizeF = new System.Drawing.SizeF(297.8751F, 2.083332F);
             this.xrLine3.StylePriority.UseBorderWidth = false;
@@ -250,7 +250,7 @@ namespace Etiquetas_AGV
             // xrLabel16
             // 
             this.xrLabel16.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
-            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(3.062471F, 135.7742F);
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(12F, 121.77F);
             this.xrLabel16.Name = "xrLabel16";
             this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel16.SizeF = new System.Drawing.SizeF(80F, 15F);
@@ -264,7 +264,7 @@ namespace Etiquetas_AGV
             this.xrLabel15.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[v_ciudad_est]")});
             this.xrLabel15.Font = new System.Drawing.Font("Times New Roman", 7F);
-            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(83.06245F, 135.0242F);
+            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(93.06245F, 121.0242F);
             this.xrLabel15.Name = "xrLabel15";
             this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel15.SizeF = new System.Drawing.SizeF(217.88F, 15.75F);
@@ -278,7 +278,7 @@ namespace Etiquetas_AGV
             this.xrLabel14.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[v_registro_hue]")});
             this.xrLabel14.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(136.8124F, 120.0242F);
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(146.8124F, 106.0242F);
             this.xrLabel14.Name = "xrLabel14";
             this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel14.SizeF = new System.Drawing.SizeF(164.06F, 15F);
@@ -290,7 +290,7 @@ namespace Etiquetas_AGV
             this.xrLabel13.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Hoy]")});
             this.xrLabel13.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(3.062471F, 119.0242F);
+            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(12F, 105.02F);
             this.xrLabel13.Name = "xrLabel13";
             this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel13.SizeF = new System.Drawing.SizeF(89.94F, 15F);
@@ -305,10 +305,10 @@ namespace Etiquetas_AGV
             this.xrLabel12.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[v_codext_prc]")});
             this.xrLabel12.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
-            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(182.75F, 105.3142F);
+            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(192.75F, 90.89583F);
             this.xrLabel12.Name = "xrLabel12";
             this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel12.SizeF = new System.Drawing.SizeF(109.1201F, 14F);
+            this.xrLabel12.SizeF = new System.Drawing.SizeF(118.1224F, 14F);
             this.xrLabel12.StylePriority.UseFont = false;
             this.xrLabel12.StylePriority.UseTextAlignment = false;
             this.xrLabel12.Text = "xrLabel12";
@@ -317,7 +317,7 @@ namespace Etiquetas_AGV
             // xrLabel11
             // 
             this.xrLabel11.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(182.75F, 90.60418F);
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(191.75F, 76.60418F);
             this.xrLabel11.Name = "xrLabel11";
             this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel11.SizeF = new System.Drawing.SizeF(31F, 14F);
@@ -331,10 +331,10 @@ namespace Etiquetas_AGV
             this.xrLabel10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[v_nombre_tam]")});
             this.xrLabel10.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(213.75F, 90.60421F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(222.75F, 75.89584F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(78.12F, 14F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(88.12236F, 14F);
             this.xrLabel10.StylePriority.UseFont = false;
             this.xrLabel10.StylePriority.UseTextAlignment = false;
             this.xrLabel10.Text = "xrLabel10";
@@ -345,7 +345,7 @@ namespace Etiquetas_AGV
             this.xrLabel9.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[PesoBruto]")});
             this.xrLabel9.Font = new System.Drawing.Font("Times New Roman", 8F);
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(93.06243F, 105.3142F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(103.0624F, 91.3142F);
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel9.SizeF = new System.Drawing.SizeF(59.38F, 14F);
@@ -359,7 +359,7 @@ namespace Etiquetas_AGV
             this.xrLabel8.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[v_nombre_env]")});
             this.xrLabel8.Font = new System.Drawing.Font("Times New Roman", 8F);
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(93.06243F, 90.60415F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(103.0624F, 76.60415F);
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel8.SizeF = new System.Drawing.SizeF(59.38F, 14F);
@@ -371,7 +371,7 @@ namespace Etiquetas_AGV
             // xrLabel7
             // 
             this.xrLabel7.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(3.000005F, 104.3142F);
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(12F, 90.31F);
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel7.SizeF = new System.Drawing.SizeF(90F, 14F);
@@ -383,7 +383,7 @@ namespace Etiquetas_AGV
             // xrLabel6
             // 
             this.xrLabel6.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(3.062439F, 89.89583F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(12F, 74.9F);
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel6.SizeF = new System.Drawing.SizeF(90F, 14F);
@@ -395,7 +395,7 @@ namespace Etiquetas_AGV
             // xrLabel3
             // 
             this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(3.062469F, 75.89584F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(12F, 59.9F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel3.SizeF = new System.Drawing.SizeF(297.88F, 14F);
@@ -407,7 +407,7 @@ namespace Etiquetas_AGV
             // xrLabel2
             // 
             this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(3.000005F, 55.08332F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(12F, 42.08F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel2.SizeF = new System.Drawing.SizeF(297.8751F, 15.70832F);
@@ -418,7 +418,7 @@ namespace Etiquetas_AGV
             // 
             this.xrLine2.BorderWidth = 1F;
             this.xrLine2.LineWidth = 2;
-            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(3.000005F, 70.79163F);
+            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(13F, 57.79163F);
             this.xrLine2.Name = "xrLine2";
             this.xrLine2.SizeF = new System.Drawing.SizeF(297.8751F, 2.083332F);
             this.xrLine2.StylePriority.UseBorderWidth = false;
@@ -427,7 +427,7 @@ namespace Etiquetas_AGV
             // 
             this.xrLine1.BorderWidth = 1F;
             this.xrLine1.LineWidth = 2;
-            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(3.000005F, 52.99999F);
+            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(13F, 38.99999F);
             this.xrLine1.Name = "xrLine1";
             this.xrLine1.SizeF = new System.Drawing.SizeF(297.8751F, 2.083332F);
             this.xrLine1.StylePriority.UseBorderWidth = false;
@@ -435,17 +435,17 @@ namespace Etiquetas_AGV
             // xrLabel5
             // 
             this.xrLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(0F, 42F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(12F, 28F);
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(300.8751F, 10F);
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(295.8151F, 10F);
             this.xrLabel5.StylePriority.UseFont = false;
             this.xrLabel5.Text = "Delicias No. 100 Col. Jicalan, C.P. 60090 Uruapan, Michoacan, Mexico";
             // 
             // xrLabel4
             // 
             this.xrLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(234.2083F, 24F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(244.2083F, 10F);
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel4.SizeF = new System.Drawing.SizeF(66.67F, 18F);
@@ -459,7 +459,7 @@ namespace Etiquetas_AGV
             this.xrLabel1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SP_Eti_EtiquetaMarma_Select].[v_nombre_pem]")});
             this.xrLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(3F, 24F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(12F, 10F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel1.SizeF = new System.Drawing.SizeF(230.21F, 18F);
@@ -468,7 +468,7 @@ namespace Etiquetas_AGV
             this.xrLabel1.Text = "xrLabel1";
             this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
-            // rpt_Etiqueta_Argentina_2_3
+            // rpt_Etiqueta_Argentina_2_3TSC
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail,
@@ -480,9 +480,9 @@ namespace Etiquetas_AGV
             this.DataMember = "SP_Eti_EtiquetaMarma_Select";
             this.DataSource = this.sqlDataSource1;
             this.Font = new System.Drawing.Font("Times New Roman", 9F);
-            this.Margins = new System.Drawing.Printing.Margins(7, 0, 1, 0);
-            this.PageHeight = 200;
-            this.PageWidth = 309;
+            this.Margins = new System.Drawing.Printing.Margins(23, 6, 0, 0);
+            this.PageHeight = 190;
+            this.PageWidth = 340;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PaperName = "A6";
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {

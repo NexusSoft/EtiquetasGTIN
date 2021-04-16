@@ -60,8 +60,6 @@ namespace Etiquetas_AGV
             this.xrLabel15 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
@@ -101,28 +99,28 @@ namespace Etiquetas_AGV
             storedProcQuery1.Name = "SP_Eti_EtiquetaHEB_Select";
             queryParameter1.Name = "@c_codigo_tem";
             queryParameter1.Type = typeof(string);
-            queryParameter1.ValueInfo = "09";
+            queryParameter1.ValueInfo = "1B";
             queryParameter2.Name = "@c_codigo_pal";
             queryParameter2.Type = typeof(string);
-            queryParameter2.ValueInfo = "035853";
+            queryParameter2.ValueInfo = "007515";
             queryParameter3.Name = "@c_codsec_pal";
             queryParameter3.Type = typeof(string);
-            queryParameter3.ValueInfo = "01";
+            queryParameter3.ValueInfo = "00";
             queryParameter4.Name = "@c_codigo_dis";
             queryParameter4.Type = typeof(string);
-            queryParameter4.ValueInfo = "000009";
+            queryParameter4.ValueInfo = "000014";
             queryParameter5.Name = "@c_codigo_sec";
             queryParameter5.Type = typeof(string);
             queryParameter5.ValueInfo = "001";
             queryParameter6.Name = "@voice1";
             queryParameter6.Type = typeof(string);
-            queryParameter6.ValueInfo = "20";
+            queryParameter6.ValueInfo = "55";
             queryParameter7.Name = "@voice2";
             queryParameter7.Type = typeof(string);
-            queryParameter7.ValueInfo = "66";
+            queryParameter7.ValueInfo = "87";
             queryParameter8.Name = "@c_codigo_jul";
             queryParameter8.Type = typeof(string);
-            queryParameter8.ValueInfo = "08920028977";
+            queryParameter8.ValueInfo = "00017790";
             storedProcQuery1.Parameters.Add(queryParameter1);
             storedProcQuery1.Parameters.Add(queryParameter2);
             storedProcQuery1.Parameters.Add(queryParameter3);
@@ -325,26 +323,6 @@ namespace Etiquetas_AGV
             this.xrLabel17.Text = "xrLabel17";
             this.xrLabel17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
-            // xrLabel19
-            // 
-            this.xrLabel19.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[calculatedField1]")});
-            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(311.0035F, 84.25012F);
-            this.xrLabel19.Name = "xrLabel19";
-            this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel19.SizeF = new System.Drawing.SizeF(77.5766F, 17.99999F);
-            this.xrLabel19.Text = "xrLabel19";
-            // 
-            // xrLabel18
-            // 
-            this.xrLabel18.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(311.4167F, 67.70846F);
-            this.xrLabel18.Name = "xrLabel18";
-            this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel18.SizeF = new System.Drawing.SizeF(77.58331F, 14.54169F);
-            this.xrLabel18.StylePriority.UseFont = false;
-            this.xrLabel18.Text = "Pack Date";
-            // 
             // xrLabel9
             // 
             this.xrLabel9.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
@@ -366,8 +344,6 @@ namespace Etiquetas_AGV
             this.xrPictureBox1,
             this.xrLabel12,
             this.xrLabel9,
-            this.xrLabel18,
-            this.xrLabel19,
             this.xrLabel17,
             this.xrLabel16,
             this.xrLabel15,
@@ -480,8 +456,6 @@ namespace Etiquetas_AGV
         private DevExpress.XtraReports.UI.XRLabel xrLabel15;
         private DevExpress.XtraReports.UI.XRLabel xrLabel16;
         private DevExpress.XtraReports.UI.XRLabel xrLabel17;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel19;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel18;
         private DevExpress.XtraReports.UI.XRLabel xrLabel9;
         private DevExpress.XtraReports.UI.ReportHeaderBand ReportHeader;
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
