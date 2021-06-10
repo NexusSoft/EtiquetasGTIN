@@ -394,9 +394,9 @@ namespace Etiquetas_AGV
                     if (sel.Datos.Rows.Count > 0)
                     {
                         vRegistro = sel.Datos.Rows[0]["v_registro_hue"].ToString();
-                        vc_codigo_cra= sel.Datos.Rows[0]["c_codigo_cra"].ToString();
+                        vc_codigo_cra = sel.Datos.Rows[0]["c_codigo_cra"].ToString();
                         vv_nombre_cra = sel.Datos.Rows[0]["v_nombre_cra"].ToString();
-                        if(vc_codigo_cra=="0003")
+                        if (vc_codigo_cra == "0003")
                         {
                             BuscarCOC();
                         }
@@ -406,6 +406,14 @@ namespace Etiquetas_AGV
                         }
                     }
                 }
+            }
+            CLS_Estiba sel1 = new CLS_Estiba();
+            sel1.c_codigo_sel = c_codigo_sel;
+            sel1.c_codigo_tem = c_codigo_tem;
+            sel1.MtdSeleccionarRegistroHueEstiba();
+            if (sel1.Exito)
+            {
+                vRegistro = sel1.Datos.Rows[0]["v_registro_hue"].ToString();
             }
             return vRegistro;
         }
@@ -530,6 +538,12 @@ namespace Etiquetas_AGV
                                                             break;
                                                         case "21":
                                                             t = Etiqueta_UPC_Anderson_Organic(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "22":
+                                                            t = Etiqueta_UPC_Anderson_Juliana(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "23":
+                                                            t = Etiqueta_SinDistribuidor_Juliana(t, vPalet);
                                                             break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
@@ -913,6 +927,40 @@ namespace Etiquetas_AGV
 
             return t;
         }
+        private int Etiqueta_UPC_Anderson_Juliana(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_UPC_AndersonJuliana rpt = new rpt_Etiqueta_UPC_AndersonJuliana(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2,c_codigo_jul, plu);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            //GeneraCodeBarSAMS(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPCA(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
         private int Etiqueta_UPC_Anderson(int t, string vPalet, string vcproducto, Boolean plu)
         {
             rpt_Etiqueta_UPC_Anderson rpt = new rpt_Etiqueta_UPC_Anderson(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, plu);
@@ -1108,6 +1156,7 @@ namespace Etiquetas_AGV
 
             return t;
         }
+
         private int Etiqueta_UPC_SAMS_Juliana(int t, string vPalet, string vcproducto)
         {
 
@@ -1178,9 +1227,41 @@ namespace Etiquetas_AGV
             c_codigo_jul =CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5,5) + val_juliano.Substring(1, 2);
             rpt_Etiqueta_Distribuidor_Juliana rpt = new rpt_Etiqueta_Distribuidor_Juliana(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2,c_codigo_jul);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
             GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal,c_codigo_jul);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_SinDistribuidor_Juliana(int t, string vPalet)
+        {
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = /*CodigoDisExt(vDistribuidor).Trim() + */val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_SinDistribuidor_Juliana rpt = new rpt_Etiqueta_SinDistribuidor_Juliana(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
             //printTool.Print("myPrinter");
             if (rdgTipoImpresion.SelectedIndex == 1)
             {
@@ -1351,6 +1432,26 @@ namespace Etiquetas_AGV
                     ptb1.Image = Codigos.CodigosBarra(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim(), 0);
                     //ptb1.Image = Codigos.Codigos128(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim(),false, 0);
                     ptb1.Image.Save("C:\\Etiquetas\\CodeBarUPC.bmp");
+                }
+            }
+        }
+        private void GeneraCodeBarUPCA(string c_codigo_pro)
+        {
+            CLS_Etiquetas selcod = new CLS_Etiquetas();
+            selcod.c_codigo_pro = c_codigo_pro;
+            selcod.MtdSeleccionarPaletCodigoUPC();
+            if (selcod.Exito)
+            {
+                if (selcod.Datos.Rows.Count > 0)
+                {
+                    string path = @"c:\Etiquetas";
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    ptb1.Image = Codigos.CodigosBarraUPCA(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim(), 0);
+                    //ptb1.Image = Codigos.Codigos128(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim(),false, 0);
+                    ptb1.Image.Save("C:\\Etiquetas\\CodeBarUPCA.bmp");
                 }
             }
         }

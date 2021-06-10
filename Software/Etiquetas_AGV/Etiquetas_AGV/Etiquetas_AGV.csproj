@@ -135,6 +135,12 @@
     <Compile Include="Etiquetas\rpt_Etiqueta_Chile_2_3.Designer.cs">
       <DependentUpon>rpt_Etiqueta_Chile_2_3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_SinDistribuidor_Juliana.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_SinDistribuidor_Juliana.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_SinDistribuidor_Juliana.cs</DependentUpon>
+    </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_Distribuidor_Juliana.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -182,6 +188,12 @@
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_Greenyard.Designer.cs">
       <DependentUpon>rpt_Etiqueta_Greenyard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_AndersonJuliana.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_AndersonJuliana.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_AndersonJuliana.cs</DependentUpon>
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_UPC_Anderson.cs">
       <SubType>Component</SubType>
@@ -290,6 +302,9 @@
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Chile_2_3.resx">
       <DependentUpon>rpt_Etiqueta_Chile_2_3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_SinDistribuidor_Juliana.resx">
+      <DependentUpon>rpt_Etiqueta_SinDistribuidor_Juliana.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Distribuidor_Juliana.resx">
       <DependentUpon>rpt_Etiqueta_Distribuidor_Juliana.cs</DependentUpon>
     </EmbeddedResource>
@@ -313,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Greenyard.resx">
       <DependentUpon>rpt_Etiqueta_Greenyard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_AndersonJuliana.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_AndersonJuliana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_Anderson.resx">
       <DependentUpon>rpt_Etiqueta_UPC_Anderson.cs</DependentUpon>

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.IO;
+using Image = iTextSharp.text.Image;
 
 namespace Etiquetas_AGV
 {
@@ -32,7 +35,7 @@ namespace Etiquetas_AGV
                     Graphics g = Graphics.FromImage(bmT);
                     g.FillRectangle(new SolidBrush(Color.White), 0, 0, bm.Width, bm.Height + 14);
 
-                    Font pintarTexto = new Font("Arial", 8);
+                    System.Drawing.Font pintarTexto = new System.Drawing.Font("Arial", 8);
                     SolidBrush brocha = new SolidBrush(Color.Black);
 
                     SizeF stringSize = new SizeF();
@@ -84,6 +87,27 @@ namespace Etiquetas_AGV
                 uccEan128.BarHeight = 10;
             }
             uccEan128.Code = _Code;
+            try
+            {
+                Bitmap bm = new Bitmap(uccEan128.CreateDrawingImage(Color.Black, Color.White));
+                return bm;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al generar el codigo" + ex.ToString());
+            }
+        }
+        public static Bitmap CodigosBarraUPCA(string _Code, Single Height = 0)
+        {
+           
+            BarcodeEAN uccEan128 = new BarcodeEAN();
+            uccEan128.CodeType = Barcode.UPCA;
+            if (Height != 0)
+            {
+                uccEan128.BarHeight = 20;
+            }
+            uccEan128.Code = _Code;
+
             try
             {
                 Bitmap bm = new Bitmap(uccEan128.CreateDrawingImage(Color.Black, Color.White));
