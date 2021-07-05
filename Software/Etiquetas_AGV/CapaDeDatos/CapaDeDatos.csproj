@@ -54,6 +54,7 @@
     <Compile Include="CLS_Email.cs" />
     <Compile Include="CLS_Estiba.cs" />
     <Compile Include="CLS_EtapasCosechas.cs" />
+    <Compile Include="CLS_Etiqueta_PLU.cs" />
     <Compile Include="CLS_Etiquetas.cs" />
     <Compile Include="CLS_Folio.cs" />
     <Compile Include="CLS_Juliana.cs" />

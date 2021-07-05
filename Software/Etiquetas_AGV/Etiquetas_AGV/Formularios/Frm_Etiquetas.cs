@@ -545,6 +545,9 @@ namespace Etiquetas_AGV
                                                         case "23":
                                                             t = Etiqueta_SinDistribuidor_Juliana(t, vPalet);
                                                             break;
+                                                        case "24":
+                                                            t = Etiqueta_Distribuidor_PLU_AE(t, vPalet, vCProducto);
+                                                            break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
                                                     {
@@ -586,6 +589,38 @@ namespace Etiquetas_AGV
             {
                 XtraMessageBox.Show("No se ha seleccionado Temporada");
             }
+        }
+        private int Etiqueta_Distribuidor_PLU_AE(int t, string vPalet, string vcproducto)
+        {
+            rpt_Etiqueta_PLU_AE rpt = new rpt_Etiqueta_PLU_AE(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBarSAMS(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarPLU(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
         }
         private int Etiqueta_Argentina_2_3(int t, string vPalet, string vCProducto)
         {
@@ -1412,6 +1447,32 @@ namespace Etiquetas_AGV
                     }
                     ptb1.Image = Codigos.CodigosEAN128(selcod.Datos.Rows[0]["codigo"].ToString(), 0);
                     ptb1.Image.Save("C:\\Etiquetas\\CodeBar128.bmp");
+                }
+            }
+        }
+        private void GeneraCodeBarPLU(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal, string c_codigo_dis, string c_codigo_sec, string voice1, string voice2)
+        {
+            CLS_Etiqueta_PLU selcod = new CLS_Etiqueta_PLU();
+            selcod.c_codigo_tem = c_codigo_tem;
+            selcod.c_codigo_pal= c_codigo_pal;
+            selcod.c_codsec_pal= c_codsec_pal;
+            selcod.c_codigo_dis= c_codigo_dis;
+            selcod.c_codigo_sec= c_codigo_sec;
+            selcod.voice1= voice1;
+            selcod.voice2= voice2;
+            selcod.c_codigo_jul = string.Empty;
+            selcod.MtdSeleccionarCodigoPLU();
+            if (selcod.Exito)
+            {
+                if (selcod.Datos.Rows.Count > 0)
+                {
+                    string path = @"c:\Etiquetas";
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    ptb1.Image = Codigos.CodigosBarra(selcod.Datos.Rows[0]["c_codigo_plu"].ToString().Trim(), 0);
+                    ptb1.Image.Save("C:\\Etiquetas\\CodeBarPLU.bmp");
                 }
             }
         }

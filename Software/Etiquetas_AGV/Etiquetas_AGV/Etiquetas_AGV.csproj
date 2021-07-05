@@ -207,6 +207,12 @@
     <Compile Include="Etiquetas\rpt_Etiqueta_UPC_Anderson_Organic.Designer.cs">
       <DependentUpon>rpt_Etiqueta_UPC_Anderson_Organic.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_PLU_AE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_PLU_AE.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_PLU_AE.cs</DependentUpon>
+    </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_WestFalia.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -337,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_Anderson_Organic.resx">
       <DependentUpon>rpt_Etiqueta_UPC_Anderson_Organic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_PLU_AE.resx">
+      <DependentUpon>rpt_Etiqueta_PLU_AE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_WestFalia.resx">
       <DependentUpon>rpt_Etiqueta_WestFalia.cs</DependentUpon>
