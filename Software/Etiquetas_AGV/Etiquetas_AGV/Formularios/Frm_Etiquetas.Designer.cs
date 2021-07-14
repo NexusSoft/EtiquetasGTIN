@@ -214,6 +214,7 @@
             this.txtEstiba.Size = new System.Drawing.Size(175, 20);
             this.txtEstiba.TabIndex = 0;
             this.txtEstiba.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEstiba_KeyDown);
+           
             // 
             // panelControl3
             // 

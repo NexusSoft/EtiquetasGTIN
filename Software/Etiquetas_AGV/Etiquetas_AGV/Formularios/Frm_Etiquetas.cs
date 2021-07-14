@@ -351,6 +351,10 @@ namespace Etiquetas_AGV
         {
             Validar_Campos tex = new Validar_Campos();
             tex.Solo_Numeros(sender, e, txtEstiba.Text);
+            if(e.KeyValue==13)
+            {
+                btn_Buscar.PerformClick();
+            }
         }
         private void btn_EstibaBuscar_Click(object sender, EventArgs e)
         {
@@ -362,6 +366,10 @@ namespace Etiquetas_AGV
             frm.ShowDialog();
             txtEstiba.Text = frm.vc_codigo_sel;
             lblRegistro.Text = RegistroHuerta(cmb_temporada.EditValue.ToString(), txtEstiba.Text);
+            if(txtEstiba.Text!=string.Empty)
+            {
+                btn_Buscar.PerformClick();
+            }
         }
 
         private void BuscarCOC()
@@ -413,7 +421,10 @@ namespace Etiquetas_AGV
             sel1.MtdSeleccionarRegistroHueEstiba();
             if (sel1.Exito)
             {
-                vRegistro = sel1.Datos.Rows[0]["v_registro_hue"].ToString();
+                if (sel1.Datos.Rows.Count > 0)
+                {
+                    vRegistro = sel1.Datos.Rows[0]["v_registro_hue"].ToString();
+                }
             }
             return vRegistro;
         }
@@ -547,6 +558,9 @@ namespace Etiquetas_AGV
                                                             break;
                                                         case "24":
                                                             t = Etiqueta_Distribuidor_PLU_AE(t, vPalet, vCProducto);
+                                                            break;
+                                                        case "25":
+                                                            t = Etiqueta_UPC_Anderson_Juliana_Organic(t, vPalet, vCProducto, true);
                                                             break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
@@ -967,6 +981,40 @@ namespace Etiquetas_AGV
             string val_juliano = TresCero(FechaJuliana(DateTime.Now));
             c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
             rpt_Etiqueta_UPC_AndersonJuliana rpt = new rpt_Etiqueta_UPC_AndersonJuliana(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2,c_codigo_jul, plu);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            //GeneraCodeBarSAMS(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPCA(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_Anderson_Juliana_Organic(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_UPC_AndersonJuliana_Organic rpt = new rpt_Etiqueta_UPC_AndersonJuliana_Organic(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul, plu);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             ReportPrintTool print = new ReportPrintTool(rpt);
@@ -1471,7 +1519,7 @@ namespace Etiquetas_AGV
                     {
                         Directory.CreateDirectory(path);
                     }
-                    ptb1.Image = Codigos.CodigosBarra(selcod.Datos.Rows[0]["c_codigo_plu"].ToString().Trim(), 0);
+                    ptb1.Image = Codigos.CodigosBarraPLU(selcod.Datos.Rows[0]["c_codigo_plu"].ToString().Trim(), 0);
                     ptb1.Image.Save("C:\\Etiquetas\\CodeBarPLU.bmp");
                 }
             }
@@ -1510,9 +1558,9 @@ namespace Etiquetas_AGV
                     {
                         Directory.CreateDirectory(path);
                     }
-                    ptb1.Image = Codigos.CodigosBarraUPCA(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim(), 0);
-                    //ptb1.Image = Codigos.Codigos128(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim(),false, 0);
-                    ptb1.Image.Save("C:\\Etiquetas\\CodeBarUPCA.bmp");
+                    Codigos_TEC_IT.CodigosBarraUPCA(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim());
+                    ////ptb1.Image = Codigos.Codigos128(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim(),false, 0);
+                    
                 }
             }
         }
@@ -1588,7 +1636,6 @@ namespace Etiquetas_AGV
         }
         private static string CerosEstiba(string sVal)
         {
-            string str = "";
             for (int i = sVal.Length; i < 10; i++)
             {
                 sVal = "0" + sVal;

@@ -35,6 +35,26 @@
   <PropertyGroup>
     <ApplicationIcon>Barcode2.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CapaDeDatos">
       <HintPath>..\CapaDeDatos\bin\Debug\CapaDeDatos.dll</HintPath>
@@ -85,9 +105,14 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TECIT.TBarCode, Version=11.10.0.0, Culture=neutral, PublicKeyToken=1b5f4306b234b83d, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Common Files\TEC-IT\TBarCode\11.12\TECIT.TBarCode.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Codigos.cs" />
+    <Compile Include="Clases\Codigos_TEC_IT.cs" />
     <Compile Include="Clases\Crypto.cs" />
     <Compile Include="Clases\GridCheckMarksSelection.cs" />
     <Compile Include="Clases\GridMarksSelecioncs.cs" />
@@ -110,6 +135,12 @@
     </Compile>
     <Compile Include="Conexxion\Frm_InstanciaSQL.designer.cs">
       <DependentUpon>Frm_InstanciaSQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\Frm_EtiTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\Frm_EtiTest.Designer.cs">
+      <DependentUpon>Frm_EtiTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_Argentina_2_3TSC.cs">
       <SubType>Component</SubType>
@@ -188,6 +219,12 @@
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_Greenyard.Designer.cs">
       <DependentUpon>rpt_Etiqueta_Greenyard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_AndersonJuliana_Organic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_UPC_AndersonJuliana_Organic.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_AndersonJuliana_Organic.cs</DependentUpon>
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_UPC_AndersonJuliana.cs">
       <SubType>Component</SubType>
@@ -296,6 +333,9 @@
     <EmbeddedResource Include="Conexxion\Frm_InstanciaSQL.resx">
       <DependentUpon>Frm_InstanciaSQL.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\Frm_EtiTest.resx">
+      <DependentUpon>Frm_EtiTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Argentina_2_3TSC.resx">
       <DependentUpon>rpt_Etiqueta_Argentina_2_3TSC.cs</DependentUpon>
     </EmbeddedResource>
@@ -334,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Greenyard.resx">
       <DependentUpon>rpt_Etiqueta_Greenyard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_AndersonJuliana_Organic.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_AndersonJuliana_Organic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_UPC_AndersonJuliana.resx">
       <DependentUpon>rpt_Etiqueta_UPC_AndersonJuliana.cs</DependentUpon>

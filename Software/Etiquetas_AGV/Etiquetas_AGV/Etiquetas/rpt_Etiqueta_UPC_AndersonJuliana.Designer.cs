@@ -238,7 +238,7 @@
             this.xrLabel10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SP_Eti_EtiquetaUPC_Select].[c_codigo_plu]")});
             this.xrLabel10.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(242.0369F, 190.3716F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(221.343F, 190.3716F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel10.SizeF = new System.Drawing.SizeF(47.91666F, 15.20137F);
@@ -250,7 +250,7 @@
             // xrLabel16
             // 
             this.xrLabel16.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
-            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(206.1737F, 190.3716F);
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(185.4798F, 190.3716F);
             this.xrLabel16.Name = "xrLabel16";
             this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel16.SizeF = new System.Drawing.SizeF(35.8633F, 15.20137F);
@@ -419,9 +419,9 @@
             // xrPictureBox2
             // 
             this.xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPCA1.bmp";
-            this.xrPictureBox2.LocationFloat = new DevExpress.Utils.PointFloat(290.1537F, 160.2915F);
+            this.xrPictureBox2.LocationFloat = new DevExpress.Utils.PointFloat(282.9537F, 160.2915F);
             this.xrPictureBox2.Name = "xrPictureBox2";
-            this.xrPictureBox2.SizeF = new System.Drawing.SizeF(99.84627F, 46.28844F);
+            this.xrPictureBox2.SizeF = new System.Drawing.SizeF(108.0464F, 45.28148F);
             this.xrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
             this.xrPictureBox2.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrPictureBox2_BeforePrint);
             // 

@@ -6,9 +6,9 @@ using DevExpress.XtraReports.UI;
 
 namespace Etiquetas_AGV
 {
-    public partial class rpt_Etiqueta_UPC_AndersonJuliana: DevExpress.XtraReports.UI.XtraReport
+    public partial class rpt_Etiqueta_UPC_AndersonJuliana_Organic : DevExpress.XtraReports.UI.XtraReport
     {
-        public rpt_Etiqueta_UPC_AndersonJuliana(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal, string c_codigo_dis, string c_codigo_sec, string voice1, string voice2,string c_codigo_jul,Boolean plu)
+        public rpt_Etiqueta_UPC_AndersonJuliana_Organic(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal, string c_codigo_dis, string c_codigo_sec, string voice1, string voice2,string c_codigo_jul,Boolean plu)
         {
             //c_codigo_jul = string.Empty;
             InitializeComponent();

@@ -97,6 +97,25 @@ namespace Etiquetas_AGV
                 throw new Exception("Error al generar el codigo" + ex.ToString());
             }
         }
+        public static Bitmap CodigosBarraPLU(string _Code, Single Height = 0)
+        {
+            Barcode39 uccEan128 = new Barcode39();
+            uccEan128.CodeType = Barcode39.CODABAR;
+            if (Height != 0)
+            {
+                uccEan128.BarHeight = 10;
+            }
+            uccEan128.Code = _Code;
+            try
+            {
+                Bitmap bm = new Bitmap(uccEan128.CreateDrawingImage(Color.Black, Color.White));
+                return bm;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al generar el codigo" + ex.ToString());
+            }
+        }
         public static Bitmap CodigosBarraUPCA(string _Code, Single Height = 0)
         {
            
