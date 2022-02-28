@@ -11,6 +11,7 @@ namespace CapaDeDatos
         public string c_codigo_sel { get;  set; }
         public string c_codigo_tam { get;  set; }
         public string c_codigo_tem { get;  set; }
+        public string c_codigo_man { get;  set; }
 
         public void MtdSeleccionarEstibaEtiquetas()
         {
@@ -111,6 +112,64 @@ namespace CapaDeDatos
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_tem");
                 _dato.CadenaTexto = c_codigo_sel;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_sel");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
+        public void MtdSeleccionarSICFIManifiesto()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "SP_SICFI_Manifiesto_Select";
+                _dato.CadenaTexto = c_codigo_tem;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_tem");
+                _dato.CadenaTexto = c_codigo_man;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_man");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
+        public void MtdSeleccionarSICFIManifiestoFecha()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "SP_SICFI_ManifiestoFecha_Select";
+                _dato.CadenaTexto = c_codigo_tem;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_tem");
+                _dato.CadenaTexto = c_codigo_man;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_man");
                 _conexion.EjecutarDataset();
 
                 if (_conexion.Exito)

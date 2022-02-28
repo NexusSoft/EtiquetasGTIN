@@ -441,7 +441,7 @@
             // 
             // xrPictureBox1
             // 
-            this.xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128.bmp";
+            this.xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128Juliana.bmp";
             this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(4.555893F, 0F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(315.131F, 54.08347F);

@@ -6,9 +6,9 @@ using DevExpress.XtraReports.UI;
 
 namespace Etiquetas_AGV
 {
-    public partial class rpt_Etiqueta_UPC_AndersonJuliana: DevExpress.XtraReports.UI.XtraReport
+    public partial class rpt_Etiqueta_UPC_IndexJuliana : DevExpress.XtraReports.UI.XtraReport
     {
-        public rpt_Etiqueta_UPC_AndersonJuliana(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal, string c_codigo_dis, string c_codigo_sec, string voice1, string voice2,string c_codigo_jul,Boolean plu)
+        public rpt_Etiqueta_UPC_IndexJuliana(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal, string c_codigo_dis, string c_codigo_sec, string voice1, string voice2,string c_codigo_jul,Boolean plu)
         {
             //c_codigo_jul = string.Empty;
             InitializeComponent();
@@ -57,8 +57,8 @@ namespace Etiquetas_AGV
             xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPCA1.bmp";
             if(!plu)
             {
-                xrLabel10.Visible = false;
-                xrLabel16.Visible = false;
+                //xrLabel10.Visible = false;
+                //xrLabel16.Visible = false;
                // xrLabel18.Visible = false;
             }
 

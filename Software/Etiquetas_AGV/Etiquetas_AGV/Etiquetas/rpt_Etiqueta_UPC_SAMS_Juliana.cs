@@ -52,14 +52,14 @@ namespace Etiquetas_AGV
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter6);
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter7);
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter8);
-            xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128.bmp";
-            xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPC.bmp";
+            xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128Juliana.bmp";
+            xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPCA1.bmp";
 
         }
         private void rpt_Etiqueta_UPC_DesignerLoaded(object sender, DevExpress.XtraReports.UserDesigner.DesignerLoadedEventArgs e)
         {
-            xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128.bmp";
-            xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPC.bmp";
+            xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128Juliana.bmp";
+            xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPCA1.bmp";
         }
         public string c_codigo_jul { get; set; }
     }

@@ -562,6 +562,33 @@ namespace Etiquetas_AGV
                                                         case "25":
                                                             t = Etiqueta_UPC_Anderson_Juliana_Organic(t, vPalet, vCProducto, true);
                                                             break;
+                                                        case "26":
+                                                            t = Etiqueta_Distribuidor_JulianaOrganica(t, vPalet); 
+                                                            break;
+                                                        case "27":
+                                                            t = Etiqueta_UPC_Index_Juliana(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "28":
+                                                            t = Etiqueta_Japon_Index_Juliana(t, vPalet, vCProducto, false);
+                                                            break;
+                                                        case "29":
+                                                            t = Etiqueta_USDA_Index_Juliana(t, vPalet, vCProducto, false);
+                                                            break;
+                                                        case "30":
+                                                            t = Etiqueta_Canada_Index_Juliana(t, vPalet, vCProducto, false);
+                                                            break;
+                                                        case "31":
+                                                            t = Etiqueta_USDA_GEST_Juliana(t, vPalet, vCProducto, false);
+                                                            break;
+                                                        case "32":
+                                                            t = Etiqueta_Canada_GEST_Juliana(t, vPalet, vCProducto, false);
+                                                            break;
+                                                        case "33":
+                                                            t = Etiqueta_Distribuidor_AvocatsCanada(t, vPalet);
+                                                            break;
+                                                        case "34":
+                                                            t = Etiqueta_Distribuidor_AvocatsCanadaSinPacked(t, vPalet);
+                                                            break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
                                                     {
@@ -853,7 +880,66 @@ namespace Etiquetas_AGV
             }
             return Valor;
         }
+        private int Etiqueta_Distribuidor_AvocatsCanadaSinPacked(int t, string vPalet)
+        {
+            rpt_Etiqueta_Distribuidor_AvocatsSinPacked rpt = new rpt_Etiqueta_Distribuidor_AvocatsSinPacked(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
 
+            return t;
+        }
+        private int Etiqueta_Distribuidor_AvocatsCanada(int t, string vPalet)
+        {
+            rpt_Etiqueta_Distribuidor_AvocatsCanada rpt = new rpt_Etiqueta_Distribuidor_AvocatsCanada(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
         private int Etiqueta_Distribuidor(int t, string vPalet)
         {
             rpt_Etiqueta_Distribuidor rpt = new rpt_Etiqueta_Distribuidor(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
@@ -976,11 +1062,205 @@ namespace Etiquetas_AGV
 
             return t;
         }
+        private int Etiqueta_Canada_GEST_Juliana(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_GEST_Canada rpt = new rpt_Etiqueta_GEST_Canada(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul, plu);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_USDA_GEST_Juliana(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_GEST_USDA rpt = new rpt_Etiqueta_GEST_USDA(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul, plu);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_Canada_Index_Juliana(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_Index_Canada rpt = new rpt_Etiqueta_Index_Canada(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul, plu);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_USDA_Index_Juliana(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_Index_USDA rpt = new rpt_Etiqueta_Index_USDA(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul, plu);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_Japon_Index_Juliana(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_Index_Japon rpt = new rpt_Etiqueta_Index_Japon(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul, plu);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
         private int Etiqueta_UPC_Anderson_Juliana(int t, string vPalet, string vcproducto, Boolean plu)
         {
             string val_juliano = TresCero(FechaJuliana(DateTime.Now));
             c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
             rpt_Etiqueta_UPC_AndersonJuliana rpt = new rpt_Etiqueta_UPC_AndersonJuliana(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2,c_codigo_jul, plu);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            //GeneraCodeBarSAMS(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPCA(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_Index_Juliana(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_UPC_IndexJuliana rpt = new rpt_Etiqueta_UPC_IndexJuliana(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul, plu);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             ReportPrintTool print = new ReportPrintTool(rpt);
@@ -1239,7 +1519,7 @@ namespace Etiquetas_AGV
 
             return t;
         }
-
+       
         private int Etiqueta_UPC_SAMS_Juliana(int t, string vPalet, string vcproducto)
         {
 
@@ -1252,7 +1532,8 @@ namespace Etiquetas_AGV
             rpt.Parameters["COC"].Visible = false;
             GeneraCodeBarJulianaSAMS(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
             //GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
-            GeneraCodeBarUPC(vcproducto);
+            //GeneraCodeBarUPC(vcproducto);
+            GeneraCodeBarUPCA(vcproducto);
             //printTool.Print("myPrinter");
             if (rdgTipoImpresion.SelectedIndex == 1)
             {
@@ -1314,6 +1595,37 @@ namespace Etiquetas_AGV
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
             GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal,c_codigo_jul);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_Distribuidor_JulianaOrganica(int t, string vPalet)
+        {
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_Distribuidor_JulianaOrganica rpt = new rpt_Etiqueta_Distribuidor_JulianaOrganica(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
             //printTool.Print("myPrinter");
             if (rdgTipoImpresion.SelectedIndex == 1)
             {
@@ -1422,9 +1734,17 @@ namespace Etiquetas_AGV
             CLS_Juliana codext = new CLS_Juliana();
             codext.c_codigo_dis = vDistribuidor;
             codext.MtdSeleccionarJulianaDistribuidor();
-            if(codext.Exito)
+            try
             {
-                Valor = codext.Datos.Rows[0]["c_codextdis_dis"].ToString().TrimEnd();
+                if (codext.Exito)
+                {
+                    Valor = codext.Datos.Rows[0]["c_codextdis_dis"].ToString().TrimEnd();
+                }
+            }
+            catch (Exception)
+            {
+
+                XtraMessageBox.Show("Este distribuidor no esta activo");
             }
             return Valor;
         }
@@ -1679,6 +1999,12 @@ namespace Etiquetas_AGV
             {
                 XtraMessageBox.Show("No se ha seleccionado una estiba");
             }
+        }
+
+        private void btnSICFI_Click(object sender, EventArgs e)
+        {
+            Frm_Archivo_SICFI frm = new Frm_Archivo_SICFI();
+            frm.ShowDialog();
         }
     }
 }

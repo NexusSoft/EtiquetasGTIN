@@ -66,6 +66,8 @@ namespace Etiquetas_AGV
             {
                 uccEan128.BarHeight = 10;
             }
+            //_Code = "(01)17502258935597(10)20062297";
+
             uccEan128.Code = _Code;
             try
             {

@@ -44,6 +44,7 @@
             this.cmb_calibre = new DevExpress.XtraEditors.LookUpEdit();
             this.txtEstiba = new DevExpress.XtraEditors.TextEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.btnSICFI = new DevExpress.XtraEditors.SimpleButton();
             this.rdgTipoImpresion = new DevExpress.XtraEditors.RadioGroup();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.cmb_distribuidor = new DevExpress.XtraEditors.LookUpEdit();
@@ -150,7 +151,7 @@
             this.chkCalibres.Location = new System.Drawing.Point(622, 35);
             this.chkCalibres.Name = "chkCalibres";
             this.chkCalibres.Properties.Caption = "Todos los Calibres";
-            this.chkCalibres.Size = new System.Drawing.Size(123, 19);
+            this.chkCalibres.Size = new System.Drawing.Size(123, 20);
             this.chkCalibres.TabIndex = 8;
             this.chkCalibres.CheckedChanged += new System.EventHandler(this.chkCalibres_CheckedChanged);
             // 
@@ -214,10 +215,10 @@
             this.txtEstiba.Size = new System.Drawing.Size(175, 20);
             this.txtEstiba.TabIndex = 0;
             this.txtEstiba.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEstiba_KeyDown);
-           
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.btnSICFI);
             this.panelControl3.Controls.Add(this.rdgTipoImpresion);
             this.panelControl3.Controls.Add(this.labelControl5);
             this.panelControl3.Controls.Add(this.cmb_distribuidor);
@@ -231,9 +232,19 @@
             this.panelControl3.Size = new System.Drawing.Size(1071, 91);
             this.panelControl3.TabIndex = 2;
             // 
+            // btnSICFI
+            // 
+            this.btnSICFI.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSICFI.ImageOptions.Image")));
+            this.btnSICFI.Location = new System.Drawing.Point(869, 23);
+            this.btnSICFI.Name = "btnSICFI";
+            this.btnSICFI.Size = new System.Drawing.Size(107, 42);
+            this.btnSICFI.TabIndex = 14;
+            this.btnSICFI.Text = "SICFI";
+            this.btnSICFI.Click += new System.EventHandler(this.btnSICFI_Click);
+            // 
             // rdgTipoImpresion
             // 
-            this.rdgTipoImpresion.Location = new System.Drawing.Point(484, 21);
+            this.rdgTipoImpresion.Location = new System.Drawing.Point(484, 14);
             this.rdgTipoImpresion.Name = "rdgTipoImpresion";
             this.rdgTipoImpresion.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.rdgTipoImpresion.Properties.Appearance.Options.UseBackColor = true;
@@ -241,7 +252,7 @@
             this.rdgTipoImpresion.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Impresion Directa"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Vista Previa")});
-            this.rdgTipoImpresion.Size = new System.Drawing.Size(126, 46);
+            this.rdgTipoImpresion.Size = new System.Drawing.Size(126, 58);
             this.rdgTipoImpresion.TabIndex = 13;
             // 
             // labelControl5
@@ -473,7 +484,7 @@
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("Frm_Etiquetas.IconOptions.Icon")));
             this.Name = "Frm_Etiquetas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Etiquetado";
@@ -540,6 +551,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraEditors.LabelControl lblRegistro;
         private DevExpress.XtraEditors.SimpleButton btn_ImprimirRegistro;
+        private DevExpress.XtraEditors.SimpleButton btnSICFI;
     }
 }
 
