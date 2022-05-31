@@ -44,6 +44,7 @@
             this.cmb_calibre = new DevExpress.XtraEditors.LookUpEdit();
             this.txtEstiba = new DevExpress.XtraEditors.TextEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.btn_FechaPalet = new DevExpress.XtraEditors.SimpleButton();
             this.btnSICFI = new DevExpress.XtraEditors.SimpleButton();
             this.rdgTipoImpresion = new DevExpress.XtraEditors.RadioGroup();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -103,7 +104,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(5);
-            this.panelControl1.Size = new System.Drawing.Size(1071, 85);
+            this.panelControl1.Size = new System.Drawing.Size(1169, 85);
             this.panelControl1.TabIndex = 0;
             // 
             // btn_ImprimirRegistro
@@ -218,6 +219,7 @@
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.btn_FechaPalet);
             this.panelControl3.Controls.Add(this.btnSICFI);
             this.panelControl3.Controls.Add(this.rdgTipoImpresion);
             this.panelControl3.Controls.Add(this.labelControl5);
@@ -229,8 +231,19 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl3.Location = new System.Drawing.Point(0, 466);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1071, 91);
+            this.panelControl3.Size = new System.Drawing.Size(1169, 91);
             this.panelControl3.TabIndex = 2;
+            // 
+            // btn_FechaPalet
+            // 
+            this.btn_FechaPalet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_FechaPalet.ImageOptions.Image")));
+            this.btn_FechaPalet.Location = new System.Drawing.Point(993, 23);
+            this.btn_FechaPalet.Name = "btn_FechaPalet";
+            this.btn_FechaPalet.Size = new System.Drawing.Size(107, 42);
+            this.btn_FechaPalet.TabIndex = 15;
+            this.btn_FechaPalet.Text = "Fecha Palet";
+            this.btn_FechaPalet.Visible = false;
+            this.btn_FechaPalet.Click += new System.EventHandler(this.btn_FechaPalet_Click);
             // 
             // btnSICFI
             // 
@@ -320,7 +333,7 @@
             this.panelControl2.Location = new System.Drawing.Point(0, 85);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl2.Size = new System.Drawing.Size(1071, 381);
+            this.panelControl2.Size = new System.Drawing.Size(1169, 381);
             this.panelControl2.TabIndex = 3;
             // 
             // dtgPalets
@@ -332,7 +345,7 @@
             this.dtgPalets.Location = new System.Drawing.Point(12, 12);
             this.dtgPalets.MainView = this.dtgValPalets;
             this.dtgPalets.Name = "dtgPalets";
-            this.dtgPalets.Size = new System.Drawing.Size(1047, 357);
+            this.dtgPalets.Size = new System.Drawing.Size(1145, 357);
             this.dtgPalets.TabIndex = 0;
             this.dtgPalets.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dtgValPalets});
@@ -480,7 +493,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 557);
+            this.ClientSize = new System.Drawing.Size(1169, 557);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl1);
@@ -552,6 +565,7 @@
         private DevExpress.XtraEditors.LabelControl lblRegistro;
         private DevExpress.XtraEditors.SimpleButton btn_ImprimirRegistro;
         private DevExpress.XtraEditors.SimpleButton btnSICFI;
+        private DevExpress.XtraEditors.SimpleButton btn_FechaPalet;
     }
 }
 

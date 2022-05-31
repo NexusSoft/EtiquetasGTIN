@@ -66,6 +66,8 @@ namespace Etiquetas_AGV
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.calculatedField2 = new DevExpress.XtraReports.UI.CalculatedField();
             this.COC = new DevExpress.XtraReports.Parameters.Parameter();
+            this.calculatedField3 = new DevExpress.XtraReports.UI.CalculatedField();
+            this.calculatedField4 = new DevExpress.XtraReports.UI.CalculatedField();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -238,6 +240,7 @@ namespace Etiquetas_AGV
             this.xrLabel14.Text = "xrLabel14";
             this.xrLabel14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel14.TextFormatString = "{0}";
+            this.xrLabel14.Visible = false;
             // 
             // xrLabel15
             // 
@@ -256,6 +259,7 @@ namespace Etiquetas_AGV
             this.xrLabel15.StylePriority.UseTextAlignment = false;
             this.xrLabel15.Text = "xrLabel15";
             this.xrLabel15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel15.Visible = false;
             // 
             // xrLabel16
             // 
@@ -292,6 +296,7 @@ namespace Etiquetas_AGV
             this.xrLabel19.SizeF = new System.Drawing.SizeF(70.89697F, 17.99999F);
             this.xrLabel19.StylePriority.UseFont = false;
             this.xrLabel19.Text = "xrLabel19";
+            this.xrLabel19.Visible = false;
             // 
             // xrLabel18
             // 
@@ -302,6 +307,7 @@ namespace Etiquetas_AGV
             this.xrLabel18.SizeF = new System.Drawing.SizeF(70.89688F, 31.54166F);
             this.xrLabel18.StylePriority.UseFont = false;
             this.xrLabel18.Text = "Pack Date";
+            this.xrLabel18.Visible = false;
             // 
             // xrLabel9
             // 
@@ -397,6 +403,18 @@ namespace Etiquetas_AGV
             this.COC.Name = "COC";
             this.COC.ValueInfo = "COC: 4052852027427";
             // 
+            // calculatedField3
+            // 
+            this.calculatedField3.DataMember = "SP_Eti_EtiquetaHEB_Select";
+            this.calculatedField3.Expression = "\'Apr 12, 2022\'\n";
+            this.calculatedField3.Name = "calculatedField3";
+            // 
+            // calculatedField4
+            // 
+            this.calculatedField4.DataMember = "SP_Eti_EtiquetaHEB_Select";
+            this.calculatedField4.Expression = "\'(01)\'+[gtin]+\'(10)\'+[c_codigo_sel]+\'(13)220412\'\n";
+            this.calculatedField4.Name = "calculatedField4";
+            // 
             // rpt_Etiqueta_Distribuidor_AvocatsSinPacked
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -406,7 +424,9 @@ namespace Etiquetas_AGV
             this.ReportHeader});
             this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
             this.calculatedField1,
-            this.calculatedField2});
+            this.calculatedField2,
+            this.calculatedField3,
+            this.calculatedField4});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.sqlDataSource1});
             this.DataMember = "SP_Eti_EtiquetaHEB_Select";
@@ -455,5 +475,7 @@ namespace Etiquetas_AGV
         private DevExpress.XtraReports.UI.XRLabel xrLabel10;
         private DevExpress.XtraReports.Parameters.Parameter COC;
         private DevExpress.XtraReports.UI.XRLabel xrLabel11;
+        private DevExpress.XtraReports.UI.CalculatedField calculatedField3;
+        private DevExpress.XtraReports.UI.CalculatedField calculatedField4;
     }
 }

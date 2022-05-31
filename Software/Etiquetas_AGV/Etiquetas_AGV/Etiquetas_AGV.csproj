@@ -373,6 +373,12 @@
     <Compile Include="Formularios\Frm_Estibas_Buscar.designer.cs">
       <DependentUpon>Frm_Estibas_Buscar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Frm_FechaPalet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Frm_FechaPalet.Designer.cs">
+      <DependentUpon>Frm_FechaPalet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Frm_UPC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -513,6 +519,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Frm_Estibas_Buscar.resx">
       <DependentUpon>Frm_Estibas_Buscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Frm_FechaPalet.resx">
+      <DependentUpon>Frm_FechaPalet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Frm_UPC.resx">
       <DependentUpon>Frm_UPC.cs</DependentUpon>

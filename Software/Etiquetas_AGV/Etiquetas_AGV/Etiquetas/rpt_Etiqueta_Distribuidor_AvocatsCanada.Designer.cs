@@ -63,12 +63,12 @@ namespace Etiquetas_AGV
             this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.calculatedField2 = new DevExpress.XtraReports.UI.CalculatedField();
             this.COC = new DevExpress.XtraReports.Parameters.Parameter();
-            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -280,6 +280,7 @@ namespace Etiquetas_AGV
             this.xrLabel14.Text = "xrLabel14";
             this.xrLabel14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel14.TextFormatString = "{0}";
+            this.xrLabel14.Visible = false;
             // 
             // xrLabel15
             // 
@@ -298,6 +299,7 @@ namespace Etiquetas_AGV
             this.xrLabel15.StylePriority.UseTextAlignment = false;
             this.xrLabel15.Text = "xrLabel15";
             this.xrLabel15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel15.Visible = false;
             // 
             // xrLabel16
             // 
@@ -334,6 +336,7 @@ namespace Etiquetas_AGV
             this.xrLabel19.SizeF = new System.Drawing.SizeF(70.89697F, 17.99999F);
             this.xrLabel19.StylePriority.UseFont = false;
             this.xrLabel19.Text = "xrLabel19";
+            this.xrLabel19.Visible = false;
             // 
             // xrLabel18
             // 
@@ -344,6 +347,7 @@ namespace Etiquetas_AGV
             this.xrLabel18.SizeF = new System.Drawing.SizeF(70.89688F, 31.54166F);
             this.xrLabel18.StylePriority.UseFont = false;
             this.xrLabel18.Text = "Pack Date";
+            this.xrLabel18.Visible = false;
             // 
             // xrLabel9
             // 
@@ -385,6 +389,18 @@ namespace Etiquetas_AGV
             this.ReportHeader.HeightF = 219.3783F;
             this.ReportHeader.KeepTogether = true;
             this.ReportHeader.Name = "ReportHeader";
+            // 
+            // xrLabel11
+            // 
+            this.xrLabel11.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(12.49669F, 121.5002F);
+            this.xrLabel11.Name = "xrLabel11";
+            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(298.5034F, 14.99999F);
+            this.xrLabel11.StylePriority.UseFont = false;
+            this.xrLabel11.StylePriority.UseTextAlignment = false;
+            this.xrLabel11.Text = "AVOCATS - PRODUIT DU MEXIQUE";
+            this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // xrLabel10
             // 
@@ -429,18 +445,6 @@ namespace Etiquetas_AGV
             this.COC.Description = "Cadena de Custodia";
             this.COC.Name = "COC";
             this.COC.ValueInfo = "COC: 4052852027427";
-            // 
-            // xrLabel11
-            // 
-            this.xrLabel11.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(12.49669F, 121.5002F);
-            this.xrLabel11.Name = "xrLabel11";
-            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(298.5034F, 14.99999F);
-            this.xrLabel11.StylePriority.UseFont = false;
-            this.xrLabel11.StylePriority.UseTextAlignment = false;
-            this.xrLabel11.Text = "AVOCATS - PRODUIT DU MEXIQUE";
-            this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // rpt_Etiqueta_Distribuidor_AvocatsCanada
             // 

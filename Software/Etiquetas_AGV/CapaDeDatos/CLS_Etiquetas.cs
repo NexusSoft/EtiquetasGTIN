@@ -13,6 +13,7 @@ namespace CapaDeDatos
         public string c_codsec_pal { get;  set; }
         public string c_codigo_jul { get;  set; }
         public int? c_codigo_eti { get;  set; }
+        public string d_empaque_eti { get; set; }
 
         public void MtdSeleccionarEtiquetas()
         {
@@ -201,6 +202,38 @@ namespace CapaDeDatos
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codsec_pal");
                 _dato.CadenaTexto = c_codigo_jul;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_jul");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
+
+        public void MtdUpdateFechaPalet()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "SP_Eti_EtiquetaFecha_Update";
+                _dato.CadenaTexto = c_codigo_tem;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_tem");
+                _dato.CadenaTexto = c_codigo_pal;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_pal");
+                _dato.CadenaTexto = d_empaque_eti;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "d_empaque_eti");
                 _conexion.EjecutarDataset();
 
                 if (_conexion.Exito)

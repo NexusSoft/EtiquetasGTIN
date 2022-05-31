@@ -38,6 +38,7 @@ namespace Etiquetas_AGV
         public string vc_codigo_cra { get; set; }
         public string vv_nombre_cra { get; set; }
         public string vCOC { get; set; }
+        public string v_paletmod { get; set; }
 
         public Frm_Etiquetas()
         {
@@ -176,6 +177,7 @@ namespace Etiquetas_AGV
             gridCheckMarksPalets = new GridControlCheckMarksSelection(dtgValPalets);
             gridCheckMarksPalets.SelectionChanged += gridCheckMarksAcuerdos_SelectionChanged;
         }
+       
         void gridCheckMarksAcuerdos_SelectionChanged(object sender, EventArgs e)
         {
             CadenaCodigos = string.Empty;
@@ -190,15 +192,20 @@ namespace Etiquetas_AGV
                     if (CadenaCodigos != string.Empty)
                     {
                         CadenaCodigos = string.Format("{0},{1}", CadenaCodigos, rv["c_codigo_pal"]);
+                        btn_FechaPalet.Enabled = false;
                     }
                     else
                     {
+                       
                         CadenaCodigos = rv["c_codigo_pal"].ToString();
+                        v_paletmod= rv["c_codigo_pal"].ToString();
+                        btn_FechaPalet.Enabled = true;
                     }
                 }
             }
             if (CadenaCodigos == string.Empty)
             {
+                btn_FechaPalet.Enabled = false;
                 btn_Imprimir.Enabled = false;
             }
             else
@@ -208,6 +215,8 @@ namespace Etiquetas_AGV
         }
         private void Frm_Etiquetas_Shown(object sender, EventArgs e)
         {
+            btn_FechaPalet.Enabled = false;
+            btn_Imprimir.Enabled = false;
             lblRegistro.Text = string.Empty;
             MakeTablaPedidosInsidencias();
             GridMultiplePalets();
@@ -412,6 +421,10 @@ namespace Etiquetas_AGV
                         {
                             vCOC = string.Empty;
                         }
+                    }
+                    else
+                    {
+                        vCOC = string.Empty;
                     }
                 }
             }
@@ -2004,6 +2017,14 @@ namespace Etiquetas_AGV
         private void btnSICFI_Click(object sender, EventArgs e)
         {
             Frm_Archivo_SICFI frm = new Frm_Archivo_SICFI();
+            frm.ShowDialog();
+        }
+
+        private void btn_FechaPalet_Click(object sender, EventArgs e)
+        {
+            Frm_FechaPalet frm = new Frm_FechaPalet();
+            frm.vPalet = v_paletmod;
+            frm.vTemporada = cmb_temporada.EditValue.ToString();
             frm.ShowDialog();
         }
     }

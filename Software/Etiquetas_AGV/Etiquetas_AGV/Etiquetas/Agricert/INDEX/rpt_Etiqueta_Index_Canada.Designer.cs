@@ -45,6 +45,7 @@
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.xrControlStyle1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
@@ -74,7 +75,6 @@
             this.COC = new DevExpress.XtraReports.Parameters.Parameter();
             this.calculatedField3 = new DevExpress.XtraReports.UI.CalculatedField();
             this.calculatedField4 = new DevExpress.XtraReports.UI.CalculatedField();
-            this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -177,6 +177,19 @@
             this.ReportHeader.Name = "ReportHeader";
             this.ReportHeader.StylePriority.UseTextAlignment = false;
             this.ReportHeader.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // xrLabel23
+            // 
+            this.xrLabel23.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
+            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(116.2471F, 95.62852F);
+            this.xrLabel23.Name = "xrLabel23";
+            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel23.SizeF = new System.Drawing.SizeF(135.5791F, 14F);
+            this.xrLabel23.StylePriority.UseFont = false;
+            this.xrLabel23.StylePriority.UseTextAlignment = false;
+            this.xrLabel23.Text = "Imported from / Import\'e";
+            this.xrLabel23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel23.WordWrap = false;
             // 
             // xrLabel22
             // 
@@ -525,19 +538,6 @@
             this.calculatedField4.DataMember = "SP_Eti_EtiquetaUPC_Select";
             this.calculatedField4.Expression = "\'(01)\'+[gtin]+\'(10)\'+[c_codigo_jul]";
             this.calculatedField4.Name = "calculatedField4";
-            // 
-            // xrLabel23
-            // 
-            this.xrLabel23.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
-            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(116.2471F, 95.62852F);
-            this.xrLabel23.Name = "xrLabel23";
-            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel23.SizeF = new System.Drawing.SizeF(135.5791F, 14F);
-            this.xrLabel23.StylePriority.UseFont = false;
-            this.xrLabel23.StylePriority.UseTextAlignment = false;
-            this.xrLabel23.Text = "Imported from / Import\'e";
-            this.xrLabel23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrLabel23.WordWrap = false;
             // 
             // rpt_Etiqueta_Index_Canada
             // 
