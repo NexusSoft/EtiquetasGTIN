@@ -602,6 +602,12 @@ namespace Etiquetas_AGV
                                                         case "34":
                                                             t = Etiqueta_Distribuidor_AvocatsCanadaSinPacked(t, vPalet);
                                                             break;
+                                                        case "35":
+                                                            t = Etiqueta_Distribuidor_Aqua(t, vPalet);
+                                                            break;
+                                                        case "36":
+                                                            t = Etiqueta_SinDistribuidor_Juliana2(t, vPalet);
+                                                            break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
                                                     {
@@ -892,6 +898,36 @@ namespace Etiquetas_AGV
                 }
             }
             return Valor;
+        }
+        private int Etiqueta_Distribuidor_Aqua(int t, string vPalet)
+        {
+            rpt_Etiqueta_Distribuidor_Aqua rpt = new rpt_Etiqueta_Distribuidor_Aqua(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
         }
         private int Etiqueta_Distribuidor_AvocatsCanadaSinPacked(int t, string vPalet)
         {
@@ -1665,6 +1701,37 @@ namespace Etiquetas_AGV
             string val_juliano = TresCero(FechaJuliana(DateTime.Now));
             c_codigo_jul = /*CodigoDisExt(vDistribuidor).Trim() + */val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
             rpt_Etiqueta_SinDistribuidor_Juliana rpt = new rpt_Etiqueta_SinDistribuidor_Juliana(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul);
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_SinDistribuidor_Juliana2(int t, string vPalet)
+        {
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = /*CodigoDisExt(vDistribuidor).Trim() + */val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_SinDistribuidor_Juliana2 rpt = new rpt_Etiqueta_SinDistribuidor_Juliana2(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2, c_codigo_jul);
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
