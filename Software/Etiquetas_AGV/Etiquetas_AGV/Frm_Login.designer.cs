@@ -178,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 151);
+            this.ClientSize = new System.Drawing.Size(590, 170);
             this.Controls.Add(this.cERecordarContrasenia);
             this.Controls.Add(this.gridLookUpEdit1);
             this.Controls.Add(this.labelControl3);
@@ -191,7 +191,7 @@
             this.Controls.Add(this.pictureEdit1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("Frm_Login.IconOptions.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Login";

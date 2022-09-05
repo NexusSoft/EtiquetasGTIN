@@ -220,7 +220,33 @@ namespace CapaDeDatos
                 Exito = false;
             }
         }
+        public void MtdSeleccionarExisteImportador()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "SP_Eti_ExisteImportador_Select";
+                _dato.Entero = c_codigo_eti;
+                _conexion.agregarParametro(EnumTipoDato.Entero, _dato, "c_codigo_eti");
+                _conexion.EjecutarDataset();
 
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
         public void MtdUpdateFechaPalet()
         {
             TipoDato _dato = new TipoDato();

@@ -8,7 +8,17 @@ namespace Etiquetas_AGV
 {
     public partial class rpt_Etiqueta_GEST_USDA : DevExpress.XtraReports.UI.XtraReport
     {
-        public rpt_Etiqueta_GEST_USDA(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal, string c_codigo_dis, string c_codigo_sec, string voice1, string voice2,string c_codigo_jul,Boolean plu)
+
+        public string c_codigo_tem { get; set; }
+        public string c_codigo_pal { get; set; }
+        public string c_codsec_pal { get; set; }
+        public string c_codigo_dis { get; set; }
+        public string c_codigo_sec { get; set; }
+        public string voice1 { get; set; }
+        public string voice2 { get; set; }
+        public string c_codigo_jul { get; set; }
+        public Boolean plu { get; set; }
+        public rpt_Etiqueta_GEST_USDA()
         {
             //c_codigo_jul = string.Empty;
             InitializeComponent();
@@ -59,8 +69,5 @@ namespace Etiquetas_AGV
         {
             xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128Juliana.bmp";
         }
-        public string c_codigo_jul { get; set; }
-
-        
     }
 }

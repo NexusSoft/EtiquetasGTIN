@@ -6,7 +6,7 @@ using DevExpress.XtraReports.UI;
 
 namespace Etiquetas_AGV
 {
-    public partial class rpt_Etiqueta_PLU_AE : DevExpress.XtraReports.UI.XtraReport
+    public partial class rpt_Etiqueta_EuropaGEST : DevExpress.XtraReports.UI.XtraReport
     {
         public string c_codigo_tem { get; set; }
         public string c_codigo_pal { get; set; }
@@ -16,7 +16,7 @@ namespace Etiquetas_AGV
         public string voice1 { get; set; }
         public string voice2 { get; set; }
         public string c_codigo_jul { get; set; }
-        public rpt_Etiqueta_PLU_AE()
+        public rpt_Etiqueta_EuropaGEST()
         {
             c_codigo_jul = string.Empty;
             InitializeComponent();
@@ -62,13 +62,13 @@ namespace Etiquetas_AGV
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter7);
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter8);
             xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128.bmp";
-            xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarPLU.bmp";
+            //xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPC.bmp";
 
         }
         private void rpt_Etiqueta_UPC_DesignerLoaded(object sender, DevExpress.XtraReports.UserDesigner.DesignerLoadedEventArgs e)
         {
             xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128.bmp";
-            xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarPLU.bmp";
+            //xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPC.bmp";
         }
         
     }

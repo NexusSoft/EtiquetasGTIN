@@ -121,7 +121,7 @@
   <data name="pictureEdit1.EditValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAathJREFUeF7tnQVYlVnX/l+Vxu7u7u52xu7u7g4sFEUsbBBFxG5F7EZFCRHE7u7G
+        wwAADsMBx2+oZAAAathJREFUeF7tnQVYlVnX/l+Vxu7u7u52xu7u7g4sFEUsbBBFxG5F7EZFCRHE7u7G
         FkUF1v7f93POg0fmOOM4M+/7fv/v87p+F+dsztnP3mvdK/ZzDjP/Ukr9H/+LMTv4f/zvwezg//G/B7OD
         /8f/HswO/h//ezA7+H/878Hs4P/xvwezg/8/YF20RUKLzKUsgY1FltL2+JkUJAcpQSqQGqQxwscc4+/4
         Gr6W77GxyFzS0rpo84TmrvH/A2YH/ydiXbx1Qss8tSwSZSxqaZmvdmKrwo0zg1JWhRrXtyrUqDsYCSaD
@@ -583,7 +583,7 @@
   <data name="pictureEdit1.Properties.InitialImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAA/7JJREFUeF7snXV8HEfShmPhrtDMzAySLcnMtszMIMkgM7NllJmZMbZjZsuyGCyw
+        wwAADsMBx2+oZAAA/7JJREFUeF7snXV8HEfShmPhrtDMzAySLcnMtszMIMkgM7NllJmZMbZjZsuyGCyw
         DLnkklwuyYXhwsmFLhdw9fdW98zu7GoMyWc7duI/np+T3tnVTFfV21XdPTPPCCGe8pSn/EUxbXzKU57y
         18C08SlPecpfA9PGpzzlKX8NTBuf8pSn/DUwbXzKU57y18C08SlPecpfA9PGpzzlKX8NTBuf8pSn/DUw
         bXzKU57y18C08SlPecpfA9PGpzzlKX8NTBuf8pSn/DUwbXzKU57y18C08SlPecpfA9PGpzye5LH4u+Tx
@@ -1892,7 +1892,7 @@
         kmkAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Frm_Login.IconOptions.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAMDAAAAEAIACoJQAANgAAACAgAAABACAAqBAAAN4lAAAQEAAAAQAgAGgEAACGNgAAKAAAADAA
         AABgAAAAAQAgAAAAAACAJQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

@@ -8,8 +8,15 @@ namespace Etiquetas_AGV
 {
     public partial class rpt_Etiqueta_Distribuidor_Juliana : DevExpress.XtraReports.UI.XtraReport
     {
-        public rpt_Etiqueta_Distribuidor_Juliana(
-             string c_codigo_tem, string c_codigo_pal,  string c_codsec_pal, string c_codigo_dis, string c_codigo_sec, string voice1, string voice2,string c_codigo_jul)
+        public string c_codigo_tem { get; set; }
+        public string c_codigo_pal { get; set; }
+        public string c_codsec_pal { get; set; }
+        public string c_codigo_dis { get; set; }
+        public string c_codigo_sec { get; set; }
+        public string voice1 { get; set; }
+        public string voice2 { get; set; }
+        public string c_codigo_jul { get; set; }
+        public rpt_Etiqueta_Distribuidor_Juliana()
         {
             InitializeComponent();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();

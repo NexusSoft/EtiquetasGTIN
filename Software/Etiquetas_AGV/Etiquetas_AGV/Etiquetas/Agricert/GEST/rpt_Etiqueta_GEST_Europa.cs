@@ -6,7 +6,7 @@ using DevExpress.XtraReports.UI;
 
 namespace Etiquetas_AGV
 {
-    public partial class rpt_Etiqueta_PLU_AE : DevExpress.XtraReports.UI.XtraReport
+    public partial class rpt_Etiqueta_GEST_Europa : DevExpress.XtraReports.UI.XtraReport
     {
         public string c_codigo_tem { get; set; }
         public string c_codigo_pal { get; set; }
@@ -16,9 +16,10 @@ namespace Etiquetas_AGV
         public string voice1 { get; set; }
         public string voice2 { get; set; }
         public string c_codigo_jul { get; set; }
-        public rpt_Etiqueta_PLU_AE()
+        public Boolean plu { get; set; }
+        public rpt_Etiqueta_GEST_Europa()
         {
-            c_codigo_jul = string.Empty;
+            //c_codigo_jul = string.Empty;
             InitializeComponent();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
@@ -61,15 +62,11 @@ namespace Etiquetas_AGV
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter6);
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter7);
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter8);
-            xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128.bmp";
-            xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarPLU.bmp";
-
+            xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128Juliana.bmp";
         }
         private void rpt_Etiqueta_UPC_DesignerLoaded(object sender, DevExpress.XtraReports.UserDesigner.DesignerLoadedEventArgs e)
         {
-            xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128.bmp";
-            xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarPLU.bmp";
+            xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128Juliana.bmp";
         }
-        
     }
 }

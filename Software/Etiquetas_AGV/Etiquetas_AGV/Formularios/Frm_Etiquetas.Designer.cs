@@ -44,6 +44,8 @@
             this.cmb_calibre = new DevExpress.XtraEditors.LookUpEdit();
             this.txtEstiba = new DevExpress.XtraEditors.TextEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.cmb_Importador = new DevExpress.XtraEditors.LookUpEdit();
             this.btn_FechaPalet = new DevExpress.XtraEditors.SimpleButton();
             this.btnSICFI = new DevExpress.XtraEditors.SimpleButton();
             this.rdgTipoImpresion = new DevExpress.XtraEditors.RadioGroup();
@@ -77,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEstiba.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_Importador.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgTipoImpresion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_distribuidor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_tipoetiqueta.Properties)).BeginInit();
@@ -219,6 +222,8 @@
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.labelControl6);
+            this.panelControl3.Controls.Add(this.cmb_Importador);
             this.panelControl3.Controls.Add(this.btn_FechaPalet);
             this.panelControl3.Controls.Add(this.btnSICFI);
             this.panelControl3.Controls.Add(this.rdgTipoImpresion);
@@ -229,10 +234,27 @@
             this.panelControl3.Controls.Add(this.labelControl4);
             this.panelControl3.Controls.Add(this.cmb_tipoetiqueta);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(0, 466);
+            this.panelControl3.Location = new System.Drawing.Point(0, 450);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1169, 91);
+            this.panelControl3.Size = new System.Drawing.Size(1169, 129);
             this.panelControl3.TabIndex = 2;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(28, 83);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(54, 13);
+            this.labelControl6.TabIndex = 17;
+            this.labelControl6.Text = "Importador";
+            // 
+            // cmb_Importador
+            // 
+            this.cmb_Importador.Location = new System.Drawing.Point(124, 79);
+            this.cmb_Importador.Name = "cmb_Importador";
+            this.cmb_Importador.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_Importador.Size = new System.Drawing.Size(334, 20);
+            this.cmb_Importador.TabIndex = 16;
             // 
             // btn_FechaPalet
             // 
@@ -325,6 +347,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("b_Solicita_dis", "Solicita", 10, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.cmb_tipoetiqueta.Size = new System.Drawing.Size(334, 20);
             this.cmb_tipoetiqueta.TabIndex = 2;
+            this.cmb_tipoetiqueta.EditValueChanged += new System.EventHandler(this.cmb_tipoetiqueta_EditValueChanged);
             // 
             // panelControl2
             // 
@@ -333,7 +356,7 @@
             this.panelControl2.Location = new System.Drawing.Point(0, 85);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl2.Size = new System.Drawing.Size(1169, 381);
+            this.panelControl2.Size = new System.Drawing.Size(1169, 365);
             this.panelControl2.TabIndex = 3;
             // 
             // dtgPalets
@@ -345,7 +368,7 @@
             this.dtgPalets.Location = new System.Drawing.Point(12, 12);
             this.dtgPalets.MainView = this.dtgValPalets;
             this.dtgPalets.Name = "dtgPalets";
-            this.dtgPalets.Size = new System.Drawing.Size(1145, 357);
+            this.dtgPalets.Size = new System.Drawing.Size(1145, 341);
             this.dtgPalets.TabIndex = 0;
             this.dtgPalets.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dtgValPalets});
@@ -493,7 +516,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1169, 557);
+            this.ClientSize = new System.Drawing.Size(1169, 579);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl1);
@@ -515,6 +538,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_Importador.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgTipoImpresion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_distribuidor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_tipoetiqueta.Properties)).EndInit();
@@ -566,6 +590,8 @@
         private DevExpress.XtraEditors.SimpleButton btn_ImprimirRegistro;
         private DevExpress.XtraEditors.SimpleButton btnSICFI;
         private DevExpress.XtraEditors.SimpleButton btn_FechaPalet;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LookUpEdit cmb_Importador;
     }
 }
 
