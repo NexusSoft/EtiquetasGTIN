@@ -72,6 +72,8 @@
             this.COC = new DevExpress.XtraReports.Parameters.Parameter();
             this.calculatedField3 = new DevExpress.XtraReports.UI.CalculatedField();
             this.calculatedField4 = new DevExpress.XtraReports.UI.CalculatedField();
+            this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
+            this.COCGest = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -124,14 +126,15 @@
             queryParameter8.Name = "@c_codigo_jul";
             queryParameter8.Type = typeof(string);
             queryParameter8.ValueInfo = "10136111";
-            storedProcQuery1.Parameters.Add(queryParameter1);
-            storedProcQuery1.Parameters.Add(queryParameter2);
-            storedProcQuery1.Parameters.Add(queryParameter3);
-            storedProcQuery1.Parameters.Add(queryParameter4);
-            storedProcQuery1.Parameters.Add(queryParameter5);
-            storedProcQuery1.Parameters.Add(queryParameter6);
-            storedProcQuery1.Parameters.Add(queryParameter7);
-            storedProcQuery1.Parameters.Add(queryParameter8);
+            storedProcQuery1.Parameters.AddRange(new DevExpress.DataAccess.Sql.QueryParameter[] {
+            queryParameter1,
+            queryParameter2,
+            queryParameter3,
+            queryParameter4,
+            queryParameter5,
+            queryParameter6,
+            queryParameter7,
+            queryParameter8});
             storedProcQuery1.StoredProcName = "SP_Eti_EtiquetaUPC_Select";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
             storedProcQuery1});
@@ -144,6 +147,7 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel24,
             this.xrLabel17,
             this.xrLabel20,
             this.xrLabel18,
@@ -263,11 +267,11 @@
             // 
             this.xrLabel19.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Parameters].[COC]")});
-            this.xrLabel19.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(185.4798F, 206.5799F);
+            this.xrLabel19.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(6.277879F, 189.5866F);
             this.xrLabel19.Name = "xrLabel19";
             this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel19.SizeF = new System.Drawing.SizeF(205.5203F, 16F);
+            this.xrLabel19.SizeF = new System.Drawing.SizeF(177.4F, 14.2F);
             this.xrLabel19.StylePriority.UseFont = false;
             this.xrLabel19.Text = "xrLabel19";
             // 
@@ -419,7 +423,7 @@
             // xrPictureBox2
             // 
             this.xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPCA1.bmp";
-            this.xrPictureBox2.LocationFloat = new DevExpress.Utils.PointFloat(282.9537F, 160.2915F);
+            this.xrPictureBox2.LocationFloat = new DevExpress.Utils.PointFloat(282.9537F, 148.4202F);
             this.xrPictureBox2.Name = "xrPictureBox2";
             this.xrPictureBox2.SizeF = new System.Drawing.SizeF(108.0464F, 45.28148F);
             this.xrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
@@ -466,7 +470,7 @@
             this.xrLabel2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SP_Eti_EtiquetaUPC_Select].[v_registro_hue]")});
             this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(4.555893F, 191.3716F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(215.5203F, 205.5729F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel2.SizeF = new System.Drawing.SizeF(180.9239F, 20.75351F);
@@ -491,7 +495,7 @@
             // 
             this.COC.Description = "Cadena de Custodia";
             this.COC.Name = "COC";
-            this.COC.ValueInfo = "COC: 4052852027427";
+            this.COC.ValueInfo = "CoC: 4052852027427";
             // 
             // calculatedField3
             // 
@@ -504,6 +508,27 @@
             this.calculatedField4.DataMember = "SP_Eti_EtiquetaUPC_Select";
             this.calculatedField4.Expression = "\'(01)\'+[gtin]+\'(10)\'+[c_codigo_jul]";
             this.calculatedField4.Name = "calculatedField4";
+            // 
+            // xrLabel24
+            // 
+            this.xrLabel24.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Parameters].[COCGest]")});
+            this.xrLabel24.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(6.277847F, 205.5729F);
+            this.xrLabel24.Multiline = true;
+            this.xrLabel24.Name = "xrLabel24";
+            this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel24.SizeF = new System.Drawing.SizeF(177.4F, 16.04001F);
+            this.xrLabel24.StylePriority.UseFont = false;
+            this.xrLabel24.StylePriority.UseTextAlignment = false;
+            this.xrLabel24.Text = "xrLabel24";
+            this.xrLabel24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // COCGest
+            // 
+            this.COCGest.Description = "Cadena de Custodia";
+            this.COCGest.Name = "COCGest";
+            this.COCGest.ValueInfo = "CoC: 4063651273854";
             // 
             // rpt_Etiqueta_UPC_AndersonJuliana
             // 
@@ -526,12 +551,16 @@
             this.PageWidth = 414;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PaperName = "A6";
+            this.ParameterPanelLayoutItems.AddRange(new DevExpress.XtraReports.Parameters.ParameterPanelLayoutItem[] {
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.COC, DevExpress.XtraReports.Parameters.Orientation.Horizontal),
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.COCGest, DevExpress.XtraReports.Parameters.Orientation.Horizontal)});
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.COC});
+            this.COC,
+            this.COCGest});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.xrControlStyle1});
             this.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.Version = "17.2";
+            this.Version = "22.1";
             this.DesignerLoaded += new DevExpress.XtraReports.UserDesigner.DesignerLoadedEventHandler(this.rpt_Etiqueta_UPC_DesignerLoaded);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
@@ -572,5 +601,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel20;
         private DevExpress.XtraReports.UI.XRLabel xrLabel18;
         private DevExpress.XtraReports.UI.XRLabel xrLabel17;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel24;
+        private DevExpress.XtraReports.Parameters.Parameter COCGest;
     }
 }

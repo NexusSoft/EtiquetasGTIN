@@ -45,6 +45,8 @@
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.xrControlStyle1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel20 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPictureBox3 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
@@ -71,7 +73,7 @@
             this.COC = new DevExpress.XtraReports.Parameters.Parameter();
             this.calculatedField3 = new DevExpress.XtraReports.UI.CalculatedField();
             this.calculatedField4 = new DevExpress.XtraReports.UI.CalculatedField();
-            this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
+            this.COCGest = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -124,14 +126,15 @@
             queryParameter8.Name = "@c_codigo_jul";
             queryParameter8.Type = typeof(string);
             queryParameter8.ValueInfo = "124578965";
-            storedProcQuery1.Parameters.Add(queryParameter1);
-            storedProcQuery1.Parameters.Add(queryParameter2);
-            storedProcQuery1.Parameters.Add(queryParameter3);
-            storedProcQuery1.Parameters.Add(queryParameter4);
-            storedProcQuery1.Parameters.Add(queryParameter5);
-            storedProcQuery1.Parameters.Add(queryParameter6);
-            storedProcQuery1.Parameters.Add(queryParameter7);
-            storedProcQuery1.Parameters.Add(queryParameter8);
+            storedProcQuery1.Parameters.AddRange(new DevExpress.DataAccess.Sql.QueryParameter[] {
+            queryParameter1,
+            queryParameter2,
+            queryParameter3,
+            queryParameter4,
+            queryParameter5,
+            queryParameter6,
+            queryParameter7,
+            queryParameter8});
             storedProcQuery1.StoredProcName = "SP_Eti_EtiquetaUPC_Select";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
             storedProcQuery1});
@@ -144,6 +147,7 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel24,
             this.xrLabel10,
             this.xrLabel20,
             this.xrPictureBox3,
@@ -166,10 +170,37 @@
             this.xrPictureBox1,
             this.xrLabel7,
             this.xrLabel2});
-            this.ReportHeader.HeightF = 230.1183F;
+            this.ReportHeader.HeightF = 231.8199F;
             this.ReportHeader.Name = "ReportHeader";
             this.ReportHeader.StylePriority.UseTextAlignment = false;
             this.ReportHeader.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // xrLabel24
+            // 
+            this.xrLabel24.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Parameters].[COCGest]")});
+            this.xrLabel24.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(201.999F, 215.7799F);
+            this.xrLabel24.Multiline = true;
+            this.xrLabel24.Name = "xrLabel24";
+            this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel24.SizeF = new System.Drawing.SizeF(147.6878F, 16.04001F);
+            this.xrLabel24.StylePriority.UseFont = false;
+            this.xrLabel24.StylePriority.UseTextAlignment = false;
+            this.xrLabel24.Text = "xrLabel24";
+            this.xrLabel24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // xrLabel10
+            // 
+            this.xrLabel10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SP_Eti_EtiquetaUPC_Select].[calculatedField4]")});
+            this.xrLabel10.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(133.0072F, 197.1183F);
+            this.xrLabel10.Name = "xrLabel10";
+            this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(47.91667F, 23F);
+            this.xrLabel10.StylePriority.UseFont = false;
+            this.xrLabel10.Text = "xrLabel10";
             // 
             // xrLabel20
             // 
@@ -187,7 +218,7 @@
             // 
             // xrPictureBox3
             // 
-            this.xrPictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox3.Image")));
+            this.xrPictureBox3.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox3.ImageSource"));
             this.xrPictureBox3.LocationFloat = new DevExpress.Utils.PointFloat(331.0135F, 54.08347F);
             this.xrPictureBox3.Name = "xrPictureBox3";
             this.xrPictureBox3.SizeF = new System.Drawing.SizeF(52.04F, 55F);
@@ -209,11 +240,11 @@
             // 
             this.xrLabel19.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Parameters].[COC]")});
-            this.xrLabel19.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(201.999F, 201.5799F);
+            this.xrLabel19.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(201.9968F, 201.5799F);
             this.xrLabel19.Name = "xrLabel19";
             this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel19.SizeF = new System.Drawing.SizeF(147.6878F, 16F);
+            this.xrLabel19.SizeF = new System.Drawing.SizeF(147.69F, 14.2F);
             this.xrLabel19.StylePriority.UseFont = false;
             this.xrLabel19.Text = "xrLabel19";
             // 
@@ -253,7 +284,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right)));
             this.xrLabel18.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
             this.xrLabel18.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(319.6867F, 128.5001F);
+            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(319.6867F, 119.1216F);
             this.xrLabel18.Name = "xrLabel18";
             this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel18.SizeF = new System.Drawing.SizeF(71.31335F, 16.75F);
@@ -276,7 +307,7 @@
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SP_Eti_EtiquetaUPC_Select].[calculatedField2]")});
             this.xrLabel14.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.xrLabel14.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(319.6868F, 145.2501F);
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(319.6868F, 135.8716F);
             this.xrLabel14.Name = "xrLabel14";
             this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel14.SizeF = new System.Drawing.SizeF(71.31335F, 25.87505F);
@@ -341,7 +372,7 @@
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SP_Eti_EtiquetaUPC_Select].[Voice2]")});
             this.xrLabel8.Font = new System.Drawing.Font("Times New Roman", 18F);
             this.xrLabel8.ForeColor = System.Drawing.Color.White;
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(349.7001F, 171.1251F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(349.7001F, 161.7466F);
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel8.SizeF = new System.Drawing.SizeF(41.3F, 30F);
@@ -360,7 +391,7 @@
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SP_Eti_EtiquetaUPC_Select].[Voice1]")});
             this.xrLabel5.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold);
             this.xrLabel5.ForeColor = System.Drawing.Color.White;
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(319.6868F, 171.1251F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(319.6868F, 161.7466F);
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel5.SizeF = new System.Drawing.SizeF(30F, 30F);
@@ -404,7 +435,6 @@
             this.xrPictureBox2.Name = "xrPictureBox2";
             this.xrPictureBox2.SizeF = new System.Drawing.SizeF(90.84625F, 32.62503F);
             this.xrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
-            this.xrPictureBox2.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrPictureBox2_BeforePrint);
             // 
             // xrLabel1
             // 
@@ -484,7 +514,7 @@
             // 
             this.COC.Description = "Cadena de Custodia";
             this.COC.Name = "COC";
-            this.COC.ValueInfo = "COC: 4052852027427";
+            this.COC.ValueInfo = "CoC: 4052852027427";
             // 
             // calculatedField3
             // 
@@ -498,17 +528,11 @@
             this.calculatedField4.Expression = "\'9\'+[c_codigo_plu]";
             this.calculatedField4.Name = "calculatedField4";
             // 
-            // xrLabel10
+            // COCGest
             // 
-            this.xrLabel10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SP_Eti_EtiquetaUPC_Select].[calculatedField4]")});
-            this.xrLabel10.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(133.0072F, 197.1183F);
-            this.xrLabel10.Name = "xrLabel10";
-            this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(47.91667F, 23F);
-            this.xrLabel10.StylePriority.UseFont = false;
-            this.xrLabel10.Text = "xrLabel10";
+            this.COCGest.Description = "Cadena de Custodia";
+            this.COCGest.Name = "COCGest";
+            this.COCGest.ValueInfo = "CoC: 4063651273854";
             // 
             // rpt_Etiqueta_UPC_Anderson_Organic
             // 
@@ -531,12 +555,16 @@
             this.PageWidth = 414;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PaperName = "A6";
+            this.ParameterPanelLayoutItems.AddRange(new DevExpress.XtraReports.Parameters.ParameterPanelLayoutItem[] {
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.COC, DevExpress.XtraReports.Parameters.Orientation.Horizontal),
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.COCGest, DevExpress.XtraReports.Parameters.Orientation.Horizontal)});
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.COC});
+            this.COC,
+            this.COCGest});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.xrControlStyle1});
             this.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.Version = "17.2";
+            this.Version = "22.1";
             this.DesignerLoaded += new DevExpress.XtraReports.UserDesigner.DesignerLoadedEventHandler(this.rpt_Etiqueta_UPC_DesignerLoaded);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
@@ -577,5 +605,7 @@
         private DevExpress.XtraReports.UI.CalculatedField calculatedField3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel10;
         private DevExpress.XtraReports.UI.CalculatedField calculatedField4;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel24;
+        private DevExpress.XtraReports.Parameters.Parameter COCGest;
     }
 }

@@ -8,9 +8,17 @@ namespace Etiquetas_AGV
 {
     public partial class rpt_Etiqueta_UPC_Organic : DevExpress.XtraReports.UI.XtraReport
     {
-        public rpt_Etiqueta_UPC_Organic(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal, string c_codigo_dis, string c_codigo_sec, string voice1, string voice2)
+        public string c_codigo_tem { get; set; }
+        public string c_codigo_pal { get; set; }
+        public string c_codsec_pal { get; set; }
+        public string c_codigo_dis { get; set; }
+        public string c_codigo_sec { get; set; }
+        public string voice1 { get; set; }
+        public string voice2 { get; set; }
+        public string c_codigo_jul { get; set; }
+        public rpt_Etiqueta_UPC_Organic()
         {
-
+            c_codigo_jul = String.Empty;
             InitializeComponent();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
@@ -43,7 +51,7 @@ namespace Etiquetas_AGV
             queryParameter7.ValueInfo = voice2;
             queryParameter8.Name = "@c_codigo_jul";
             queryParameter8.Type = typeof(string);
-            queryParameter8.ValueInfo = c_Codigo_jul;
+            queryParameter8.ValueInfo = c_codigo_jul;
             sqlDataSource1.Queries[0].Parameters.Clear();
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter1);
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter2);
@@ -61,6 +69,5 @@ namespace Etiquetas_AGV
             xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128.bmp";
             xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPC.bmp";
         }
-        public string c_Codigo_jul { get; set; }
     }
 }
