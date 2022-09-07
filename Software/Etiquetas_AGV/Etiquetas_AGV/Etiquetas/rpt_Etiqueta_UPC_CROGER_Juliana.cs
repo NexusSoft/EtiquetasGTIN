@@ -20,6 +20,11 @@ namespace Etiquetas_AGV
         public rpt_Etiqueta_UPC_CROGER_Juliana()
         {
             InitializeComponent();
+            CargarParametros();
+        }
+
+        public void CargarParametros()
+        {
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter3 = new DevExpress.DataAccess.Sql.QueryParameter();
@@ -70,6 +75,7 @@ namespace Etiquetas_AGV
                 xrLabel19.Visible = false;
             }
         }
+
         private void rpt_Etiqueta_UPC_DesignerLoaded(object sender, DevExpress.XtraReports.UserDesigner.DesignerLoadedEventArgs e)
         {
             xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128.bmp";

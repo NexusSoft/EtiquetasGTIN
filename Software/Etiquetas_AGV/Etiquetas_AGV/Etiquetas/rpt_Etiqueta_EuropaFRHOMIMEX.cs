@@ -12,6 +12,11 @@ namespace Etiquetas_AGV
         public rpt_Etiqueta_EuropaFRHOMIMEX()
         {
             InitializeComponent();
+            CargarParametros();
+        }
+
+        public void CargarParametros()
+        {
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             queryParameter1.Name = "@c_codigo_imp";
             queryParameter1.Type = typeof(string);

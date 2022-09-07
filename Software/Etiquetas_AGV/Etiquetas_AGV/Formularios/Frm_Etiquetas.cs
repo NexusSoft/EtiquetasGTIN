@@ -701,6 +701,7 @@ namespace Etiquetas_AGV
             rpt.c_codigo_sec = vc_codigo_sec;
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             ReportPrintTool print = new ReportPrintTool(rpt);
@@ -734,7 +735,15 @@ namespace Etiquetas_AGV
         }
         private int Etiqueta_Argentina_2_3(int t, string vPalet, string vCProducto)
         {
-            rpt_Etiqueta_Argentina_2_3TSC rpt = new rpt_Etiqueta_Argentina_2_3TSC(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
+            rpt_Etiqueta_Argentina_2_3TSC rpt = new rpt_Etiqueta_Argentina_2_3TSC();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             //rpt.Parameters["COC"].Value = vCOC;
@@ -869,6 +878,7 @@ namespace Etiquetas_AGV
             //GeneraCodeBarMARMA(vTemporada, vPalet, v_c_codsec_pal);
             //GeneraCodeBarUPC(vCProducto);
             //printTool.Print("myPrinter");
+            rpt.CargarParametros();
             if (rdgTipoImpresion.SelectedIndex == 1)
             {
                 rpt.ShowPreviewDialog();
@@ -899,6 +909,7 @@ namespace Etiquetas_AGV
             rpt.c_codigo_sec = vc_codigo_sec;
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
@@ -931,7 +942,15 @@ namespace Etiquetas_AGV
         }
         private int Etiqueta_Family(int t, string vPalet, string vCProducto)
         {
-            rpt_Etiqueta_FamilyTree rpt = new rpt_Etiqueta_FamilyTree(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
+            rpt_Etiqueta_FamilyTree rpt = new rpt_Etiqueta_FamilyTree();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
@@ -964,13 +983,22 @@ namespace Etiquetas_AGV
         }
         private int Etiqueta_Westfalia(int t, string vPalet, string vCProducto)
         {
-            rpt_Etiqueta_WestFalia rpt = new rpt_Etiqueta_WestFalia(vTemporada, vPalet, v_c_codsec_pal, vDistribuidor, vc_codigo_sec, vVoice1, vVoice2);
+            rpt_Etiqueta_WestFalia rpt = new rpt_Etiqueta_WestFalia();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
             rpt.Parameters["COCGest"].Value = vCOCGest;
             rpt.Parameters["COCGest"].Visible = false;
+            
             //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
             GeneraCodeBarMARMA(vTemporada, vPalet, v_c_codsec_pal);
             GeneraCodeBarUPC(vCProducto);
@@ -1036,6 +1064,7 @@ namespace Etiquetas_AGV
             rpt.c_codigo_sec = vc_codigo_sec;
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
@@ -1075,6 +1104,7 @@ namespace Etiquetas_AGV
             rpt.c_codigo_sec = vc_codigo_sec;
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
@@ -1114,6 +1144,7 @@ namespace Etiquetas_AGV
             rpt.c_codigo_sec = vc_codigo_sec;
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
@@ -1153,6 +1184,7 @@ namespace Etiquetas_AGV
             rpt.c_codigo_sec = vc_codigo_sec;
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
@@ -1192,6 +1224,7 @@ namespace Etiquetas_AGV
             rpt.c_codigo_sec = vc_codigo_sec;
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
@@ -1232,6 +1265,7 @@ namespace Etiquetas_AGV
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
@@ -1272,6 +1306,7 @@ namespace Etiquetas_AGV
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             ReportPrintTool print = new ReportPrintTool(rpt);
@@ -1549,6 +1584,7 @@ namespace Etiquetas_AGV
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
             rpt.plu = plu;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             ReportPrintTool print = new ReportPrintTool(rpt);
@@ -1594,6 +1630,7 @@ namespace Etiquetas_AGV
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
             rpt.plu = plu;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             ReportPrintTool print = new ReportPrintTool(rpt);
@@ -1604,6 +1641,7 @@ namespace Etiquetas_AGV
             GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
             //GeneraCodeBarSAMS(vTemporada, vPalet, v_c_codsec_pal);
             GeneraCodeBarUPCA(vcproducto);
+            rpt.CargarParametros();
             //printTool.Print("myPrinter");
             if (rdgTipoImpresion.SelectedIndex == 1)
             {
@@ -1639,6 +1677,7 @@ namespace Etiquetas_AGV
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
             rpt.plu = plu;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             ReportPrintTool print = new ReportPrintTool(rpt);
@@ -1682,6 +1721,7 @@ namespace Etiquetas_AGV
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
             rpt.plu = plu;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             ReportPrintTool print = new ReportPrintTool(rpt);
@@ -1725,6 +1765,7 @@ namespace Etiquetas_AGV
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
             rpt.plu = plu;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             ReportPrintTool print = new ReportPrintTool(rpt);
@@ -1768,6 +1809,7 @@ namespace Etiquetas_AGV
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
             rpt.plu = plu;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             ReportPrintTool print = new ReportPrintTool(rpt);
@@ -1813,6 +1855,7 @@ namespace Etiquetas_AGV
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
             rpt.plu = plu;
+            rpt.CargarParametros();
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             rpt.Parameters["COC"].Value = vCOC;
@@ -1854,6 +1897,7 @@ namespace Etiquetas_AGV
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
@@ -1898,6 +1942,7 @@ namespace Etiquetas_AGV
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
@@ -1943,6 +1988,7 @@ namespace Etiquetas_AGV
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
@@ -1984,6 +2030,7 @@ namespace Etiquetas_AGV
             rpt.c_codigo_sec = vc_codigo_sec;
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
@@ -2026,6 +2073,7 @@ namespace Etiquetas_AGV
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
@@ -2067,6 +2115,7 @@ namespace Etiquetas_AGV
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
@@ -2108,6 +2157,7 @@ namespace Etiquetas_AGV
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;
@@ -2149,6 +2199,7 @@ namespace Etiquetas_AGV
             rpt.voice1 = vVoice1;
             rpt.voice2 = vVoice2;
             rpt.c_codigo_jul = c_codigo_jul;
+            rpt.CargarParametros();
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
             rpt.Parameters["COC"].Value = vCOC;

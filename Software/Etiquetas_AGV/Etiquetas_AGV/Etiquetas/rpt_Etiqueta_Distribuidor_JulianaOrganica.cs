@@ -19,6 +19,11 @@ namespace Etiquetas_AGV
         public rpt_Etiqueta_Distribuidor_JulianaOrganica()
         {
             InitializeComponent();
+            CargarParametros();
+        }
+
+        public void CargarParametros()
+        {
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter3 = new DevExpress.DataAccess.Sql.QueryParameter();
@@ -61,6 +66,5 @@ namespace Etiquetas_AGV
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter7);
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter8);
         }
-
     }
 }

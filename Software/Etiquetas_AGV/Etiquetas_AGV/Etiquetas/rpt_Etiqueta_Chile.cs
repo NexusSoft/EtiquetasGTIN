@@ -12,6 +12,11 @@ namespace Etiquetas_AGV
              string c_codigo_tem, string c_codigo_pal)
         {
             InitializeComponent();
+            CargarParametros(c_codigo_tem, c_codigo_pal);
+        }
+
+        public void CargarParametros(string c_codigo_tem, string c_codigo_pal)
+        {
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
             queryParameter1.Name = "@c_codigo_tem";
@@ -24,6 +29,5 @@ namespace Etiquetas_AGV
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter1);
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter2);
         }
-
     }
 }
