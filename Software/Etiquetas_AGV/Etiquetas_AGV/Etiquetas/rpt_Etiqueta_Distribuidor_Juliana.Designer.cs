@@ -39,6 +39,7 @@ namespace Etiquetas_AGV
             DevExpress.DataAccess.Sql.QueryParameter queryParameter5 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter6 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter7 = new DevExpress.DataAccess.Sql.QueryParameter();
+            DevExpress.DataAccess.Sql.QueryParameter queryParameter8 = new DevExpress.DataAccess.Sql.QueryParameter();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rpt_Etiqueta_Distribuidor_Juliana));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
@@ -112,6 +113,8 @@ namespace Etiquetas_AGV
             queryParameter6.Type = typeof(string);
             queryParameter7.Name = "@voice2";
             queryParameter7.Type = typeof(string);
+            queryParameter8.Name = "@c_codigo_jul";
+            queryParameter8.Type = typeof(string);
             storedProcQuery1.Parameters.AddRange(new DevExpress.DataAccess.Sql.QueryParameter[] {
             queryParameter1,
             queryParameter2,
@@ -119,7 +122,8 @@ namespace Etiquetas_AGV
             queryParameter4,
             queryParameter5,
             queryParameter6,
-            queryParameter7});
+            queryParameter7,
+            queryParameter8});
             storedProcQuery1.StoredProcName = "SP_Eti_EtiquetaHEB_Select";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
             storedProcQuery1});

@@ -39,6 +39,7 @@ namespace Etiquetas_AGV
             DevExpress.DataAccess.Sql.QueryParameter queryParameter5 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter6 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter7 = new DevExpress.DataAccess.Sql.QueryParameter();
+            DevExpress.DataAccess.Sql.QueryParameter queryParameter8 = new DevExpress.DataAccess.Sql.QueryParameter();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rpt_Etiqueta_Distribuidor_Aqua));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
@@ -101,29 +102,31 @@ namespace Etiquetas_AGV
             // 
             this.sqlDataSource1.ConnectionName = "Etiquetas_AGV_Connection2";
             this.sqlDataSource1.Name = "sqlDataSource1";
-            storedProcQuery1.MetaSerializable = "<Meta X=\"20\" Y=\"20\" Width=\"100\" Height=\"615\" />";
             storedProcQuery1.Name = "SP_Eti_EtiquetaHEB_Select";
             queryParameter1.Name = "@c_codigo_tem";
             queryParameter1.Type = typeof(string);
-            queryParameter1.ValueInfo = "09";
+            queryParameter1.ValueInfo = "3B";
             queryParameter2.Name = "@c_codigo_pal";
             queryParameter2.Type = typeof(string);
-            queryParameter2.ValueInfo = "035853";
+            queryParameter2.ValueInfo = "002335";
             queryParameter3.Name = "@c_codsec_pal";
             queryParameter3.Type = typeof(string);
             queryParameter3.ValueInfo = "01";
             queryParameter4.Name = "@c_codigo_dis";
             queryParameter4.Type = typeof(string);
-            queryParameter4.ValueInfo = "000240";
+            queryParameter4.ValueInfo = "000031";
             queryParameter5.Name = "@c_codigo_sec";
             queryParameter5.Type = typeof(string);
             queryParameter5.ValueInfo = "001";
             queryParameter6.Name = "@voice1";
             queryParameter6.Type = typeof(string);
-            queryParameter6.ValueInfo = "20";
+            queryParameter6.ValueInfo = "84";
             queryParameter7.Name = "@voice2";
             queryParameter7.Type = typeof(string);
-            queryParameter7.ValueInfo = "66";
+            queryParameter7.ValueInfo = "13";
+            queryParameter8.Name = "@c_codigo_jul";
+            queryParameter8.Type = typeof(string);
+            queryParameter8.ValueInfo = "1";
             storedProcQuery1.Parameters.AddRange(new DevExpress.DataAccess.Sql.QueryParameter[] {
             queryParameter1,
             queryParameter2,
@@ -131,7 +134,8 @@ namespace Etiquetas_AGV
             queryParameter4,
             queryParameter5,
             queryParameter6,
-            queryParameter7});
+            queryParameter7,
+            queryParameter8});
             storedProcQuery1.StoredProcName = "SP_Eti_EtiquetaHEB_Select";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
             storedProcQuery1});

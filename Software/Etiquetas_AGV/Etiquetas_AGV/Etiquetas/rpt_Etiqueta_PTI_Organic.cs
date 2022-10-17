@@ -15,6 +15,7 @@ namespace Etiquetas_AGV
         public string c_codigo_sec { get; set; }
         public string voice1 { get; set; }
         public string voice2 { get; set; }
+        public string c_codigo_jul { get; set; }
         public rpt_Etiqueta_PTI_Organic()
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace Etiquetas_AGV
             DevExpress.DataAccess.Sql.QueryParameter queryParameter5 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter6 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter7 = new DevExpress.DataAccess.Sql.QueryParameter();
+            DevExpress.DataAccess.Sql.QueryParameter queryParameter8 = new DevExpress.DataAccess.Sql.QueryParameter();
             queryParameter1.Name = "@c_codigo_tem";
             queryParameter1.Type = typeof(string);
             queryParameter1.ValueInfo = c_codigo_tem;
@@ -52,6 +54,9 @@ namespace Etiquetas_AGV
             queryParameter7.Name = "@voice2";
             queryParameter7.Type = typeof(string);
             queryParameter7.ValueInfo = voice2;
+            queryParameter8.Name = "@c_codigo_jul";
+            queryParameter8.Type = typeof(string);
+            queryParameter8.ValueInfo = c_codigo_jul;
             sqlDataSource1.Queries[0].Parameters.Clear();
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter1);
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter2);
@@ -60,6 +65,7 @@ namespace Etiquetas_AGV
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter5);
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter6);
             sqlDataSource1.Queries[0].Parameters.Add(queryParameter7);
+            sqlDataSource1.Queries[0].Parameters.Add(queryParameter8);
             xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128.bmp";
             // xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPC.bmp";
         }

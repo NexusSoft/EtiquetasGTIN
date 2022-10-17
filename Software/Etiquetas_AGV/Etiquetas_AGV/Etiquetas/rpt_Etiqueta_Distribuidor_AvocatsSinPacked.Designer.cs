@@ -39,6 +39,7 @@ namespace Etiquetas_AGV
             DevExpress.DataAccess.Sql.QueryParameter queryParameter5 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter6 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter7 = new DevExpress.DataAccess.Sql.QueryParameter();
+            DevExpress.DataAccess.Sql.QueryParameter queryParameter8 = new DevExpress.DataAccess.Sql.QueryParameter();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rpt_Etiqueta_Distribuidor_AvocatsSinPacked));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
@@ -60,6 +61,7 @@ namespace Etiquetas_AGV
             this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
@@ -68,7 +70,6 @@ namespace Etiquetas_AGV
             this.COC = new DevExpress.XtraReports.Parameters.Parameter();
             this.calculatedField3 = new DevExpress.XtraReports.UI.CalculatedField();
             this.calculatedField4 = new DevExpress.XtraReports.UI.CalculatedField();
-            this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
             this.COCGest = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -99,29 +100,31 @@ namespace Etiquetas_AGV
             // 
             this.sqlDataSource1.ConnectionName = "Etiquetas_AGV_Connection2";
             this.sqlDataSource1.Name = "sqlDataSource1";
-            storedProcQuery1.MetaSerializable = "<Meta X=\"20\" Y=\"20\" Width=\"100\" Height=\"615\" />";
             storedProcQuery1.Name = "SP_Eti_EtiquetaHEB_Select";
             queryParameter1.Name = "@c_codigo_tem";
             queryParameter1.Type = typeof(string);
-            queryParameter1.ValueInfo = "09";
+            queryParameter1.ValueInfo = "3B";
             queryParameter2.Name = "@c_codigo_pal";
             queryParameter2.Type = typeof(string);
-            queryParameter2.ValueInfo = "035853";
+            queryParameter2.ValueInfo = "001531";
             queryParameter3.Name = "@c_codsec_pal";
             queryParameter3.Type = typeof(string);
             queryParameter3.ValueInfo = "01";
             queryParameter4.Name = "@c_codigo_dis";
             queryParameter4.Type = typeof(string);
-            queryParameter4.ValueInfo = "000240";
+            queryParameter4.ValueInfo = "000033";
             queryParameter5.Name = "@c_codigo_sec";
             queryParameter5.Type = typeof(string);
             queryParameter5.ValueInfo = "001";
             queryParameter6.Name = "@voice1";
             queryParameter6.Type = typeof(string);
-            queryParameter6.ValueInfo = "20";
+            queryParameter6.ValueInfo = "05";
             queryParameter7.Name = "@voice2";
             queryParameter7.Type = typeof(string);
-            queryParameter7.ValueInfo = "66";
+            queryParameter7.ValueInfo = "74";
+            queryParameter8.Name = "@c_codigo_jul";
+            queryParameter8.Type = typeof(string);
+            queryParameter8.ValueInfo = "\'\'";
             storedProcQuery1.Parameters.AddRange(new DevExpress.DataAccess.Sql.QueryParameter[] {
             queryParameter1,
             queryParameter2,
@@ -129,7 +132,8 @@ namespace Etiquetas_AGV
             queryParameter4,
             queryParameter5,
             queryParameter6,
-            queryParameter7});
+            queryParameter7,
+            queryParameter8});
             storedProcQuery1.StoredProcName = "SP_Eti_EtiquetaHEB_Select";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
             storedProcQuery1});
@@ -163,10 +167,10 @@ namespace Etiquetas_AGV
             // xrLabel2
             // 
             this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(11.03961F, 152.1667F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(9.999974F, 152.1667F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(88.54167F, 16.74998F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(89.5813F, 16.74998F);
             this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.StylePriority.UseTextAlignment = false;
             this.xrLabel2.Text = "Distributed by:";
@@ -266,10 +270,10 @@ namespace Etiquetas_AGV
             // xrLabel16
             // 
             this.xrLabel16.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(12.49338F, 67.70846F);
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 67.70846F);
             this.xrLabel16.Name = "xrLabel16";
             this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel16.SizeF = new System.Drawing.SizeF(31.87828F, 14.54168F);
+            this.xrLabel16.SizeF = new System.Drawing.SizeF(34.37163F, 14.54168F);
             this.xrLabel16.StylePriority.UseFont = false;
             this.xrLabel16.StylePriority.UseTextAlignment = false;
             this.xrLabel16.Text = "Lot:";
@@ -350,13 +354,28 @@ namespace Etiquetas_AGV
             this.ReportHeader.KeepTogether = true;
             this.ReportHeader.Name = "ReportHeader";
             // 
+            // xrLabel24
+            // 
+            this.xrLabel24.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Parameters].[COCGest]")});
+            this.xrLabel24.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
+            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(9.999974F, 191.3783F);
+            this.xrLabel24.Multiline = true;
+            this.xrLabel24.Name = "xrLabel24";
+            this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel24.SizeF = new System.Drawing.SizeF(195.21F, 18F);
+            this.xrLabel24.StylePriority.UseFont = false;
+            this.xrLabel24.StylePriority.UseTextAlignment = false;
+            this.xrLabel24.Text = "xrLabel24";
+            this.xrLabel24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
             // xrLabel11
             // 
             this.xrLabel11.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(12.49669F, 134.0002F);
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(9.999974F, 134.0002F);
             this.xrLabel11.Name = "xrLabel11";
             this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(298.5034F, 14.99999F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(301.0001F, 14.99998F);
             this.xrLabel11.StylePriority.UseFont = false;
             this.xrLabel11.StylePriority.UseTextAlignment = false;
             this.xrLabel11.Text = "AVOCATS - PRODUIT DU MEXIQUE";
@@ -417,21 +436,6 @@ namespace Etiquetas_AGV
             this.calculatedField4.DataMember = "SP_Eti_EtiquetaHEB_Select";
             this.calculatedField4.Expression = "\'(01)\'+[gtin]+\'(10)\'+[c_codigo_sel]+\'(13)220412\'\n";
             this.calculatedField4.Name = "calculatedField4";
-            // 
-            // xrLabel24
-            // 
-            this.xrLabel24.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Parameters].[COCGest]")});
-            this.xrLabel24.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(9.999974F, 191.3783F);
-            this.xrLabel24.Multiline = true;
-            this.xrLabel24.Name = "xrLabel24";
-            this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel24.SizeF = new System.Drawing.SizeF(195.21F, 18F);
-            this.xrLabel24.StylePriority.UseFont = false;
-            this.xrLabel24.StylePriority.UseTextAlignment = false;
-            this.xrLabel24.Text = "xrLabel24";
-            this.xrLabel24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // COCGest
             // 
