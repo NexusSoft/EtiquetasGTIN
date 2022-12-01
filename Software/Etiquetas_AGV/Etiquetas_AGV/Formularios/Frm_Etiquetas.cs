@@ -231,6 +231,8 @@ namespace Etiquetas_AGV
             cmb_Importador.Visible = false;
             cmb_Importador.Enabled = false;
             labelControl6.Visible = false;
+            labelControl7.Visible = false;
+            txtMateriaSeca.Visible = false;
         }
         private void CargarCalibres(string Valor)
         {
@@ -657,6 +659,12 @@ namespace Etiquetas_AGV
                                                             break;
                                                         case "40":
                                                             t = Etiqueta_Europa_Maquila_Estiba(t, vPalet, vCProducto, false);
+                                                            break;
+                                                        case "41":
+                                                            t = Etiqueta_Maquila_USDA(t);
+                                                            break;
+                                                        case "42":
+                                                            t = Etiqueta_USDA_Maquila_Estiba(t, vPalet, vCProducto, false);
                                                             break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
@@ -1396,7 +1404,34 @@ namespace Etiquetas_AGV
 
             return t;
         }
+        private int Etiqueta_Maquila_USDA(int t)
+        {
+            rpt_Etiqueta_Maquila_USDA rpt = new rpt_Etiqueta_Maquila_USDA();
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
 
+            return t;
+        }
         private int Etiqueta_Europa_GEST_Estiba(int t, string vPalet, string vcproducto, Boolean plu)
         {
             string val_juliano = TresCero(FechaJuliana(DateTime.Now));
@@ -1441,6 +1476,52 @@ namespace Etiquetas_AGV
 
             return t;
         }
+        private int Etiqueta_USDA_Maquila_Estiba(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_Maquila_USDA_Org rpt = new rpt_Etiqueta_Maquila_USDA_Org();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = string.Empty;
+            rpt.Parameters["COCGest"].Visible = false;
+            rpt.Parameters["DryMatter"].Value = txtMateriaSeca.EditValue.ToString() + " %";
+            rpt.Parameters["DryMatter"].Visible = false;
+            GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
         private int Etiqueta_Europa_Maquila_Estiba(int t, string vPalet, string vcproducto, Boolean plu)
         {
             string val_juliano = TresCero(FechaJuliana(DateTime.Now));
@@ -1463,6 +1544,8 @@ namespace Etiquetas_AGV
             rpt.Parameters["COC"].Visible = false;
             rpt.Parameters["COCGest"].Value = string.Empty;
             rpt.Parameters["COCGest"].Visible = false;
+            rpt.Parameters["DryMatter"].Value = txtMateriaSeca.EditValue.ToString()+" %";
+            rpt.Parameters["DryMatter"].Visible = false;
             GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
 
             if (rdgTipoImpresion.SelectedIndex == 1)
@@ -2629,6 +2712,16 @@ namespace Etiquetas_AGV
         private void cmb_tipoetiqueta_EditValueChanged(object sender, EventArgs e)
         {
             CargarImportador("001");
+            if(cmb_tipoetiqueta.EditValue.ToString()=="40")
+            {
+                labelControl7.Visible = true;
+                txtMateriaSeca.Visible = true;
+            }
+            else
+            {
+                labelControl7.Visible = false;
+                txtMateriaSeca.Visible = false;
+            }
         }
     }
 }

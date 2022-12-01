@@ -141,6 +141,18 @@
     <Compile Include="Conexxion\Frm_InstanciaSQL.designer.cs">
       <DependentUpon>Frm_InstanciaSQL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\Agricert\GEST\rpt_Etiqueta_Maquila_USDA_Org.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\Agricert\GEST\rpt_Etiqueta_Maquila_USDA_Org.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_Maquila_USDA_Org.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\Agricert\GEST\rpt_Etiqueta_Maquila_USDA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\Agricert\GEST\rpt_Etiqueta_Maquila_USDA.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_Maquila_USDA.cs</DependentUpon>
+    </Compile>
     <Compile Include="Etiquetas\Agricert\GEST\rpt_Etiqueta_GEST_Canada.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -439,6 +451,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Conexxion\Frm_InstanciaSQL.resx">
       <DependentUpon>Frm_InstanciaSQL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\Agricert\GEST\rpt_Etiqueta_Maquila_USDA_Org.resx">
+      <DependentUpon>rpt_Etiqueta_Maquila_USDA_Org.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\Agricert\GEST\rpt_Etiqueta_Maquila_USDA.resx">
+      <DependentUpon>rpt_Etiqueta_Maquila_USDA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\Agricert\GEST\rpt_Etiqueta_GEST_Canada.resx">
       <DependentUpon>rpt_Etiqueta_GEST_Canada.cs</DependentUpon>

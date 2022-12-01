@@ -44,6 +44,8 @@
             this.cmb_calibre = new DevExpress.XtraEditors.LookUpEdit();
             this.txtEstiba = new DevExpress.XtraEditors.TextEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.txtMateriaSeca = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.cmb_Importador = new DevExpress.XtraEditors.LookUpEdit();
             this.btn_FechaPalet = new DevExpress.XtraEditors.SimpleButton();
@@ -79,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEstiba.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMateriaSeca.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Importador.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgTipoImpresion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_distribuidor.Properties)).BeginInit();
@@ -222,6 +225,8 @@
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.txtMateriaSeca);
+            this.panelControl3.Controls.Add(this.labelControl7);
             this.panelControl3.Controls.Add(this.labelControl6);
             this.panelControl3.Controls.Add(this.cmb_Importador);
             this.panelControl3.Controls.Add(this.btn_FechaPalet);
@@ -238,6 +243,33 @@
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(1169, 129);
             this.panelControl3.TabIndex = 2;
+            // 
+            // txtMateriaSeca
+            // 
+            this.txtMateriaSeca.EditValue = new decimal(new int[] {
+            21,
+            0,
+            0,
+            0});
+            this.txtMateriaSeca.Location = new System.Drawing.Point(124, 79);
+            this.txtMateriaSeca.Name = "txtMateriaSeca";
+            this.txtMateriaSeca.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtMateriaSeca.Properties.MaxValue = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.txtMateriaSeca.Size = new System.Drawing.Size(49, 20);
+            this.txtMateriaSeca.TabIndex = 20;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(28, 83);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(80, 13);
+            this.labelControl7.TabIndex = 18;
+            this.labelControl7.Text = "% Materia Seca:";
             // 
             // labelControl6
             // 
@@ -538,6 +570,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMateriaSeca.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Importador.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgTipoImpresion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_distribuidor.Properties)).EndInit();
@@ -592,6 +625,8 @@
         private DevExpress.XtraEditors.SimpleButton btn_FechaPalet;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LookUpEdit cmb_Importador;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.SpinEdit txtMateriaSeca;
     }
 }
 
