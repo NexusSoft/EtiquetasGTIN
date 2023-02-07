@@ -83,7 +83,7 @@ namespace Etiquetas_AGV
             xrPictureBox1.ImageUrl = "C:\\Etiquetas\\CodeBar128Juliana.bmp";
             xrPictureBox2.ImageUrl = "C:\\Etiquetas\\CodeBarUPCA1.bmp";
         }
-        private void xrPictureBox2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void xrPictureBox2_BeforePrint(object sender, CancelEventArgs e)
         {
 
         }

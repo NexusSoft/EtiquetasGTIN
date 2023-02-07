@@ -86,12 +86,12 @@ namespace Etiquetas_AGV
            // this.Parameters["COC"].Value = COC;
         }
 
-        private void xrLabel16_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void xrLabel16_BeforePrint(object sender, CancelEventArgs e)
         {
 
         }
 
-        private void xrLabel10_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void xrLabel10_BeforePrint(object sender, CancelEventArgs e)
         {
 
         }
