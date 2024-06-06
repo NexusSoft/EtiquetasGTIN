@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using CapaDeDatos;
+using esp_VPCode;
+
 
 namespace Etiquetas_AGV
 {
@@ -45,6 +47,7 @@ namespace Etiquetas_AGV
                             vIdUsuario = sLogin.Datos.Rows[0]["c_codigo_usu"].ToString();
                             vIdActivo = Convert.ToInt32(sLogin.Datos.Rows[0]["c_activo_usu"].ToString());
                             Frm_Etiquetas frmP = new Frm_Etiquetas();
+                            //Frm_Rendimiento frmP = new Frm_Rendimiento();
                             MSRegistro RegIn = new MSRegistro();
                             
                             if (vIdActivo == 1)
@@ -101,6 +104,12 @@ namespace Etiquetas_AGV
         {
             txtUser.Focus();
             MSRegistro RegOut = new MSRegistro();
+            DateTime Fecha = DateTime.Now;
+            string GTIN = "00761010271377";
+            string Lote = "A003148";
+            string Cadena = cls_VoiceCode.fn_CalculaVPC(GTIN, Lote, Fecha);
+            Cadena=string.Empty;
+            Cadena=Calculadora.Voice_Pick_Code.Compute(GTIN,Lote,Fecha);
             //SkinForm.LookAndFeel.SetSkinStyle(RegOut.GetSetting("ConexionSQL", "Sking"));
         }
     }

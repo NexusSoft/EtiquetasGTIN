@@ -242,7 +242,7 @@ namespace Etiquetas_AGV
             this.Margins = new DevExpress.Drawing.DXMargins(0, 5, 1, 0);
             this.PageHeight = 200;
             this.PageWidth = 309;
-            this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
+            this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Custom;
             this.PaperName = "A6";
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.xrControlStyle1});

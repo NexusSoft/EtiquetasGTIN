@@ -60,36 +60,36 @@
     <Reference Include="CapaDeDatos">
       <HintPath>..\CapaDeDatos\bin\Debug\CapaDeDatos.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.BonusSkins.v22.1" />
-    <Reference Include="DevExpress.Charts.v22.1.Core, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.CodeParser.v22.1, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Drawing.v22.1" />
-    <Reference Include="DevExpress.Data.v22.1" />
-    <Reference Include="DevExpress.DataAccess.v22.1, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Dialogs.v22.1.Core, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Office.v22.1.Core, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Pdf.v22.1.Core, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.PivotGrid.v22.1.Core, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.RichEdit.v22.1.Core, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Data.Desktop.v22.1" />
-    <Reference Include="DevExpress.Utils.v22.1" />
-    <Reference Include="DevExpress.Sparkline.v22.1.Core" />
-    <Reference Include="DevExpress.Utils.v22.1.UI, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Xpo.v22.1, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v22.1, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.BonusSkins.v23.1" />
+    <Reference Include="DevExpress.Charts.v23.1.Core, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v23.1, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Drawing.v23.1" />
+    <Reference Include="DevExpress.Data.v23.1" />
+    <Reference Include="DevExpress.DataAccess.v23.1, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dialogs.v23.1.Core, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v23.1.Core, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v23.1.Core, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v23.1.Core, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v23.1.Core, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.Desktop.v23.1" />
+    <Reference Include="DevExpress.Utils.v23.1" />
+    <Reference Include="DevExpress.Sparkline.v23.1.Core" />
+    <Reference Include="DevExpress.Utils.v23.1.UI, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v23.1, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v23.1, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v22.1, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraDialogs.v22.1, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v22.1" />
-    <Reference Include="DevExpress.Printing.v22.1.Core" />
-    <Reference Include="DevExpress.XtraGauges.v22.1.Core, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v22.1, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v22.1, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPrinting.v22.1, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraReports.v22.1, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraReports.v22.1.Extensions, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraTreeList.v22.1, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v23.1, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraDialogs.v23.1, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v23.1" />
+    <Reference Include="DevExpress.Printing.v23.1.Core" />
+    <Reference Include="DevExpress.XtraGauges.v23.1.Core, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v23.1, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v23.1, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v23.1, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v23.1, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v23.1.Extensions, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v23.1, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="itextsharp, Version=5.5.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\itextsharp.dll</HintPath>
@@ -213,6 +213,24 @@
     <Compile Include="Etiquetas\Agricert\INDEX\rpt_Etiqueta_Index_Japon.Designer.cs">
       <DependentUpon>rpt_Etiqueta_Index_Japon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\BioCompost\rpt_Etiqueta_Precios.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\BioCompost\rpt_Etiqueta_Precios.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_Precios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\BioCompost\rpt_Etiqueta_BioCompost_Prec.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\BioCompost\rpt_Etiqueta_BioCompost_Prec.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_BioCompost_Prec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\BioCompost\rpt_Etiqueta_BioCompost_Desc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\BioCompost\rpt_Etiqueta_BioCompost_Desc.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_BioCompost_Desc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Etiquetas\Frm_EtiTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +279,12 @@
     <Compile Include="Etiquetas\rpt_Etiqueta_Distribuidor_AvocatsCanada.Designer.cs">
       <DependentUpon>rpt_Etiqueta_Distribuidor_AvocatsCanada.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Distribuidor_Juliana_Esp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Distribuidor_Juliana_Esp.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_Distribuidor_Juliana_Esp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_Distribuidor_JulianaOrganica.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -278,6 +302,12 @@
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_EuropaFRHOMIMEX.Designer.cs">
       <DependentUpon>rpt_Etiqueta_EuropaFRHOMIMEX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\BioCompost\rpt_Etiqueta_BioCompost.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\BioCompost\rpt_Etiqueta_BioCompost.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_BioCompost.cs</DependentUpon>
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_SinDistribuidor_Juliana2.cs">
       <SubType>Component</SubType>
@@ -506,6 +536,15 @@
     <EmbeddedResource Include="Etiquetas\Agricert\INDEX\rpt_Etiqueta_Index_Japon.resx">
       <DependentUpon>rpt_Etiqueta_Index_Japon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\BioCompost\rpt_Etiqueta_Precios.resx">
+      <DependentUpon>rpt_Etiqueta_Precios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\BioCompost\rpt_Etiqueta_BioCompost_Prec.resx">
+      <DependentUpon>rpt_Etiqueta_BioCompost_Prec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\BioCompost\rpt_Etiqueta_BioCompost_Desc.resx">
+      <DependentUpon>rpt_Etiqueta_BioCompost_Desc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\Frm_EtiTest.resx">
       <DependentUpon>Frm_EtiTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -530,6 +569,9 @@
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Distribuidor_AvocatsCanada.resx">
       <DependentUpon>rpt_Etiqueta_Distribuidor_AvocatsCanada.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Distribuidor_Juliana_Esp.resx">
+      <DependentUpon>rpt_Etiqueta_Distribuidor_Juliana_Esp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Distribuidor_JulianaOrganica.resx">
       <DependentUpon>rpt_Etiqueta_Distribuidor_JulianaOrganica.cs</DependentUpon>
     </EmbeddedResource>
@@ -538,6 +580,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_EuropaFRHOMIMEX.resx">
       <DependentUpon>rpt_Etiqueta_EuropaFRHOMIMEX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\BioCompost\rpt_Etiqueta_BioCompost.resx">
+      <DependentUpon>rpt_Etiqueta_BioCompost.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_SinDistribuidor_Juliana2.resx">
       <DependentUpon>rpt_Etiqueta_SinDistribuidor_Juliana2.cs</DependentUpon>
@@ -639,6 +684,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -665,6 +711,14 @@
   <ItemGroup>
     <Content Include="Barcode.ico" />
     <Content Include="Barcode2.ico" />
+    <None Include="Resources\NT 01.png" />
+    <None Include="Resources\NT 02.png" />
+    <None Include="Resources\Tabla4.png" />
+    <None Include="Resources\Tabla3.png" />
+    <None Include="Resources\Tabla2.png" />
+    <None Include="Resources\Tabla1.png" />
+    <None Include="Resources\Lombriz BN 1.png" />
+    <None Include="Resources\pngegg.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

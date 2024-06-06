@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 
 namespace Etiquetas_AGV
 {
-    class Crypto
+    public class Crypto
     {
         private string key;
         //constructor

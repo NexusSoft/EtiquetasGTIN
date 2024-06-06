@@ -73,7 +73,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.XtraEditors.v22.2, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraEditors.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System" />
@@ -86,9 +86,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLS_Incidencias.cs" />
+    <Compile Include="CLS_Reportes.cs" />
     <Compile Include="CLS_Acopio.cs" />
     <Compile Include="CLS_Calibres.cs" />
     <Compile Include="CLS_Categorias.cs" />
+    <Compile Include="CLS_Puesto.cs" />
+    <Compile Include="CLS_Empleados.cs" />
     <Compile Include="CLS_Correos.cs" />
     <Compile Include="CLS_Criterios.cs" />
     <Compile Include="CLS_Distribuidor.cs" />
@@ -102,7 +106,7 @@
     <Compile Include="CLS_Pais.cs" />
     <Compile Include="CLS_PedidosMedicion.cs" />
     <Compile Include="CLS_Precios_Fechas.cs" />
-    <Compile Include="CLS_Empleado.cs" />
+    <Compile Include="CLS_Empacadores.cs" />
     <Compile Include="CLS_Precio_Banda.cs" />
     <Compile Include="CLS_Temporada.cs" />
     <Compile Include="CLS_Tratamiento.cs" />

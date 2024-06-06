@@ -973,7 +973,7 @@
             this.Margins = new DevExpress.Drawing.DXMargins(5, 6, 6, 6);
             this.PageHeight = 250;
             this.PageWidth = 405;
-            this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
+            this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Custom;
             this.PaperName = "A6";
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.xrControlStyle1});

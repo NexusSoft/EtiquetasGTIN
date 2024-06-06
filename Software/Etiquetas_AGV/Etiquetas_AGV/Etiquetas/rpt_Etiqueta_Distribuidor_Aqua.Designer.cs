@@ -486,7 +486,7 @@ namespace Etiquetas_AGV
             this.Margins = new DevExpress.Drawing.DXMargins(6, 7, 2, 1);
             this.PageHeight = 250;
             this.PageWidth = 413;
-            this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
+            this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Custom;
             this.PaperName = "A6";
             this.ParameterPanelLayoutItems.AddRange(new DevExpress.XtraReports.Parameters.ParameterPanelLayoutItem[] {
             new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.COC, DevExpress.XtraReports.Parameters.Orientation.Horizontal),

@@ -71,7 +71,7 @@
             // SkinForm
             // 
             this.SkinForm.EnableBonusSkins = true;
-            this.SkinForm.LookAndFeel.SkinName = "Sharp";
+            this.SkinForm.LookAndFeel.SkinName = "Office 2013 Light Gray";
             // 
             // btnAcceso
             // 
@@ -178,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 170);
+            this.ClientSize = new System.Drawing.Size(586, 171);
             this.Controls.Add(this.cERecordarContrasenia);
             this.Controls.Add(this.gridLookUpEdit1);
             this.Controls.Add(this.labelControl3);

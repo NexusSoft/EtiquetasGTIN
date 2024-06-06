@@ -55,7 +55,8 @@
             // 
             this.xrLabel1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Parameters].[c_codigo_hue]")});
-            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Times New Roman", 27.75F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Times New Roman", 27.75F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
+            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -85,14 +86,14 @@
             this.Detail,
             this.TopMargin,
             this.BottomMargin});
-            this.Margins = new DevExpress.Drawing.DXMargins(10, 5, 44, 0);
+            this.Margins = new DevExpress.Drawing.DXMargins(10F, 5F, 44F, 0F);
             this.PageHeight = 45;
             this.PageWidth = 322;
-            this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
+            this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Custom;
             this.PaperName = "USER";
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.c_codigo_hue});
-            this.Version = "17.2";
+            this.Version = "23.1";
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

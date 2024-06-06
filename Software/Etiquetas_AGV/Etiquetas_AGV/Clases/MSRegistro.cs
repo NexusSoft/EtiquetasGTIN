@@ -10,7 +10,7 @@ using Microsoft.Win32;
 
 namespace Etiquetas_AGV
 {
-    class MSRegistro
+    public class MSRegistro
     {
         const string NombreProyecto = "Agro_IntelliTrace_Etiquetas";
         public string GetSetting(string section, string key, string sDefault)

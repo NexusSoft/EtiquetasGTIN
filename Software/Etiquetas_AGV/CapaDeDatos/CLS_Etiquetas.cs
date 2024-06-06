@@ -187,6 +187,33 @@ namespace CapaDeDatos
                 Exito = false;
             }
         }
+        public void MtdSeleccionarPaletCodigoEAN13()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "SP_Eti_EtiquetaEAN13CodigoBarra_Select";
+                _dato.CadenaTexto = c_codigo_pro;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_pro");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
         public void MtdSeleccionarPaletCodigoJuliana()
         {
             TipoDato _dato = new TipoDato();

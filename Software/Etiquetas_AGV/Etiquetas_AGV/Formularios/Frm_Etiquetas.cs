@@ -17,6 +17,7 @@ using DevExpress.DataAccess.Sql;
 using DevExpress.DataAccess.ConnectionParameters;
 using DevExpress.XtraCharts.GLGraphics;
 
+
 namespace Etiquetas_AGV
 {
     public partial class Frm_Etiquetas : DevExpress.XtraEditors.XtraForm
@@ -535,6 +536,8 @@ namespace Etiquetas_AGV
                                                     {
                                                         GTIN = selG.Datos.Rows[0][0].ToString();
                                                     }
+                                                    //GTIN = "007610100272275";
+                                                    //Lote = "A003129";
                                                     string Cadena = cls_VoiceCode.fn_CalculaVPC(GTIN, Lote, Fecha);
                                                     vVoice1 = Cadena.Substring(0, 2);
                                                     vVoice2 = Cadena.Substring(2, 2);
@@ -674,6 +677,69 @@ namespace Etiquetas_AGV
                                                             break;
                                                         case "45":
                                                             t = Etiqueta_USDA_Maquila_Estiba2(t, vPalet, vCProducto, false);
+                                                            break;
+                                                        case "46":
+                                                            t = Etiqueta_Distribuidor_Juliana_Esp(t, vPalet);
+                                                            break;
+                                                        case "47":
+                                                            t = Etiqueta_Dubai(t, vPalet);
+                                                            break;
+                                                        case "48":
+                                                            t = Etiqueta_UPC_Mission(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "49":
+                                                            t = Etiqueta_EAN13_Mission(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "50":
+                                                            t = Etiqueta_UPC_LUG_Mission(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "51":
+                                                            t = Etiqueta_EAN13_4kg_Mission(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "52":
+                                                            t = Etiqueta_Lisa_Mission(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "53":
+                                                            t = Etiqueta_EAN13_Mission_2025(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "54":
+                                                            t = Etiqueta_UPC_Mission_2026(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "55":
+                                                            t = Etiqueta_UPC_LUG_PLU_Mission(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "56":
+                                                            t = Etiqueta_UPC_Mission_2026(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "57":
+                                                            t = Etiqueta_UPC_LUG_Mission_2030(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "58":
+                                                            t = Etiqueta_EAN13_Mission_2028(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "59":
+                                                            t = Etiqueta_UPC_LUG_Mission_2033(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "60":
+                                                            t = Etiqueta_UPC_LUG_Mission_2030_60(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "61":
+                                                            t = Etiqueta_UPC_LUG_Mission_2030_70(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "62":
+                                                            t = Etiqueta_UPC_SAMS_LGS(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "63":
+                                                            t = Etiqueta_UPC_PLU_2037(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "64":
+                                                            t = Etiqueta_UPC_LUG_Mission_2033_Can(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "65":
+                                                            t = Etiqueta_Distribuidor_Canada(t, vPalet);
+                                                            break;
+                                                        case "66":
+                                                            t = Etiqueta_EAN13_Mission_2029(t, vPalet, vCProducto, true);
                                                             break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
@@ -1203,6 +1269,86 @@ namespace Etiquetas_AGV
 
             return t;
         }
+        private int Etiqueta_Distribuidor_Canada(int t, string vPalet)
+        {
+            rpt_Etiqueta_Distribuidor_Canada_Nueva rpt = new rpt_Etiqueta_Distribuidor_Canada_Nueva();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_Dubai(int t, string vPalet)
+        {
+            rpt_Etiqueta_Dubai rpt = new rpt_Etiqueta_Dubai();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
         private int Etiqueta_Distribuidor(int t, string vPalet)
         {
             rpt_Etiqueta_Distribuidor rpt = new rpt_Etiqueta_Distribuidor();
@@ -1641,7 +1787,7 @@ namespace Etiquetas_AGV
             ReportPrintTool print = new ReportPrintTool(rpt);
             rpt.Parameters["COC"].Value = vCOC;
             rpt.Parameters["COC"].Visible = false;
-            rpt.Parameters["COCGest"].Value = string.Empty;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
             rpt.Parameters["COCGest"].Visible = false;
             rpt.Parameters["DryMatter"].Value = txtMateriaSeca.EditValue.ToString() + " %";
             rpt.Parameters["DryMatter"].Visible = false;
@@ -2042,6 +2188,798 @@ namespace Etiquetas_AGV
 
             return t;
         }
+        private int Etiqueta_EAN13_4kg_Mission(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_EAN13_4kg_Mission rpt = new rpt_Etiqueta_EAN13_4kg_Mission();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarEAN13(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_EAN13_Mission(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_EAN13_Mission rpt = new rpt_Etiqueta_EAN13_Mission();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarEAN13(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_EAN13_Mission_2028(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_EAN13_PLU_2028 rpt = new rpt_Etiqueta_EAN13_PLU_2028();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarEAN13(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_EAN13_Mission_2029(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_EAN13_Mission_2029 rpt = new rpt_Etiqueta_EAN13_Mission_2029();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarEAN13(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_EAN13_Mission_2025(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_EAN13_Mission_2025 rpt = new rpt_Etiqueta_EAN13_Mission_2025();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarEAN13(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_LUG_Mission_2033_Can(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_EAN13_Mission_2033_Can rpt = new rpt_Etiqueta_EAN13_Mission_2033_Can();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarEAN13(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_LUG_Mission_2033(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_EAN13_Mission_2033 rpt = new rpt_Etiqueta_EAN13_Mission_2033();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarEAN13(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_LUG_Mission_2030_70(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_EAN13_Mission_2030_70 rpt = new rpt_Etiqueta_EAN13_Mission_2030_70();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarEAN13(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_LUG_Mission_2030_60(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_EAN13_Mission_2030_60 rpt = new rpt_Etiqueta_EAN13_Mission_2030_60();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarEAN13(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_LUG_Mission_2030(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_EAN13_Mission_2030 rpt = new rpt_Etiqueta_EAN13_Mission_2030();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarEAN13(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_PLU_2037(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_UPC_LUG_PLU_2037 rpt = new rpt_Etiqueta_UPC_LUG_PLU_2037();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_LUG_Mission(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_UPC_LUG_Mission rpt = new rpt_Etiqueta_UPC_LUG_Mission();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_LUG_PLU_Mission(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_UPC_LUG_PLU_Mission rpt = new rpt_Etiqueta_UPC_LUG_PLU_Mission();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarEAN13(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_SAMS_LGS (int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_UPC_SAMS_LGS rpt = new rpt_Etiqueta_UPC_SAMS_LGS();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBarSAMS_LGS(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_Mission(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_UPC_Mission rpt = new rpt_Etiqueta_UPC_Mission();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_Mission_3045(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_UPC_Mission_3045 rpt = new rpt_Etiqueta_UPC_Mission_3045();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_Mission_2026(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_UPC_Mission_2026 rpt = new rpt_Etiqueta_UPC_Mission_2026();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_Lisa_Mission(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_Lisa_Mission rpt = new rpt_Etiqueta_Lisa_Mission();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
         private int Etiqueta_UPC_Anderson_Organic(int t, string vPalet, string vcproducto, Boolean plu)
         {
             rpt_Etiqueta_UPC_Anderson_Organic rpt = new rpt_Etiqueta_UPC_Anderson_Organic();
@@ -2349,6 +3287,48 @@ namespace Etiquetas_AGV
 
             return t;
         }
+        private int Etiqueta_Distribuidor_Juliana_Esp(int t, string vPalet)
+        {
+            string val_juliano = TresCero(FechaJuliana(DateTime.Now));
+            c_codigo_jul = CodigoDisExt(vDistribuidor).Trim() + val_juliano.Substring(0, 1) + txtEstiba.Text.Substring(5, 5) + val_juliano.Substring(1, 2);
+            rpt_Etiqueta_Distribuidor_Juliana_Esp rpt = new rpt_Etiqueta_Distribuidor_Juliana_Esp();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
         private int Etiqueta_Distribuidor_Juliana(int t, string vPalet)
         {
             string val_juliano =TresCero(FechaJuliana(DateTime.Now));
@@ -2615,6 +3595,28 @@ namespace Etiquetas_AGV
                 }
             }
         }
+        private void GeneraCodeBarSAMS_LGS(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal)
+        {
+            CLS_Etiquetas selcod = new CLS_Etiquetas();
+            selcod.c_codigo_tem = c_codigo_tem;
+            selcod.c_codigo_pal = c_codigo_pal;
+            selcod.c_codsec_pal = c_codsec_pal;
+            selcod.MtdSeleccionarPaletCodigo();
+            if (selcod.Exito)
+            {
+                if (selcod.Datos.Rows.Count > 0)
+                {
+                    string path = @"c:\Etiquetas";
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+
+                    ptb1.Image = Codigos.CodigosEAN128(selcod.Datos.Rows[0]["codigo3"].ToString(), 0);
+                    ptb1.Image.Save("C:\\Etiquetas\\CodeBar128.bmp");
+                }
+            }
+        }
         private void GeneraCodeBar(string c_codigo_tem, string c_codigo_pal, string c_codsec_pal)
         {
             CLS_Etiquetas selcod = new CLS_Etiquetas();
@@ -2631,6 +3633,7 @@ namespace Etiquetas_AGV
                     {
                         Directory.CreateDirectory(path);
                     }
+
                     ptb1.Image = Codigos.CodigosEAN128(selcod.Datos.Rows[0]["codigo"].ToString(), 0);
                     ptb1.Image.Save("C:\\Etiquetas\\CodeBar128.bmp");
                 }
@@ -2697,9 +3700,9 @@ namespace Etiquetas_AGV
                     {
                         Directory.CreateDirectory(path);
                     }
-                    ptb1.Image = Codigos.CodigosBarra(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim(), 0);
-                    //ptb1.Image = Codigos.Codigos128(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim(),false, 0);
-                    ptb1.Image.Save("C:\\Etiquetas\\CodeBarUPC.bmp");
+                    Codigos_TEC_IT.CodigosBarraUPCA(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim());
+                    //ptb1.Image = Codigos.CodigosBarra(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim(), 0);
+                    //ptb1.Image.Save("C:\\Etiquetas\\CodeBarUPC.bmp");
                 }
             }
         }
@@ -2720,6 +3723,26 @@ namespace Etiquetas_AGV
                     Codigos_TEC_IT.CodigosBarraUPCA(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim());
                     ////ptb1.Image = Codigos.Codigos128(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim(),false, 0);
                     
+                }
+            }
+        }
+        private void GeneraCodeBarEAN13(string c_codigo_pro)
+        {
+            CLS_Etiquetas selcod = new CLS_Etiquetas();
+            selcod.c_codigo_pro = c_codigo_pro;
+            selcod.MtdSeleccionarPaletCodigoEAN13();
+            if (selcod.Exito)
+            {
+                if (selcod.Datos.Rows.Count > 0)
+                {
+                    string path = @"c:\Etiquetas";
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    Codigos_TEC_IT.CodigosBarraEAN13(selcod.Datos.Rows[0]["c_codigo_EAN13"].ToString().Trim());
+                    ////ptb1.Image = Codigos.Codigos128(selcod.Datos.Rows[0]["c_codigo_UPC"].ToString().Trim(),false, 0);
+
                 }
             }
         }
@@ -2867,6 +3890,13 @@ namespace Etiquetas_AGV
                 labelControl7.Visible = false;
                 txtMateriaSeca.Visible = false;
             }
+        }
+
+        private void btnRendimineto_Click(object sender, EventArgs e)
+        {
+            Frm_Rendimiento frm = new Frm_Rendimiento();
+            this.Hide();
+            frm.Show();
         }
     }
 }

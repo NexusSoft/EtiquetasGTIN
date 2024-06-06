@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Etiquetas));
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnRendimineto = new DevExpress.XtraEditors.SimpleButton();
             this.btn_ImprimirRegistro = new DevExpress.XtraEditors.SimpleButton();
             this.lblRegistro = new DevExpress.XtraEditors.LabelControl();
             this.ptb1 = new DevExpress.XtraEditors.PictureEdit();
@@ -44,6 +45,7 @@
             this.cmb_calibre = new DevExpress.XtraEditors.LookUpEdit();
             this.txtEstiba = new DevExpress.XtraEditors.TextEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.btn_folios = new DevExpress.XtraEditors.SimpleButton();
             this.txtMateriaSeca = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -72,6 +74,7 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btn_PesoPalet = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb1.Properties)).BeginInit();
@@ -94,6 +97,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnRendimineto);
             this.panelControl1.Controls.Add(this.btn_ImprimirRegistro);
             this.panelControl1.Controls.Add(this.lblRegistro);
             this.panelControl1.Controls.Add(this.ptb1);
@@ -110,8 +114,19 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(5);
-            this.panelControl1.Size = new System.Drawing.Size(1169, 85);
+            this.panelControl1.Size = new System.Drawing.Size(1129, 85);
             this.panelControl1.TabIndex = 0;
+            // 
+            // btnRendimineto
+            // 
+            this.btnRendimineto.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRendimineto.ImageOptions.Image")));
+            this.btnRendimineto.Location = new System.Drawing.Point(1015, 22);
+            this.btnRendimineto.Name = "btnRendimineto";
+            this.btnRendimineto.Size = new System.Drawing.Size(107, 42);
+            this.btnRendimineto.TabIndex = 13;
+            this.btnRendimineto.Text = "Rendimiento";
+            this.btnRendimineto.Visible = false;
+            this.btnRendimineto.Click += new System.EventHandler(this.btnRendimineto_Click);
             // 
             // btn_ImprimirRegistro
             // 
@@ -225,6 +240,8 @@
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.btn_PesoPalet);
+            this.panelControl3.Controls.Add(this.btn_folios);
             this.panelControl3.Controls.Add(this.txtMateriaSeca);
             this.panelControl3.Controls.Add(this.labelControl7);
             this.panelControl3.Controls.Add(this.labelControl6);
@@ -239,10 +256,19 @@
             this.panelControl3.Controls.Add(this.labelControl4);
             this.panelControl3.Controls.Add(this.cmb_tipoetiqueta);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(0, 450);
+            this.panelControl3.Location = new System.Drawing.Point(0, 435);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1169, 129);
+            this.panelControl3.Size = new System.Drawing.Size(1129, 129);
             this.panelControl3.TabIndex = 2;
+            // 
+            // btn_folios
+            // 
+            this.btn_folios.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_folios.ImageOptions.Image")));
+            this.btn_folios.Location = new System.Drawing.Point(624, 71);
+            this.btn_folios.Name = "btn_folios";
+            this.btn_folios.Size = new System.Drawing.Size(107, 42);
+            this.btn_folios.TabIndex = 21;
+            this.btn_folios.Text = "Folios F";
             // 
             // txtMateriaSeca
             // 
@@ -388,7 +414,7 @@
             this.panelControl2.Location = new System.Drawing.Point(0, 85);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl2.Size = new System.Drawing.Size(1169, 365);
+            this.panelControl2.Size = new System.Drawing.Size(1129, 350);
             this.panelControl2.TabIndex = 3;
             // 
             // dtgPalets
@@ -400,7 +426,7 @@
             this.dtgPalets.Location = new System.Drawing.Point(12, 12);
             this.dtgPalets.MainView = this.dtgValPalets;
             this.dtgPalets.Name = "dtgPalets";
-            this.dtgPalets.Size = new System.Drawing.Size(1145, 341);
+            this.dtgPalets.Size = new System.Drawing.Size(1105, 326);
             this.dtgPalets.TabIndex = 0;
             this.dtgPalets.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dtgValPalets});
@@ -544,11 +570,20 @@
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 11;
             // 
+            // btn_PesoPalet
+            // 
+            this.btn_PesoPalet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btn_PesoPalet.Location = new System.Drawing.Point(746, 71);
+            this.btn_PesoPalet.Name = "btn_PesoPalet";
+            this.btn_PesoPalet.Size = new System.Drawing.Size(107, 42);
+            this.btn_PesoPalet.TabIndex = 22;
+            this.btn_PesoPalet.Text = "PesoPalet";
+            // 
             // Frm_Etiquetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1169, 579);
+            this.ClientSize = new System.Drawing.Size(1129, 564);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl1);
@@ -627,6 +662,9 @@
         private DevExpress.XtraEditors.LookUpEdit cmb_Importador;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.SpinEdit txtMateriaSeca;
+        private DevExpress.XtraEditors.SimpleButton btn_folios;
+        private DevExpress.XtraEditors.SimpleButton btnRendimineto;
+        private DevExpress.XtraEditors.SimpleButton btn_PesoPalet;
     }
 }
 

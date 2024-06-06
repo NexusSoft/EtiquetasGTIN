@@ -37,8 +37,8 @@
             this.btn_Guardar = new DevExpress.XtraEditors.SimpleButton();
             this.txt_Temporada = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Palet.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dt_FechaEtiqueta.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dt_FechaEtiqueta.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dt_FechaEtiqueta.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Temporada.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,7 +88,7 @@
             // 
             // btn_Guardar
             // 
-            this.btn_Guardar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSICFI.ImageOptions.Image")));
+            this.btn_Guardar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Guardar.ImageOptions.Image")));
             this.btn_Guardar.Location = new System.Drawing.Point(110, 93);
             this.btn_Guardar.Name = "btn_Guardar";
             this.btn_Guardar.Size = new System.Drawing.Size(107, 42);
@@ -108,7 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 176);
+            this.ClientSize = new System.Drawing.Size(222, 155);
             this.Controls.Add(this.txt_Temporada);
             this.Controls.Add(this.btn_Guardar);
             this.Controls.Add(this.labelControl2);
