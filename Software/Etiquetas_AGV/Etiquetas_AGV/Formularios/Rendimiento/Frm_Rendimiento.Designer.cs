@@ -36,9 +36,11 @@
             this.btnEtiquetas = new DevExpress.XtraBars.BarButtonItem();
             this.btnRendimientoDia = new DevExpress.XtraBars.BarButtonItem();
             this.btnEmpleadoBono = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_Avisos_Configuraciones = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.SkinForm = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
@@ -58,10 +60,11 @@
             this.btnPuestos,
             this.btnEtiquetas,
             this.btnRendimientoDia,
-            this.btnEmpleadoBono});
+            this.btnEmpleadoBono,
+            this.btn_Avisos_Configuraciones});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ribbon.MaxItemId = 6;
+            this.ribbon.MaxItemId = 8;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsMenuMinWidth = 283;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -109,16 +112,26 @@
             // 
             this.btnEmpleadoBono.Caption = "Personal Bono";
             this.btnEmpleadoBono.Id = 5;
-            this.btnEmpleadoBono.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnEmpleadoBono.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnEmpleadoBono.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleadoBono.ImageOptions.Image")));
+            this.btnEmpleadoBono.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnEmpleadoBono.ImageOptions.LargeImage")));
             this.btnEmpleadoBono.Name = "btnEmpleadoBono";
             this.btnEmpleadoBono.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEmpleadoBono_ItemClick);
+            // 
+            // btn_Avisos_Configuraciones
+            // 
+            this.btn_Avisos_Configuraciones.Caption = "Avisos y configuraciones";
+            this.btn_Avisos_Configuraciones.Id = 7;
+            this.btn_Avisos_Configuraciones.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Avisos_Configuraciones.ImageOptions.Image")));
+            this.btn_Avisos_Configuraciones.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_Avisos_Configuraciones.ImageOptions.LargeImage")));
+            this.btn_Avisos_Configuraciones.Name = "btn_Avisos_Configuraciones";
+            this.btn_Avisos_Configuraciones.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_Avisos_Configuraciones_ItemClick);
             // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup3});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Rendimiento";
             // 
@@ -136,6 +149,12 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnEmpleadoBono);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Monitor";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.btn_Avisos_Configuraciones);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "Avisos y configuraciones";
             // 
             // ribbonStatusBar
             // 
@@ -199,5 +218,7 @@
         private DevExpress.LookAndFeel.DefaultLookAndFeel SkinForm;
         private DevExpress.XtraBars.Ribbon.ApplicationMenu applicationMenu1;
         private DevExpress.XtraBars.BarButtonItem btnEmpleadoBono;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.BarButtonItem btn_Avisos_Configuraciones;
     }
 }

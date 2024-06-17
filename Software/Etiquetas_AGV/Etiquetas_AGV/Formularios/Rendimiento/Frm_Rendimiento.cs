@@ -65,5 +65,13 @@ namespace Etiquetas_AGV
             Frm_EmpleadosBono.DefInstance.c_codigo_usu = c_codigo_usu;
             Frm_EmpleadosBono.DefInstance.Show();
         }
+
+        private void btn_Avisos_Configuraciones_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Frm_Avisos Ventana = new Frm_Avisos();
+            Frm_Avisos.DefInstance.MdiParent = this;
+            Frm_Avisos.DefInstance.c_codigo_usu = c_codigo_usu;
+            Frm_Avisos.DefInstance.Show();
+        }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using CapaDeDatos;
+using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid.Views.Grid;
+using Etiquetas_AGV.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +18,7 @@ namespace Etiquetas_AGV.Formularios.Rendimiento
 {
     public partial class Frm_Reporte_Rendimiento : DevExpress.XtraEditors.XtraForm
     {
+        private ImagenTimer imageTimer;
         private static Frm_Reporte_Rendimiento m_FormDefInstance;
         public static Frm_Reporte_Rendimiento DefInstance
         {
@@ -34,11 +37,13 @@ namespace Etiquetas_AGV.Formularios.Rendimiento
         public Frm_Reporte_Rendimiento()
         {
             InitializeComponent();
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             ConsultaRendimiento();
+            
         }
 
         private void ConsultaRendimiento()
@@ -68,6 +73,7 @@ namespace Etiquetas_AGV.Formularios.Rendimiento
             {
                 dtgKilosDia.DataSource = selDia.Datos;
             }
+            
         }
 
         private static string DosCero(string sVal)
@@ -181,6 +187,7 @@ namespace Etiquetas_AGV.Formularios.Rendimiento
             timer1.Enabled = true;
             timer1.Start();
             ConsultaRendimiento();
+            alert();
         }
 
         private void btn_Actualizar_Click(object sender, EventArgs e)
@@ -234,5 +241,14 @@ namespace Etiquetas_AGV.Formularios.Rendimiento
                 }
             }
         }
+
+        public void alert()
+        {
+            imageTimer = new ImagenTimer();
+            imageTimer.Start();
+
+        }
     }
+
+
 }

@@ -74,6 +74,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="CapaDeDatos">
       <HintPath>..\CapaDeDatos\bin\Debug\CapaDeDatos.dll</HintPath>
     </Reference>
@@ -108,13 +111,12 @@
     <Reference Include="DevExpress.XtraReports.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v23.1.Extensions, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="itextsharp, Version=5.5.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\itextsharp.dll</HintPath>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="lib_VoicePC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\lib_VoicePC.dll</HintPath>
+      <HintPath>..\..\..\..\..\Downloads\lib_VoicePC.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -140,6 +142,7 @@
     <Compile Include="Clases\Crypto.cs" />
     <Compile Include="Clases\GridCheckMarksSelection.cs" />
     <Compile Include="Clases\GridMarksSelecioncs.cs" />
+    <Compile Include="Clases\ImagenTimer.cs" />
     <Compile Include="Clases\MSRegistro.cs" />
     <Compile Include="Clases\Validar_Campos.cs" />
     <Compile Include="Conexxion\Frm_Conexiones.cs">
@@ -640,6 +643,12 @@
     <Compile Include="Formularios\Frm_Bascula.Designer.cs">
       <DependentUpon>Frm_Bascula.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Rendimiento\Frm_Avisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Rendimiento\Frm_Avisos.Designer.cs">
+      <DependentUpon>Frm_Avisos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Rendimiento\Frm_EmpleadosBono.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -958,6 +967,9 @@
     <EmbeddedResource Include="Formularios\Frm_Bascula.resx">
       <DependentUpon>Frm_Bascula.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Rendimiento\Frm_Avisos.resx">
+      <DependentUpon>Frm_Avisos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Rendimiento\Frm_EmpleadosBono.resx">
       <DependentUpon>Frm_EmpleadosBono.cs</DependentUpon>
     </EmbeddedResource>
@@ -1003,6 +1015,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
