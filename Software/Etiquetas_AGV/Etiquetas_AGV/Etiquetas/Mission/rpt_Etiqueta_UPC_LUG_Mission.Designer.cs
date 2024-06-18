@@ -223,7 +223,7 @@
             this.xrLabel11.SizeF = new System.Drawing.SizeF(144.5822F, 14.53833F);
             this.xrLabel11.StylePriority.UseFont = false;
             this.xrLabel11.StylePriority.UseTextAlignment = false;
-            this.xrLabel11.Text = "Average Dry Matter 30%";
+            this.xrLabel11.Text = "Average Dry Matter 23%";
             this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrLabel11.WordWrap = false;
             // 
@@ -275,7 +275,7 @@
             this.xrLabel21.SizeF = new System.Drawing.SizeF(114F, 19.53833F);
             this.xrLabel21.StylePriority.UseFont = false;
             this.xrLabel21.StylePriority.UseTextAlignment = false;
-            this.xrLabel21.Text = "LUG - 15 x 4";
+            this.xrLabel21.Text = "LUG - 14 x 5";
             this.xrLabel21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel21.WordWrap = false;
             // 

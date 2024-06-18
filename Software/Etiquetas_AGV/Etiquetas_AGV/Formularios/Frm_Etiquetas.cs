@@ -741,6 +741,9 @@ namespace Etiquetas_AGV
                                                         case "66":
                                                             t = Etiqueta_EAN13_Mission_2029(t, vPalet, vCProducto, true);
                                                             break;
+                                                        case "67":
+                                                            t = Etiqueta_Distribuidor_DonManuel(t, vPalet);
+                                                            break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
                                                     {
@@ -1232,6 +1235,46 @@ namespace Etiquetas_AGV
         private int Etiqueta_Distribuidor_AvocatsCanada(int t, string vPalet)
         {
             rpt_Etiqueta_Distribuidor_AvocatsCanada rpt = new rpt_Etiqueta_Distribuidor_AvocatsCanada();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_Distribuidor_DonManuel(int t, string vPalet)
+        {
+            rpt_Etiqueta_Distribuidor_DonManuel rpt = new rpt_Etiqueta_Distribuidor_DonManuel();
             rpt.c_codigo_tem = vTemporada;
             rpt.c_codigo_pal = vPalet;
             rpt.c_codsec_pal = v_c_codsec_pal;
