@@ -343,6 +343,12 @@
     <Compile Include="Etiquetas\rpt_Etiqueta_Distribuidor_Canada_Nueva.Designer.cs">
       <DependentUpon>rpt_Etiqueta_Distribuidor_Canada_Nueva.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Distribuidor_DonManuel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Distribuidor_DonManuel.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_Distribuidor_DonManuel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Etiquetas\SAMS\rpt_Etiqueta_UPC_SAMS_LGS.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -815,6 +821,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Distribuidor_Canada_Nueva.resx">
       <DependentUpon>rpt_Etiqueta_Distribuidor_Canada_Nueva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Distribuidor_DonManuel.resx">
+      <DependentUpon>rpt_Etiqueta_Distribuidor_DonManuel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\SAMS\rpt_Etiqueta_UPC_SAMS_LGS.resx">
       <DependentUpon>rpt_Etiqueta_UPC_SAMS_LGS.cs</DependentUpon>
