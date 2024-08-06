@@ -2,7 +2,7 @@
 
 namespace Etiquetas_AGV
 {
-    partial class rpt_Etiqueta_Distribuidor
+    partial class rpt_Etiqueta_SinDistribuidor
     {
         /// <summary>
         /// Required designer variable.
@@ -40,7 +40,7 @@ namespace Etiquetas_AGV
             DevExpress.DataAccess.Sql.QueryParameter queryParameter6 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter7 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter8 = new DevExpress.DataAccess.Sql.QueryParameter();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rpt_Etiqueta_Distribuidor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rpt_Etiqueta_SinDistribuidor));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
@@ -164,6 +164,7 @@ namespace Etiquetas_AGV
             this.xrLabel3.StylePriority.UseTextAlignment = false;
             this.xrLabel3.Text = "xrLabel3";
             this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel3.Visible = false;
             // 
             // xrLabel2
             // 
@@ -176,6 +177,7 @@ namespace Etiquetas_AGV
             this.xrLabel2.StylePriority.UseTextAlignment = false;
             this.xrLabel2.Text = "Distributed by:";
             this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel2.Visible = false;
             // 
             // xrLabel1
             // 
@@ -462,7 +464,7 @@ namespace Etiquetas_AGV
             this.COCGest.Name = "COCGest";
             this.COCGest.ValueInfo = "CoC: 4063651273854";
             // 
-            // rpt_Etiqueta_Distribuidor
+            // rpt_Etiqueta_SinDistribuidor
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail,

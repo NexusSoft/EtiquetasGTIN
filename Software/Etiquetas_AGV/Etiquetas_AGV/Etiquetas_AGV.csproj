@@ -301,6 +301,12 @@
     <Compile Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_Mission_2033.Designer.cs">
       <DependentUpon>rpt_Etiqueta_EAN13_Mission_2033.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_PLU_2006.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_PLU_2006.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_EAN13_PLU_2006.cs</DependentUpon>
+    </Compile>
     <Compile Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_PLU_2028.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -312,6 +318,36 @@
     </Compile>
     <Compile Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_Mission_2030.Designer.cs">
       <DependentUpon>rpt_Etiqueta_EAN13_Mission_2030.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_EAN_LUG_PLU_2001.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_EAN_LUG_PLU_2001.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_EAN_LUG_PLU_2001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_Mission_2067.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_Mission_2067.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_LUG_Mission_2067.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2015.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2015.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_LUG_PLU_2015.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2027_23P.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2027_23P.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_LUG_PLU_2027_23P.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2027_22P.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2027_22P.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_LUG_PLU_2027_22P.cs</DependentUpon>
     </Compile>
     <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2037_60.cs">
       <SubType>Component</SubType>
@@ -325,17 +361,23 @@
     <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2037.Designer.cs">
       <DependentUpon>rpt_Etiqueta_UPC_LUG_PLU_2037.cs</DependentUpon>
     </Compile>
-    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_Mission.cs">
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2027.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_Mission.Designer.cs">
-      <DependentUpon>rpt_Etiqueta_UPC_LUG_PLU_Mission.cs</DependentUpon>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2027.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_LUG_PLU_2027.cs</DependentUpon>
     </Compile>
     <Compile Include="Etiquetas\Rendimiento\rpt_Etiqueta_Empleado_Nueva.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Etiquetas\Rendimiento\rpt_Etiqueta_Empleado_Nueva.Designer.cs">
       <DependentUpon>rpt_Etiqueta_Empleado_Nueva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_SinDistribuidor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_SinDistribuidor.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_SinDistribuidor.cs</DependentUpon>
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_Distribuidor_Canada_Nueva.cs">
       <SubType>Component</SubType>
@@ -348,6 +390,12 @@
     </Compile>
     <Compile Include="Etiquetas\rpt_Etiqueta_Distribuidor_DonManuel.Designer.cs">
       <DependentUpon>rpt_Etiqueta_Distribuidor_DonManuel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Distribuidor_Fecha.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\rpt_Etiqueta_Distribuidor_Fecha.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_Distribuidor_Fecha.cs</DependentUpon>
     </Compile>
     <Compile Include="Etiquetas\SAMS\rpt_Etiqueta_UPC_SAMS_LGS.cs">
       <SubType>Component</SubType>
@@ -801,11 +849,29 @@
     <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_Mission_2033.resx">
       <DependentUpon>rpt_Etiqueta_EAN13_Mission_2033.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_PLU_2006.resx">
+      <DependentUpon>rpt_Etiqueta_EAN13_PLU_2006.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_PLU_2028.resx">
       <DependentUpon>rpt_Etiqueta_EAN13_PLU_2028.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_Mission_2030.resx">
       <DependentUpon>rpt_Etiqueta_EAN13_Mission_2030.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_EAN_LUG_PLU_2001.resx">
+      <DependentUpon>rpt_Etiqueta_EAN_LUG_PLU_2001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_Mission_2067.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_LUG_Mission_2067.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2015.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_LUG_PLU_2015.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2027_23P.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_LUG_PLU_2027_23P.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2027_22P.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_LUG_PLU_2027_22P.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2037_60.resx">
       <DependentUpon>rpt_Etiqueta_UPC_LUG_PLU_2037_60.cs</DependentUpon>
@@ -813,17 +879,23 @@
     <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2037.resx">
       <DependentUpon>rpt_Etiqueta_UPC_LUG_PLU_2037.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_Mission.resx">
-      <DependentUpon>rpt_Etiqueta_UPC_LUG_PLU_Mission.cs</DependentUpon>
+    <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_PLU_2027.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_LUG_PLU_2027.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\Rendimiento\rpt_Etiqueta_Empleado_Nueva.resx">
       <DependentUpon>rpt_Etiqueta_Empleado_Nueva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_SinDistribuidor.resx">
+      <DependentUpon>rpt_Etiqueta_SinDistribuidor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Distribuidor_Canada_Nueva.resx">
       <DependentUpon>rpt_Etiqueta_Distribuidor_Canada_Nueva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Distribuidor_DonManuel.resx">
       <DependentUpon>rpt_Etiqueta_Distribuidor_DonManuel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\rpt_Etiqueta_Distribuidor_Fecha.resx">
+      <DependentUpon>rpt_Etiqueta_Distribuidor_Fecha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\SAMS\rpt_Etiqueta_UPC_SAMS_LGS.resx">
       <DependentUpon>rpt_Etiqueta_UPC_SAMS_LGS.cs</DependentUpon>

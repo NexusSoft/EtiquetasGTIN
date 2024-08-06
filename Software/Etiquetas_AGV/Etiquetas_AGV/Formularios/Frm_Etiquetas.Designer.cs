@@ -45,6 +45,7 @@
             this.cmb_calibre = new DevExpress.XtraEditors.LookUpEdit();
             this.txtEstiba = new DevExpress.XtraEditors.TextEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.btn_PesoPalet = new DevExpress.XtraEditors.SimpleButton();
             this.btn_folios = new DevExpress.XtraEditors.SimpleButton();
             this.txtMateriaSeca = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -74,7 +75,6 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btn_PesoPalet = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb1.Properties)).BeginInit();
@@ -261,6 +261,15 @@
             this.panelControl3.Size = new System.Drawing.Size(1129, 129);
             this.panelControl3.TabIndex = 2;
             // 
+            // btn_PesoPalet
+            // 
+            this.btn_PesoPalet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_PesoPalet.ImageOptions.Image")));
+            this.btn_PesoPalet.Location = new System.Drawing.Point(746, 71);
+            this.btn_PesoPalet.Name = "btn_PesoPalet";
+            this.btn_PesoPalet.Size = new System.Drawing.Size(107, 42);
+            this.btn_PesoPalet.TabIndex = 22;
+            this.btn_PesoPalet.Text = "PesoPalet";
+            // 
             // btn_folios
             // 
             this.btn_folios.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_folios.ImageOptions.Image")));
@@ -279,13 +288,17 @@
             0});
             this.txtMateriaSeca.Location = new System.Drawing.Point(124, 79);
             this.txtMateriaSeca.Name = "txtMateriaSeca";
+            this.txtMateriaSeca.Properties.BeepOnError = true;
             this.txtMateriaSeca.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtMateriaSeca.Properties.MaskSettings.Set("mask", "f0");
+            this.txtMateriaSeca.Properties.MaskSettings.Set("culture", "es-MX");
             this.txtMateriaSeca.Properties.MaxValue = new decimal(new int[] {
             100,
             0,
             0,
             0});
+            this.txtMateriaSeca.Properties.UseMaskAsDisplayFormat = true;
             this.txtMateriaSeca.Size = new System.Drawing.Size(49, 20);
             this.txtMateriaSeca.TabIndex = 20;
             // 
@@ -569,15 +582,6 @@
             this.gridColumn12.OptionsColumn.AllowEdit = false;
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 11;
-            // 
-            // btn_PesoPalet
-            // 
-            this.btn_PesoPalet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btn_PesoPalet.Location = new System.Drawing.Point(746, 71);
-            this.btn_PesoPalet.Name = "btn_PesoPalet";
-            this.btn_PesoPalet.Size = new System.Drawing.Size(107, 42);
-            this.btn_PesoPalet.TabIndex = 22;
-            this.btn_PesoPalet.Text = "PesoPalet";
             // 
             // Frm_Etiquetas
             // 
