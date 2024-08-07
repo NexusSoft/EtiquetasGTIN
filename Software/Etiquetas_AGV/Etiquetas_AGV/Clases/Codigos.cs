@@ -20,10 +20,9 @@ namespace Etiquetas_AGV
                 barcode.BarHeight = Height;
             }
 
-            barcode.Code = _Code;
             try
             {
-
+                barcode.Code = _Code;
                 Bitmap bm = new Bitmap(barcode.CreateDrawingImage(Color.Black, Color.White));
                 if (vertexto == false)
                 {
@@ -67,10 +66,9 @@ namespace Etiquetas_AGV
                 uccEan128.BarHeight = 10;
             }
             //_Code = "(01)17502258935597(10)20062297";
-
-            uccEan128.Code = _Code;
             try
             {
+                uccEan128.Code = _Code;
                 Bitmap bm = new Bitmap(uccEan128.CreateDrawingImage(Color.Black, Color.White));
                 return bm;
             }
@@ -88,9 +86,10 @@ namespace Etiquetas_AGV
             {
                 uccEan128.BarHeight = 10;
             }
-            uccEan128.Code = _Code;
+            
             try
             {
+                uccEan128.Code = _Code;
                 Bitmap bm = new Bitmap(uccEan128.CreateDrawingImage(Color.Black, Color.White));
                 return bm;
             }
@@ -107,9 +106,10 @@ namespace Etiquetas_AGV
             {
                 uccEan128.BarHeight = 10;
             }
-            uccEan128.Code = _Code;
+            
             try
             {
+                uccEan128.Code = _Code;
                 Bitmap bm = new Bitmap(uccEan128.CreateDrawingImage(Color.Black, Color.White));
                 return bm;
             }
