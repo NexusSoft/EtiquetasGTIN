@@ -158,6 +158,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dt_FechaInicio.Size = new System.Drawing.Size(108, 22);
             this.dt_FechaInicio.TabIndex = 11;
+            this.dt_FechaInicio.EditValueChanged += new System.EventHandler(this.dt_FechaInicio_EditValueChanged);
             // 
             // labelControl4
             // 
@@ -369,6 +370,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(1328, 562);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl2);

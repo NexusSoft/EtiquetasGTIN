@@ -248,6 +248,11 @@ namespace Etiquetas_AGV.Formularios.Rendimiento
             imageTimer.Start();
 
         }
+
+        private void dt_FechaInicio_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

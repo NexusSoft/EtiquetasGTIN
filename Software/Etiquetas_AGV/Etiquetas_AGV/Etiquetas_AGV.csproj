@@ -116,7 +116,7 @@
     </Reference>
     <Reference Include="lib_VoicePC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Downloads\lib_VoicePC.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Downloads\lib_VoicePC.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -757,6 +757,12 @@
     <Compile Include="Formularios\Rendimiento\Frm_Rendimiento.Designer.cs">
       <DependentUpon>Frm_Rendimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Rendimiento\Frm_Rendimineto_General.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Rendimiento\Frm_Rendimineto_General.Designer.cs">
+      <DependentUpon>Frm_Rendimineto_General.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Rendimiento\Frm_Reporte_Rendimiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1077,6 +1083,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Rendimiento\Frm_Rendimiento.resx">
       <DependentUpon>Frm_Rendimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Rendimiento\Frm_Rendimineto_General.resx">
+      <DependentUpon>Frm_Rendimineto_General.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Rendimiento\Frm_Reporte_Rendimiento.resx">
       <DependentUpon>Frm_Reporte_Rendimiento.cs</DependentUpon>

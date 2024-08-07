@@ -37,6 +37,7 @@
             this.btnRendimientoDia = new DevExpress.XtraBars.BarButtonItem();
             this.btnEmpleadoBono = new DevExpress.XtraBars.BarButtonItem();
             this.btn_Avisos_Configuraciones = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_rendimiento_general = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -61,10 +62,11 @@
             this.btnEtiquetas,
             this.btnRendimientoDia,
             this.btnEmpleadoBono,
-            this.btn_Avisos_Configuraciones});
+            this.btn_Avisos_Configuraciones,
+            this.btn_rendimiento_general});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ribbon.MaxItemId = 8;
+            this.ribbon.MaxItemId = 9;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsMenuMinWidth = 283;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -126,6 +128,15 @@
             this.btn_Avisos_Configuraciones.Name = "btn_Avisos_Configuraciones";
             this.btn_Avisos_Configuraciones.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_Avisos_Configuraciones_ItemClick);
             // 
+            // btn_rendimiento_general
+            // 
+            this.btn_rendimiento_general.Caption = "Rendimiento General";
+            this.btn_rendimiento_general.Id = 8;
+            this.btn_rendimiento_general.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_rendimiento_general.ImageOptions.Image")));
+            this.btn_rendimiento_general.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_rendimiento_general.ImageOptions.LargeImage")));
+            this.btn_rendimiento_general.Name = "btn_rendimiento_general";
+            this.btn_rendimiento_general.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_rendimiento_general_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -147,6 +158,7 @@
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.btnRendimientoDia);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnEmpleadoBono);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btn_rendimiento_general);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Monitor";
             // 
@@ -220,5 +232,6 @@
         private DevExpress.XtraBars.BarButtonItem btnEmpleadoBono;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem btn_Avisos_Configuraciones;
+        private DevExpress.XtraBars.BarButtonItem btn_rendimiento_general;
     }
 }

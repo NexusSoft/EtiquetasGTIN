@@ -73,5 +73,13 @@ namespace Etiquetas_AGV
             Frm_Avisos.DefInstance.c_codigo_usu = c_codigo_usu;
             Frm_Avisos.DefInstance.Show();
         }
+
+        private void btn_rendimiento_general_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Frm_Rendimineto_General Ventana = new Frm_Rendimineto_General();
+            Frm_Rendimineto_General.DefInstance.MdiParent = this;
+            Frm_Rendimineto_General.DefInstance.c_codigo_usu = c_codigo_usu;
+            Frm_Rendimineto_General.DefInstance.Show();
+        }
     }
 }
