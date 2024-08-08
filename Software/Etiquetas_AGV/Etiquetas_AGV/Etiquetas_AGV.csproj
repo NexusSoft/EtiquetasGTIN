@@ -301,6 +301,12 @@
     <Compile Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_Mission_2033.Designer.cs">
       <DependentUpon>rpt_Etiqueta_EAN13_Mission_2033.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_PLU_2071.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_PLU_2071.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_EAN13_PLU_2071.cs</DependentUpon>
+    </Compile>
     <Compile Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_PLU_2006.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -860,6 +866,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_Mission_2033.resx">
       <DependentUpon>rpt_Etiqueta_EAN13_Mission_2033.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_PLU_2071.resx">
+      <DependentUpon>rpt_Etiqueta_EAN13_PLU_2071.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_EAN13_PLU_2006.resx">
       <DependentUpon>rpt_Etiqueta_EAN13_PLU_2006.cs</DependentUpon>
