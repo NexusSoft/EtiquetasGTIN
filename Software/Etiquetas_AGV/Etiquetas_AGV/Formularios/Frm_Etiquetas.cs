@@ -768,6 +768,9 @@ namespace Etiquetas_AGV
                                                         case "75":
                                                             t = Etiqueta_EAN13_Mission_2006(t, vPalet, vCProducto, true);
                                                             break;
+                                                        case "76":
+                                                            t = Etiqueta_EAN13_Mission_2071(t, vPalet, vCProducto, true);
+                                                            break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
                                                     {
@@ -2384,9 +2387,53 @@ namespace Etiquetas_AGV
 
             return t;
         }
+        private int Etiqueta_EAN13_Mission_2071(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_EAN13_PLU_2071 rpt = new rpt_Etiqueta_EAN13_PLU_2071();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarEAN13(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
         private int Etiqueta_EAN13_Mission_2006(int t, string vPalet, string vcproducto, Boolean plu)
         {
-            rpt_Etiqueta_EAN13_PLU_2028 rpt = new rpt_Etiqueta_EAN13_PLU_2028();
+            rpt_Etiqueta_EAN13_PLU_2006 rpt = new rpt_Etiqueta_EAN13_PLU_2006();
             rpt.c_codigo_tem = vTemporada;
             rpt.c_codigo_pal = vPalet;
             rpt.c_codsec_pal = v_c_codsec_pal;
