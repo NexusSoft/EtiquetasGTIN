@@ -249,10 +249,7 @@ namespace Etiquetas_AGV.Formularios.Rendimiento
 
         }
 
-        private void dt_FechaInicio_EditValueChanged(object sender, EventArgs e)
-        {
 
-        }
     }
 
 

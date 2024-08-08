@@ -709,6 +709,12 @@
     <Compile Include="Formularios\Rendimiento\Frm_EmpleadosBono.Designer.cs">
       <DependentUpon>Frm_EmpleadosBono.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Rendimiento\Frm_MetasRendimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Rendimiento\Frm_MetasRendimiento.Designer.cs">
+      <DependentUpon>Frm_MetasRendimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Rendimiento\Frm_Puestos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1062,6 +1068,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Rendimiento\Frm_Eti_Empleados.resx">
       <DependentUpon>Frm_Eti_Empleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Rendimiento\Frm_MetasRendimiento.resx">
+      <DependentUpon>Frm_MetasRendimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Rendimiento\Frm_Puestos.resx">
       <DependentUpon>Frm_Puestos.cs</DependentUpon>

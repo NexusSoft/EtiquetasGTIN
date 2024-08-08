@@ -158,7 +158,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dt_FechaInicio.Size = new System.Drawing.Size(108, 22);
             this.dt_FechaInicio.TabIndex = 11;
-            this.dt_FechaInicio.EditValueChanged += new System.EventHandler(this.dt_FechaInicio_EditValueChanged);
             // 
             // labelControl4
             // 
