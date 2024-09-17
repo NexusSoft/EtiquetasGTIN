@@ -76,10 +76,10 @@ namespace Etiquetas_AGV
 
         private void btn_rendimiento_general_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Frm_Rendimineto_General Ventana = new Frm_Rendimineto_General();
-            Frm_Rendimineto_General.DefInstance.MdiParent = this;
-            Frm_Rendimineto_General.DefInstance.c_codigo_usu = c_codigo_usu;
-            Frm_Rendimineto_General.DefInstance.Show();
+            Frm_Rendimiento_General Ventana = new Frm_Rendimiento_General();
+            Frm_Rendimiento_General.DefInstance.MdiParent = this;
+            Frm_Rendimiento_General.DefInstance.c_codigo_usu = c_codigo_usu;
+            Frm_Rendimiento_General.DefInstance.Show();
         }
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
@@ -88,6 +88,14 @@ namespace Etiquetas_AGV
             Frm_MetasRendimiento.DefInstance.MdiParent = this;
             Frm_MetasRendimiento.DefInstance.c_codigo_usu = c_codigo_usu;
             Frm_MetasRendimiento.DefInstance.Show();
+        }
+
+        private void btn_CapturaEstiba_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Frm_Captura_Rendimiento Ventana = new Frm_Captura_Rendimiento();
+            Frm_Captura_Rendimiento.DefInstance.MdiParent = this;
+            Frm_Captura_Rendimiento.DefInstance.c_codigo_usu = c_codigo_usu;
+            Frm_Captura_Rendimiento.DefInstance.Show();
         }
     }
 }

@@ -46,8 +46,8 @@ namespace Etiquetas_AGV
                         {
                             vIdUsuario = sLogin.Datos.Rows[0]["c_codigo_usu"].ToString();
                             vIdActivo = Convert.ToInt32(sLogin.Datos.Rows[0]["c_activo_usu"].ToString());
-                            //Frm_Etiquetas frmP = new Frm_Etiquetas();
-                            Frm_Rendimiento frmP = new Frm_Rendimiento();
+                            Frm_Etiquetas frmP = new Frm_Etiquetas();
+                            //Frm_Rendimiento frmP = new Frm_Rendimiento();
                             MSRegistro RegIn = new MSRegistro();
                             
                             if (vIdActivo == 1)

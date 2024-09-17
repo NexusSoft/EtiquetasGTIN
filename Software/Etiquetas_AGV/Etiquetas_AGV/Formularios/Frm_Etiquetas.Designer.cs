@@ -114,7 +114,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(5);
-            this.panelControl1.Size = new System.Drawing.Size(1129, 85);
+            this.panelControl1.Size = new System.Drawing.Size(1087, 85);
             this.panelControl1.TabIndex = 0;
             // 
             // btnRendimineto
@@ -173,7 +173,7 @@
             this.chkCalibres.Location = new System.Drawing.Point(622, 35);
             this.chkCalibres.Name = "chkCalibres";
             this.chkCalibres.Properties.Caption = "Todos los Calibres";
-            this.chkCalibres.Size = new System.Drawing.Size(123, 20);
+            this.chkCalibres.Size = new System.Drawing.Size(123, 19);
             this.chkCalibres.TabIndex = 8;
             this.chkCalibres.CheckedChanged += new System.EventHandler(this.chkCalibres_CheckedChanged);
             // 
@@ -256,9 +256,9 @@
             this.panelControl3.Controls.Add(this.labelControl4);
             this.panelControl3.Controls.Add(this.cmb_tipoetiqueta);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(0, 435);
+            this.panelControl3.Location = new System.Drawing.Point(0, 414);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1129, 129);
+            this.panelControl3.Size = new System.Drawing.Size(1087, 129);
             this.panelControl3.TabIndex = 2;
             // 
             // btn_PesoPalet
@@ -427,7 +427,7 @@
             this.panelControl2.Location = new System.Drawing.Point(0, 85);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl2.Size = new System.Drawing.Size(1129, 350);
+            this.panelControl2.Size = new System.Drawing.Size(1087, 329);
             this.panelControl2.TabIndex = 3;
             // 
             // dtgPalets
@@ -439,7 +439,7 @@
             this.dtgPalets.Location = new System.Drawing.Point(12, 12);
             this.dtgPalets.MainView = this.dtgValPalets;
             this.dtgPalets.Name = "dtgPalets";
-            this.dtgPalets.Size = new System.Drawing.Size(1105, 326);
+            this.dtgPalets.Size = new System.Drawing.Size(1063, 305);
             this.dtgPalets.TabIndex = 0;
             this.dtgPalets.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dtgValPalets});
@@ -587,7 +587,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1129, 564);
+            this.ClientSize = new System.Drawing.Size(1087, 543);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl1);

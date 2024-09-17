@@ -283,7 +283,7 @@
             this.xrLabel11.SizeF = new System.Drawing.SizeF(144.5822F, 14.53833F);
             this.xrLabel11.StylePriority.UseFont = false;
             this.xrLabel11.StylePriority.UseTextAlignment = false;
-            this.xrLabel11.Text = "Average Dry Matter 23%";
+            this.xrLabel11.Text = "Average Dry Matter 25%";
             this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrLabel11.WordWrap = false;
             // 

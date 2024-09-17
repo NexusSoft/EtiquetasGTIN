@@ -38,6 +38,8 @@
             this.btnEmpleadoBono = new DevExpress.XtraBars.BarButtonItem();
             this.btn_Avisos_Configuraciones = new DevExpress.XtraBars.BarButtonItem();
             this.btn_rendimiento_general = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_parametros = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_CapturaEstiba = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -46,7 +48,6 @@
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.SkinForm = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
@@ -65,10 +66,11 @@
             this.btnEmpleadoBono,
             this.btn_Avisos_Configuraciones,
             this.btn_rendimiento_general,
-            this.barButtonItem1});
+            this.btn_parametros,
+            this.btn_CapturaEstiba});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ribbon.MaxItemId = 10;
+            this.ribbon.MaxItemId = 11;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsMenuMinWidth = 283;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -139,6 +141,24 @@
             this.btn_rendimiento_general.Name = "btn_rendimiento_general";
             this.btn_rendimiento_general.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_rendimiento_general_ItemClick);
             // 
+            // btn_parametros
+            // 
+            this.btn_parametros.Caption = "Parametros";
+            this.btn_parametros.Id = 9;
+            this.btn_parametros.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_parametros.ImageOptions.Image")));
+            this.btn_parametros.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_parametros.ImageOptions.LargeImage")));
+            this.btn_parametros.Name = "btn_parametros";
+            this.btn_parametros.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
+            // btn_CapturaEstiba
+            // 
+            this.btn_CapturaEstiba.Caption = "Captura Estibas kg";
+            this.btn_CapturaEstiba.Id = 10;
+            this.btn_CapturaEstiba.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_CapturaEstiba.ImageOptions.Image")));
+            this.btn_CapturaEstiba.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_CapturaEstiba.ImageOptions.LargeImage")));
+            this.btn_CapturaEstiba.Name = "btn_CapturaEstiba";
+            this.btn_CapturaEstiba.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_CapturaEstiba_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -161,7 +181,8 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnRendimientoDia);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnEmpleadoBono);
             this.ribbonPageGroup2.ItemLinks.Add(this.btn_rendimiento_general);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btn_CapturaEstiba);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btn_parametros);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Monitor";
             // 
@@ -193,15 +214,6 @@
             // 
             this.applicationMenu1.Name = "applicationMenu1";
             this.applicationMenu1.Ribbon = this.ribbon;
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Metas";
-            this.barButtonItem1.Id = 9;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // Frm_Rendimiento
             // 
@@ -245,6 +257,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem btn_Avisos_Configuraciones;
         private DevExpress.XtraBars.BarButtonItem btn_rendimiento_general;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btn_parametros;
+        private DevExpress.XtraBars.BarButtonItem btn_CapturaEstiba;
     }
 }

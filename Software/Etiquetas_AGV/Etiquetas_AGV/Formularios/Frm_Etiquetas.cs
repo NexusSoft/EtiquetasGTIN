@@ -709,7 +709,7 @@ namespace Etiquetas_AGV
                                                             t = Etiqueta_UPC_LUG_PLU_2027(t, vPalet, vCProducto, true);
                                                             break;
                                                         case "56":
-                                                            t = Etiqueta_UPC_Mission_2026(t, vPalet, vCProducto, true);
+                                                            t = Etiqueta_UPC_Mission_3045(t, vPalet, vCProducto, true);
                                                             break;
                                                         case "57":
                                                             t = Etiqueta_UPC_LUG_Mission_2030(t, vPalet, vCProducto, true);
@@ -770,6 +770,12 @@ namespace Etiquetas_AGV
                                                             break;
                                                         case "76":
                                                             t = Etiqueta_EAN13_Mission_2071(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "77":
+                                                            t = Etiqueta_UPC_Mandarin(t, vPalet, vCProducto, true);
+                                                            break;
+                                                        case "78":
+                                                            t = Etiqueta_UPC_LUG_Mission_2004(t, vPalet, vCProducto, true);
                                                             break;
                                                     }
                                                     if(rdgTipoImpresion.SelectedIndex==1)
@@ -2827,6 +2833,50 @@ namespace Etiquetas_AGV
 
             return t;
         }
+        private int Etiqueta_UPC_LUG_Mission_2004(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_EAN13_Mission_2004 rpt = new rpt_Etiqueta_EAN13_Mission_2004();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarEAN13(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
         private int Etiqueta_UPC_PLU_2037(int t, string vPalet, string vcproducto, Boolean plu)
         {
             rpt_Etiqueta_UPC_LUG_PLU_2037 rpt = new rpt_Etiqueta_UPC_LUG_PLU_2037();
@@ -3202,6 +3252,50 @@ namespace Etiquetas_AGV
             rpt.Parameters["COCGest"].Visible = false;
             //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
             GeneraCodeBarSAMS_LGS(vTemporada, vPalet, v_c_codsec_pal);
+            GeneraCodeBarUPC(vcproducto);
+            //printTool.Print("myPrinter");
+            if (rdgTipoImpresion.SelectedIndex == 1)
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                if (t == 1)
+                {
+                    t++;
+                    printTool.PrintDialog();
+                    vPrinterName = printTool.PrinterSettings.PrinterName;
+                }
+                else
+                {
+                    printTool.Print(vPrinterName);
+                }
+            }
+
+            return t;
+        }
+        private int Etiqueta_UPC_Mandarin(int t, string vPalet, string vcproducto, Boolean plu)
+        {
+            rpt_Etiqueta_UPC_Mandarin rpt = new rpt_Etiqueta_UPC_Mandarin();
+            rpt.c_codigo_tem = vTemporada;
+            rpt.c_codigo_pal = vPalet;
+            rpt.c_codsec_pal = v_c_codsec_pal;
+            rpt.c_codigo_dis = vDistribuidor;
+            rpt.c_codigo_sec = vc_codigo_sec;
+            rpt.voice1 = vVoice1;
+            rpt.voice2 = vVoice2;
+            rpt.c_codigo_jul = c_codigo_jul;
+            rpt.plu = plu;
+            rpt.CargarParametros();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            ((SqlDataSource)rpt.DataSource).ConfigureDataConnection += Form1_ConfigureDataConnection;
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            rpt.Parameters["COC"].Value = vCOC;
+            rpt.Parameters["COC"].Visible = false;
+            rpt.Parameters["COCGest"].Value = vCOCGest;
+            rpt.Parameters["COCGest"].Visible = false;
+            //GeneraCodeBarJuliana(vTemporada, vPalet, v_c_codsec_pal, c_codigo_jul);
+            GeneraCodeBar(vTemporada, vPalet, v_c_codsec_pal);
             GeneraCodeBarUPC(vcproducto);
             //printTool.Print("myPrinter");
             if (rdgTipoImpresion.SelectedIndex == 1)
