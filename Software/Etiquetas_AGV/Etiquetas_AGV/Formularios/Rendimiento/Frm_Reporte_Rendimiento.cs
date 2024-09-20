@@ -187,7 +187,7 @@ namespace Etiquetas_AGV.Formularios.Rendimiento
             timer1.Enabled = true;
             timer1.Start();
             ConsultaRendimiento();
-            alert();
+           
         }
 
         private void btn_Actualizar_Click(object sender, EventArgs e)
@@ -242,13 +242,7 @@ namespace Etiquetas_AGV.Formularios.Rendimiento
             }
         }
 
-        public void alert()
-        {
-            imageTimer = new ImagenTimer();
-            imageTimer.Start();
-
-        }
-
+ 
 
     }
 

@@ -33,6 +33,7 @@
             this.btn_Guadar_Imagen = new DevExpress.XtraEditors.SimpleButton();
             this.text_Aparecer = new DevExpress.XtraEditors.TextEdit();
             this.text_Desaparecer = new DevExpress.XtraEditors.TextEdit();
+            this.Lista_imagenes.DoubleClick += new System.EventHandler(this.Lista_imagenes_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.Lista_imagenes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_Aparecer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_Desaparecer.Properties)).BeginInit();
@@ -54,6 +55,7 @@
             this.Lista_imagenes.Size = new System.Drawing.Size(1058, 352);
             this.Lista_imagenes.TabIndex = 13;
             this.Lista_imagenes.ValueMember = "Value";
+            
             // 
             // labelControl1
             // 

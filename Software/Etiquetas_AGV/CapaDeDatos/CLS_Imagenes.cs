@@ -15,6 +15,8 @@ namespace CapaDeDatos
         public int id { get; set; }
         public int aparecer { get; set; }
         public int desaparecer { get; set; }
+        public string bin_video { get; set; }
+        public string tipo_archivo { get; set; }
         public void MtdSeleccionarImagen()
         {
             TipoDato _dato = new TipoDato();
@@ -51,24 +53,55 @@ namespace CapaDeDatos
             Exito = true;
             try
             {
-                _conexion.NombreProcedimiento = "SP_Avisos_Imagenes_Insert";
-                _dato.CadenaTexto = nombre;
-                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "nombre");
-                _dato.CadenaTexto = bin_imagen;
-                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "base64_imagen");
 
-                  
-                _conexion.EjecutarDataset();
+                if (tipo_archivo == "imagen")
+                {
+                    _conexion.NombreProcedimiento = "SP_Avisos_Imagenes_Insert";
+                    _dato.CadenaTexto = nombre;
+                    _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "nombre");
+                    _dato.CadenaTexto = bin_imagen;
+                    _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "base64_imagen");
+                    _dato.CadenaTexto = tipo_archivo;
+                    _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "tipo_archivo");
 
-                if (_conexion.Exito)
+
+                    _conexion.EjecutarDataset();
+
+                    if (_conexion.Exito)
+                    {
+                        Datos = _conexion.Datos;
+                    }
+                    else
+                    {
+                        Mensaje = _conexion.Mensaje;
+                        Exito = false;
+                    }
+
+                }else
                 {
-                    Datos = _conexion.Datos;
+                    _conexion.NombreProcedimiento = "SP_Avisos_Video_Insert";
+                    _dato.CadenaTexto = nombre;
+                    _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "nombre");
+                    _dato.CadenaTexto = bin_video;
+                    _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "base64_video");
+                    _dato.CadenaTexto = tipo_archivo;
+                    _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "tipo_archivo");
+
+
+                    _conexion.EjecutarDataset();
+
+                    if (_conexion.Exito)
+                    {
+                        Datos = _conexion.Datos;
+                    }
+                    else
+                    {
+                        Mensaje = _conexion.Mensaje;
+                        Exito = false;
+                    }
+
                 }
-                else
-                {
-                    Mensaje = _conexion.Mensaje;
-                    Exito = false;
-                }
+               
             }
             catch (Exception e)
             {
@@ -134,6 +167,25 @@ namespace CapaDeDatos
                 Exito = false;
             }
 
+        }
+        public void MtdSeleccionarImagenPorId(int id)
+        {
+            TipoDato _dato = new TipoDato();
+            Conexion _conexion = new Conexion(cadenaConexion); // Aquí debes asegurarte de usar la cadena de conexión adecuada
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "SP_Seleccionar_Imagen_Por_Id"; // Asegúrate de tener el nombre correcto del procedimiento almacenado o la consulta
+                _dato.Entero = id;
+                _conexion.agregarParametro(EnumTipoDato.Entero, _dato, "Id");
+                _conexion.EjecutarDataset();
+                Datos = _conexion.Datos;
+            }
+            catch (Exception ex)
+            {
+                Exito = false;
+                Mensaje = ex.Message;
+            }
         }
         public void MtdUpdateTiempo()
         {

@@ -1,6 +1,7 @@
 ﻿using CapaDeDatos;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
+using Etiquetas_AGV.Clases;
 using System;
 using System.Drawing;
 
@@ -8,6 +9,7 @@ namespace Etiquetas_AGV.Formularios.Rendimiento
 {
     public partial class Frm_Rendimiento_General : DevExpress.XtraEditors.XtraForm
     {
+        private ImagenTimer imageTimer;
         private static Frm_Rendimiento_General m_FormDefInstance;
         public string c_codigo_usu { get; set; }
         public static Frm_Rendimiento_General DefInstance
@@ -213,6 +215,7 @@ namespace Etiquetas_AGV.Formularios.Rendimiento
             }
             ConsultaRendimiento();
             timer1.Start();
+            alert();
         }
 
         private void btn_Actualizar_Click(object sender, EventArgs e)
@@ -236,6 +239,12 @@ namespace Etiquetas_AGV.Formularios.Rendimiento
         private void timer1_Tick(object sender, EventArgs e)
         {
             ConsultaRendimiento();
+        }
+        public void alert()
+        {
+            imageTimer = new ImagenTimer();
+            imageTimer.Start();
+
         }
     }
 }
