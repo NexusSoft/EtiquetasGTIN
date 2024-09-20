@@ -358,6 +358,18 @@
     <Compile Include="Etiquetas\Mission\rpt_Etiqueta_EAN_LUG_PLU_2001.Designer.cs">
       <DependentUpon>rpt_Etiqueta_EAN_LUG_PLU_2001.cs</DependentUpon>
     </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_Mission_2041.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_Mission_2041.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_LUG_Mission_2041.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_Mission_2043.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_Mission_2043.Designer.cs">
+      <DependentUpon>rpt_Etiqueta_UPC_LUG_Mission_2043.cs</DependentUpon>
+    </Compile>
     <Compile Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_Mission_2067.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -929,6 +941,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_EAN_LUG_PLU_2001.resx">
       <DependentUpon>rpt_Etiqueta_EAN_LUG_PLU_2001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_Mission_2041.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_LUG_Mission_2041.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_Mission_2043.resx">
+      <DependentUpon>rpt_Etiqueta_UPC_LUG_Mission_2043.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas\Mission\rpt_Etiqueta_UPC_LUG_Mission_2067.resx">
       <DependentUpon>rpt_Etiqueta_UPC_LUG_Mission_2067.cs</DependentUpon>
